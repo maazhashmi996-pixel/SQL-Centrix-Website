@@ -173,9 +173,6 @@
 
 
 
-
-
-
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
@@ -226,13 +223,13 @@ export default function ProcessSection() {
     <section
       ref={containerRef}
       id="process"
-      className="relative py-32 px-6 lg:px-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-purple-50/20 border-b border-purple-100/60 selection:bg-purple-600 selection:text-white"
+      className="relative py-32 px-6 lg:px-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-amber-50/20 border-b border-amber-100/60 selection:bg-amber-500 selection:text-slate-950"
     >
       {/* Absolute Luxurious Light Ambient Backlights */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-purple-300/20 via-indigo-200/20 to-pink-200/10 blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-amber-300/20 via-yellow-200/20 to-amber-200/10 blur-[180px] rounded-full pointer-events-none" />
 
       {/* Ultra-Fine Clean Grid Texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(#7e22ce0d_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#f59e0b0d_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -242,21 +239,21 @@ export default function ProcessSection() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-purple-100/80 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-widest shadow-sm backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-sm backdrop-blur-md"
           >
-            <Sparkles className="w-3.5 h-3.5 text-purple-600 animate-pulse" />
+            <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
             <span>Our Elite Strategy Framework</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
             Performance Systems & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-700">
               Marketing Process
             </span>
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-            Our team of digital growth experts follow a strict multi-stage framework to deliver measurable results. Explore our insights and <a href="/blogs" className="text-purple-600 font-bold underline hover:text-purple-800 transition-colors">blogs</a> for deep-dive tutorials.
+            Our team of digital growth experts follow a strict multi-stage framework to deliver measurable results. Explore our insights and <a href="/blogs" className="text-amber-600 font-bold underline hover:text-amber-800 transition-colors">blogs</a> for deep-dive tutorials.
           </p>
         </div>
 
@@ -276,28 +273,28 @@ export default function ProcessSection() {
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
                  C 600 960, 400 960, 400 1140"
-              stroke="#E9D5FF"
+              stroke="#FDE68A"
               strokeWidth="4"
               strokeLinecap="round"
               fill="none"
             />
-            {/* Scroll-Driven Animated Purple/Indigo Gradient Line */}
+            {/* Scroll-Driven Animated Amber/Yellow Gradient Line */}
             <motion.path
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
                  C 600 960, 400 960, 400 1140"
-              stroke="url(#purpleGradientAdvanced)"
+              stroke="url(#amberGradientAdvanced)"
               strokeWidth="5"
               strokeLinecap="round"
               fill="none"
               style={{ pathLength }}
             />
             <defs>
-              <linearGradient id="purpleGradientAdvanced" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#9333ea" />
-                <stop offset="50%" stopColor="#6366f1" />
-                <stop offset="100%" stopColor="#a855f7" />
+              <linearGradient id="amberGradientAdvanced" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#d97706" />
+                <stop offset="50%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#b45309" />
               </linearGradient>
             </defs>
           </svg>
@@ -314,7 +311,7 @@ export default function ProcessSection() {
                 >
                   {/* Left Slot */}
                   <div className="w-full md:w-[45%] flex justify-end pr-0 md:pr-10">
-                    {isNodeOnRight && <ProcessCard step={step} />}
+                    {isNodeOnRight && <ProcessCard step={step} direction="left" />}
                   </div>
 
                   {/* Advanced Glowing Numbered Node Badge */}
@@ -323,8 +320,8 @@ export default function ProcessSection() {
                       isNodeOnRight ? "md:left-[60%]" : "md:left-[40%]"
                     }`}
                   >
-                    <div className="w-20 h-20 rounded-full bg-white border-2 border-purple-500/40 p-1.5 shadow-[0_0_30px_rgba(147,51,234,0.25)] flex items-center justify-center backdrop-blur-md">
-                      <div className="w-full h-full rounded-full border border-purple-200 flex items-center justify-center bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 font-mono font-black text-white text-lg shadow-inner">
+                    <div className="w-20 h-20 rounded-full bg-white border-2 border-amber-500/40 p-1.5 shadow-[0_0_30px_rgba(245,158,11,0.25)] flex items-center justify-center backdrop-blur-md">
+                      <div className="w-full h-full rounded-full border border-amber-200 flex items-center justify-center bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 font-mono font-black text-slate-950 text-lg shadow-inner">
                         {step.step}
                       </div>
                     </div>
@@ -332,7 +329,7 @@ export default function ProcessSection() {
 
                   {/* Right Slot */}
                   <div className="w-full md:w-[45%] flex justify-start pl-0 md:pl-10">
-                    {!isNodeOnRight && <ProcessCard step={step} />}
+                    {!isNodeOnRight && <ProcessCard step={step} direction="right" />}
                   </div>
                 </div>
               );
@@ -345,15 +342,18 @@ export default function ProcessSection() {
   );
 }
 
-// Premium Light-Theme Glass Process Card Sub-component
+// Premium Light-Theme Glass Process Card Sub-component with Side Scroll Animations
 function ProcessCard({
   step,
+  direction,
 }: {
   step: { step: string; title: string; description: string; icon: any; badge: string };
+  direction: "left" | "right";
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, {
     margin: "-30% 0px -30% 0px",
+    once: true,
   });
 
   const IconComponent = step.icon;
@@ -361,35 +361,39 @@ function ProcessCard({
   return (
     <motion.div
       ref={cardRef}
+      initial={{
+        opacity: 0,
+        x: direction === "left" ? -80 : 80, // Left cards slide from left, right cards from right
+      }}
       animate={{
-        opacity: isInView ? 1 : 0.2,
-        y: isInView ? 0 : 25,
+        opacity: isInView ? 1 : 0,
+        x: isInView ? 0 : direction === "left" ? -80 : 80,
       }}
       whileHover={{ 
         y: -6, 
-        borderColor: "rgba(168, 85, 247, 0.4)",
-        boxShadow: "0 25px 50px -12px rgba(147, 51, 234, 0.12)"
+        borderColor: "rgba(245, 158, 11, 0.5)",
+        boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.15)"
       }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="w-full max-w-md bg-white/95 hover:bg-white rounded-[2.2rem] p-8 shadow-[0_15px_35px_-10px_rgba(147,51,234,0.06)] border border-purple-100/80 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="w-full max-w-md bg-white/95 hover:bg-white rounded-[2.2rem] p-8 shadow-[0_15px_35px_-10px_rgba(245,158,11,0.06)] border border-amber-200/80 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
     >
       {/* Top Gradient Line Accent */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 opacity-80 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
       {/* Card Header row with badge & icon */}
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-purple-700 bg-purple-50 border border-purple-200/60 px-3 py-1 rounded-full shadow-sm">
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900 bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full shadow-sm">
           {step.badge}
         </span>
-        <div className="w-10 h-10 rounded-xl bg-purple-100/80 border border-purple-200 text-purple-700 flex items-center justify-center group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm">
+        <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300 shadow-sm">
           <IconComponent className="w-4 h-4" />
         </div>
       </div>
 
       <div className="space-y-2.5">
-        <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors tracking-tight flex items-center justify-between">
+        <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight flex items-center justify-between">
           <span>{step.title}</span>
-          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-purple-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
+          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
         </h3>
         <p className="text-slate-600 text-sm leading-relaxed font-normal">
           {step.description}
@@ -399,4 +403,3 @@ function ProcessCard({
     </motion.div>
   );
 }
-
