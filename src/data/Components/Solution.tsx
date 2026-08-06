@@ -1,20 +1,24 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Sparkles, ArrowRight, Target, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, TrendingUp, Users, ShieldCheck } from "lucide-react";
 
 export default function Solution() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { amount: 0.2, once: true });
 
-  // Mouse Parallax Glow Effect for the interactive wrapper card
+  // 3D Tilt Parallax Motion Values for the Main Card
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+  const mouseXSpring = useSpring(x, { stiffness: 250, damping: 25 });
+  const mouseYSpring = useSpring(y, { stiffness: 250, damping: 25 });
   
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["6deg", "-6deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-6deg", "6deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["4deg", "-4deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-4deg", "4deg"]);
+
+  // Spotlight Cursor Tracking Values
+  const spotlightX = useMotionValue(0);
+  const spotlightY = useMotionValue(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -22,8 +26,12 @@ export default function Solution() {
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
+    
     x.set(mouseX / width - 0.5);
     y.set(mouseY / height - 0.5);
+    
+    spotlightX.set(mouseX);
+    spotlightY.set(mouseY);
   };
 
   const handleMouseLeave = () => {
@@ -34,138 +42,211 @@ export default function Solution() {
   return (
     <section 
       ref={containerRef}
-        id="pross"
-      className="py-36 px-6 bg-gradient-to-b from-white via-purple-50/60 to-white text-slate-900 text-center relative overflow-hidden border-b border-purple-100"
+      id="pross"
+      className="py-36 px-6 bg-[#FCFCFD] text-slate-900 relative overflow-hidden border-b border-slate-200/60 perspective-[1200px]"
     >
-      {/* Light Theme Background Decorative Grid Lines & Animated Glow Orbs */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#7e22ce0a_1px,transparent_1px),linear-gradient(to_bottom,#7e22ce0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
-      
+      {/* Animated Ambient Background Glow Orbs */}
       <motion.div 
-        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3], x: [0, 30, 0], y: [0, -20, 0] }}
+        animate={{ scale: [1, 1.25, 1], opacity: [0.3, 0.5, 0.3], x: [0, 30, 0], y: [0, -25, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[400px] bg-gradient-to-r from-purple-300/40 via-violet-300/30 to-indigo-300/40 blur-[150px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-purple-200/40 via-violet-200/40 to-transparent blur-[130px] pointer-events-none"
       />
 
-      {/* Floating Animated Side Badge: Precision Targeting */}
-      <motion.div 
-        initial={{ opacity: 0, x: -30 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute top-20 left-[12%] hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/90 border border-purple-200/80 backdrop-blur-md text-xs text-purple-700 font-semibold shadow-xl shadow-purple-500/10"
-      >
-        <motion.div
-          animate={{ rotate: [0, 15, -15, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Target className="w-4 h-4 text-purple-600" />
-        </motion.div>
-        <span>Precision Targeting</span>
-      </motion.div>
-
-      {/* Floating Animated Side Badge: Verified Pipeline */}
-      <motion.div 
-        initial={{ opacity: 0, x: 30 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="absolute bottom-24 right-[12%] hidden lg:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/90 border border-purple-200/80 backdrop-blur-md text-xs text-purple-700 font-semibold shadow-xl shadow-purple-500/10"
-      >
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ShieldCheck className="w-4 h-4 text-purple-600" />
-        </motion.div>
-        <span>Verified Pipeline</span>
-      </motion.div>
-
-      {/* Main Interactive 3D Tilt Parallax Wrapper Card */}
-      <motion.div 
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative max-w-4xl mx-auto space-y-10 p-8 md:p-14 rounded-[2.5rem] bg-white/95 border border-purple-100 shadow-[0_25px_60px_-15px_rgba(147,51,234,0.12)] backdrop-blur-2xl"
-      >
+      <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Animated Top Shimmer Border */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 rounded-t-full opacity-80" />
-
-        {/* Animated Pill Badge */}
+        {/* Interactive 3D Tilt Parallax Main Card Wrapper */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-widest shadow-sm backdrop-blur-md"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.98 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center p-8 md:p-16 rounded-[2.5rem] bg-white/95 border border-slate-200/90 shadow-[0_30px_70px_rgba(147,51,234,0.1)] backdrop-blur-2xl relative overflow-hidden group"
         >
-          <Sparkles className="w-4 h-4 text-purple-600 animate-pulse" />
-          Brand Positioning & Growth
-        </motion.div>
+          
+          {/* Dynamic Interactive Cursor Spotlight Effect */}
+          <motion.div 
+            className="absolute pointer-events-none -inset-px rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+            style={{
+              background: useTransform(
+                [spotlightX, spotlightY],
+                ([latestX, latestY]) => `radial-gradient(500px circle at ${latestX}px ${latestY}px, rgba(168, 85, 247, 0.08), transparent 80%)`
+              )
+            }}
+          />
 
-        {/* Main Heading with Staggered Word Reveal Animation */}
-        <div className="space-y-2">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-slate-900 flex flex-wrap justify-center gap-x-3 gap-y-1">
-            {"At SQL Centrix, every campaign is designed around one objective".split(" ").map((word, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 25, filter: "blur(8px)" }}
-                animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 25, filter: "blur(8px)" }}
-                transition={{ duration: 0.6, delay: index * 0.04, ease: "easeOut" }}
-                className="inline-block"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </h2>
-        </div>
+          {/* Animated Top Shimmer Border Accent */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 opacity-90 shadow-sm" />
 
-        {/* Highlight Subtitle with Smooth Fade-up */}
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-lg md:text-2xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed"
-        >
-          Generate{" "}
-          <motion.span 
-            className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 font-bold inline-flex items-center gap-1.5"
-            animate={{ scale: [1, 1.03, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Zap className="w-5 h-5 text-purple-600 inline fill-purple-200" /> Qualified Leads
-          </motion.span>{" "}
-          that help your business scale faster.
-        </motion.p>
-
-        {/* Interactive Action Button with Magnetic Hover & Continuous Pulse Glow */}
-        <motion.div 
-          initial={{ opacity: 0, y: 25 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="pt-4 flex justify-center"
-        >
-          <motion.a
-            whileHover={{ scale: 1.06, boxShadow: "0 20px 45px -10px rgba(147, 51, 234, 0.3)" }}
-            whileTap={{ scale: 0.96 }}
-            href="#contact"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-9 py-5 rounded-2xl shadow-xl shadow-purple-600/25 transition-all duration-300 border border-purple-400/30 text-base group cursor-pointer relative overflow-hidden"
-          >
-            {/* Shimmer overlay effect on button */}
-            <motion.div 
-              animate={{ x: ["-100%", "200%"] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
-              className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 pointer-events-none"
-            />
+          {/* Left Column: Core Value Proposition */}
+          <div className="lg:col-span-7 text-left space-y-7 relative z-10">
             
-            <span>Book a Free Strategy Call</span>
-            <div className="w-8 h-8 rounded-xl bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            {/* Pill Badge */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200/70 text-purple-700 text-xs font-bold uppercase tracking-wider shadow-xs"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-purple-600 animate-pulse" />
+              Brand Positioning & Growth
+            </motion.div>
+
+            {/* Staggered Word Reveal Main Heading */}
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12] flex flex-wrap gap-x-2.5 gap-y-1">
+              {"At SQL Centrix, every campaign is designed around one objective".split(" ").map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+                  animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(6px)" }}
+                  transition={{ duration: 0.5, delay: index * 0.03 + 0.15, ease: "easeOut" }}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h2>
+
+            {/* Subtitle */}
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg text-slate-600 font-normal leading-relaxed"
+            >
+              Generate{" "}
+              <motion.span 
+                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-indigo-700 font-bold inline-block"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                Qualified Leads
+              </motion.span>{" "}
+              through our data-driven pipeline that directly help your business scale faster without the guesswork.
+            </motion.p>
+
+            {/* Checkpoints list with smooth entry */}
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="space-y-3 pt-1"
+            >
+              <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shrink-0">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <span>Pre-vetted enterprise decision makers ready to buy</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shrink-0">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <span>Predictable pipeline velocity with zero waste</span>
+              </div>
+            </motion.div>
+
+            {/* Magnetic Interactive Action Button */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+            >
+              <motion.a
+                whileHover={{ scale: 1.04, boxShadow: "0 20px 40px -10px rgba(147, 51, 234, 0.3)" }}
+                whileTap={{ scale: 0.96 }}
+                href="#contact"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-purple-600/25 transition-all duration-300 text-sm md:text-base group cursor-pointer w-full sm:w-auto relative overflow-hidden"
+              >
+                {/* Continuous Shimmer Overlay */}
+                <motion.div 
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
+                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12 pointer-events-none"
+                />
+                
+                <span>Book a Free Strategy Call</span>
+                <div className="w-7 h-7 rounded-xl bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </div>
+              </motion.a>
+              <span className="text-xs text-slate-400 font-medium pl-1">No commitment required</span>
+            </motion.div>
+
+          </div>
+
+          {/* Right Column: Interactive Live Metric Dashboard Mockup */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, x: 20 }}
+            animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.95, x: 20 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="lg:col-span-5 relative z-10"
+          >
+            <div className="p-6 md:p-8 rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800 space-y-6 relative overflow-hidden">
+              
+              {/* Widget Header */}
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div className="flex items-center gap-2.5">
+                  <motion.div 
+                    animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-2.5 h-2.5 rounded-full bg-purple-500" 
+                  />
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Live Engine Metrics</span>
+                </div>
+                <span className="text-[11px] px-2.5 py-1 rounded-md bg-purple-950/80 text-purple-300 font-semibold border border-purple-800/50">Optimized</span>
+              </div>
+
+              {/* Data Card 1 with Hover Effect */}
+              <motion.div 
+                whileHover={{ scale: 1.02, backgroundColor: "rgba(30, 41, 59, 1)" }}
+                transition={{ duration: 0.2 }}
+                className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/60 flex items-center justify-between cursor-pointer"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-purple-900/50 border border-purple-700/40 flex items-center justify-center text-purple-400">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-400 font-medium">Pipeline Growth</p>
+                    <p className="text-lg font-bold text-white tracking-tight">3.4x Average ROI</p>
+                  </div>
+                </div>
+                <span className="text-xs text-emerald-400 font-bold bg-emerald-950/60 border border-emerald-800/50 px-2.5 py-1 rounded-lg">+32%</span>
+              </motion.div>
+
+              {/* Data Card 2 with Hover Effect */}
+              <motion.div 
+                whileHover={{ scale: 1.02, backgroundColor: "rgba(30, 41, 59, 1)" }}
+                transition={{ duration: 0.2 }}
+                className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/60 flex items-center justify-between cursor-pointer"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-purple-900/50 border border-purple-700/40 flex items-center justify-center text-purple-400">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-400 font-medium">Qualified Delivery</p>
+                    <p className="text-lg font-bold text-white tracking-tight">100% Verified SQLs</p>
+                  </div>
+                </div>
+                <span className="text-xs text-purple-300 font-bold bg-purple-950/60 border border-purple-800/50 px-2.5 py-1 rounded-lg">Active</span>
+              </motion.div>
+
+              {/* Secure Footer Info */}
+              <div className="flex items-center gap-2 pt-2 text-xs text-slate-400 border-t border-slate-800">
+                <ShieldCheck className="w-4 h-4 text-purple-400 shrink-0" />
+                <span>Enterprise compliance & data privacy assured</span>
+              </div>
+
             </div>
-          </motion.a>
+          </motion.div>
+
         </motion.div>
 
-      </motion.div>
+      </div>
     </section>
   );
 }
