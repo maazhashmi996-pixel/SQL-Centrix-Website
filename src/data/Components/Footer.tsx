@@ -56,7 +56,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Main Contact Grid Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pb-24 border-b border-amber-100/80">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pb-20 border-b border-amber-100/80">
           
           {/* Left Column: Scroll Animation from Left */}
           <motion.div 
@@ -68,7 +68,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-sm backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-                <span>Get In Touch</span>
+                <span>SEND US A MESSAGE</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
@@ -79,7 +79,7 @@ export default function Footer() {
               </h2>
 
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-                Fill out the form and our executive strategy team in Lahore will analyze your requirements and get in touch within 24 hours.
+                Fill out the form below, and our team will get in touch with you shortly to discuss your requirements and the best way to help your business grow.
               </p>
             </div>
 
@@ -116,6 +116,76 @@ export default function Footer() {
                   </motion.div>
                 );
               })}
+            </div>
+
+            {/* Social Links Row */}
+            <div className="space-y-3 pt-2">
+              <div className="text-xs font-bold text-slate-700 uppercase tracking-widest">Social Links</div>
+              <div className="flex items-center gap-3">
+                {[
+                  {
+                    label: "Instagram",
+                    href: "#",
+                    svg: (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                      </svg>
+                    )
+                  },
+                  {
+                    label: "Linkedin",
+                    href: "#",
+                    svg: (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect width="4" height="12" x="2" y="9"/>
+                        <circle cx="4" cy="4" r="2"/>
+                      </svg>
+                    )
+                  },
+                  {
+                    label: "Facebook",
+                    href: "#",
+                    svg: (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                      </svg>
+                    )
+                  },
+                  {
+                    label: "Tiktok",
+                    href: "#",
+                    svg: (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.13Z"/>
+                      </svg>
+                    )
+                  },
+                  {
+                    label: "Youtube",
+                    href: "#",
+                    svg: (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                        <path d="m10 15 5-3-5-3z"/>
+                      </svg>
+                    )
+                  }
+                ].map((social, i) => (
+                  <motion.a
+                    key={i}
+                    href={social.href}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-10 h-10 rounded-xl bg-white border border-amber-200 text-slate-700 hover:text-amber-600 hover:border-amber-400 flex items-center justify-center shadow-sm transition-colors"
+                    aria-label={social.label}
+                  >
+                    {social.svg}
+                  </motion.a>
+                ))}
+              </div>
             </div>
 
             {/* Security & Response Guarantee Badge */}
@@ -211,7 +281,7 @@ export default function Footer() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Organization / Company</label>
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Organization</label>
                 <input 
                   type="text" 
                   placeholder="Company Name (Optional)" 
@@ -220,12 +290,21 @@ export default function Footer() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Message / Purpose*</label>
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Purpose*</label>
+                <input 
+                  type="text" 
+                  placeholder="Purpose of inquiry (e.g. Lead Generation, SEO, Website)" 
+                  className="w-full bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/10 transition-all shadow-sm font-medium" 
+                  required 
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Message</label>
                 <textarea 
                   rows={3} 
                   placeholder="Tell us about your project requirements and goals..." 
                   className="w-full bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-500/10 transition-all shadow-sm resize-none font-medium" 
-                  required
                 ></textarea>
               </div>
 
@@ -249,6 +328,15 @@ export default function Footer() {
             </form>
           </motion.div>
 
+        </div>
+
+        {/* Copyright & Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-medium gap-4">
+          <div>&copy; {new Date().getFullYear()} SQL Centrix Pvt. Ltd. All rights reserved.</div>
+          <div className="flex items-center gap-6">
+            <a href="#contact" className="hover:text-amber-600 transition-colors">Privacy Policy</a>
+            <a href="#contact" className="hover:text-amber-600 transition-colors">Terms of Service</a>
+          </div>
         </div>
 
        </div>
