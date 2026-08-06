@@ -1,134 +1,139 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 15);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "#" },
+    { name: "Services", href: "#process" },
+    { name: "About", href: "#case-studies" },
+    { name: "Blogs", href: "#pross" },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-amber-200/50 shadow-[0_10px_30px_rgba(234,179,8,0.04)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      scrolled 
+        ? "bg-white/95 backdrop-blur-md border-b border-amber-500/30 shadow-[0_10px_30px_rgba(245,158,11,0.1)] py-3" 
+        : "bg-white border-b border-amber-500/20 py-2"
+    }`}>
+      {/* Full Row Container */}
+      <div className="w-full px-6 sm:px-6 lg:px-12 flex items-center justify-between">
         
-        {/* Luxury Logo Container */}
+        {/* Unique Logo UI with Zoomed Content */}
         <div className="flex items-center">
-          <a href="#" className="flex items-center gap-3.5 focus:outline-none group relative">
-            {/* Glowing Backdrop Aura */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/20 via-yellow-400/20 to-amber-600/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition duration-500" />
-            
-            {/* Logo Image Wrapper */}
-            <div className="relative flex items-center justify-center px-3 py-1.5 rounded-2xl bg-white border border-amber-200/80 shadow-[0_4px_20px_rgba(234,179,8,0.08)] transition-transform duration-300 group-hover:scale-105">
-              <img
-                src="logo2.jpg" 
-                alt="SQL Centrix Logo" 
-                className="h-15 md:h-11 w-auto object-contain"
-              />
+          <a href="#" className="flex items-center gap-3.5 focus:outline-none group">
+            <div className="relative p-1 rounded-2xl bg-gradient-to-tr from-amber-500 via-yellow-400 to-amber-600 shadow-[0_0_15px_rgba(245,158,11,0.25)] group-hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all duration-300 group-hover:scale-105">
+              <div className="bg-white px-3.5 py-2.5 rounded-[14px] flex items-center justify-center overflow-hidden">
+                <img
+                  src="logo2.jpg" 
+                  alt="SQL Centrix Logo" 
+                  className="h-8 md:h-9 w-auto object-contain scale-125 transform transition-transform"
+                />
+              </div>
             </div>
-
-            {/* Brand Text */}
-            <div className="hidden sm:flex flex-col">
+            <div className="flex flex-col">
               <span className="text-base font-black tracking-tight text-slate-900 flex items-center gap-1">
-                SQL <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600">Centrix</span>
+                SQL <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-500">Centrix</span>
               </span>
-              <span className="text-[10px] uppercase font-extrabold tracking-widest text-amber-600/90 -mt-1">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-amber-600 -mt-0.5 flex items-center gap-1">
+                <Sparkles className="w-2.5 h-2.5 text-amber-500 animate-pulse" />
                 Growth Partner
               </span>
             </div>
           </a>
         </div>
         
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-9 text-sm font-semibold text-slate-600">
-          <a href="#" className="relative py-2 text-amber-600 transition-colors hover:text-amber-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-amber-500 after:to-yellow-500 after:rounded-full">
-            Home
-          </a>
-          <a href="#process" className="relative py-2 transition-colors hover:text-amber-600 group">
-            Services
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full transition-all duration-300 group-hover:w-full" />
-          </a>
-          <a href="#case-studies" className="relative py-2 transition-colors hover:text-amber-600 group">
-            About
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full transition-all duration-300 group-hover:w-full" />
-          </a>
-          <a href="#pross" className="relative py-2 transition-colors hover:text-amber-600 group">
-            Blogs
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full transition-all duration-300 group-hover:w-full" />
-          </a>
+        {/* Navigation Links */}
+        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+          {navLinks.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="transition-colors hover:text-amber-600 py-1"
+            >
+              {item.name}
+            </a>
+          ))}
         </nav>
 
-        {/* High-End CTA Button (Desktop) */}
+        {/* Action Button with Moving/Pulsing Glow Shadow Border */}
         <div className="hidden md:block">
           <motion.a
-            whileHover={{ scale: 1.04, boxShadow: "0 20px 40px -10px rgba(234, 179, 8, 0.4)" }}
-            whileTap={{ scale: 0.96 }}
             href="#contact"
-            className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-slate-950 text-sm font-bold px-6 py-3 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 border border-amber-400/30 group"
+            animate={{
+              boxShadow: [
+                "0 0 15px rgba(245, 158, 11, 0.4)",
+                "0 0 25px rgba(245, 158, 11, 0.8)",
+                "0 0 15px rgba(245, 158, 11, 0.4)",
+              ],
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 hover:from-amber-600 hover:to-yellow-500 text-slate-950 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all duration-300 border border-amber-300 shadow-lg"
           >
             <span>Get Started</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </motion.a>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
+        {/* Mobile Toggle */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2.5 rounded-xl bg-amber-50/80 text-amber-700 hover:bg-amber-100 transition-colors focus:outline-none border border-amber-200/60 shadow-sm"
+            className="p-2 rounded-xl bg-slate-100 border border-amber-500/30 text-slate-800 hover:bg-slate-200 transition-colors focus:outline-none"
             aria-label="Toggle Menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white/95 backdrop-blur-2xl border-b border-amber-100 overflow-hidden px-6 py-6 shadow-2xl"
+            transition={{ duration: 0.25 }}
+            className="md:hidden w-full bg-white border-b border-amber-500/30 overflow-hidden px-6 py-5 shadow-xl"
           >
-            <nav className="flex flex-col space-y-3.5 text-base font-semibold text-slate-700">
-              <a
-                href="#"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 rounded-xl bg-amber-50 text-amber-700 transition"
-              >
-                Home
-              </a>
-              <a
-                href="#process"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 rounded-xl hover:bg-amber-50/70 hover:text-amber-600 transition"
-              >
-                Services
-              </a>
-              <a
-                href="#case-studies"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 rounded-xl hover:bg-amber-50/70 hover:text-amber-600 transition"
-              >
-                About
-              </a>
-              <a
-                href="#pross"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 rounded-xl hover:bg-amber-50/70 hover:text-amber-600 transition"
-              >
-                Blogs
-              </a>
-              <div className="pt-3">
+            <nav className="flex flex-col space-y-3 text-sm font-medium text-slate-700">
+              {navLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="px-3 py-2 rounded-lg hover:bg-amber-50 hover:text-amber-600 transition"
+                >
+                  {item.name}
+                </a>
+              ))}
+              
+              <div className="pt-2">
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-bold py-3.5 rounded-xl shadow-lg shadow-amber-500/25"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-all border border-amber-300 shadow-lg"
                 >
                   <span>Get Started</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </nav>
