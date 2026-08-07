@@ -33,7 +33,7 @@ export default function Hero() {
     { name: "Shopify", color: "text-emerald-600 hover:text-emerald-500" },
     { name: "Mindbody", color: "text-purple-600 hover:text-purple-500" },
     { name: "MetLife", color: "text-blue-600 hover:text-blue-500" },
-    { name: "Ramp", color: "text-slate-900 hover:text-indigo-600" },
+    { name: "Ramp", color: "text-slate-900 hover:text-amber-600" },
     { name: "Marriott", color: "text-rose-700 hover:text-rose-600" },
     { name: "Figma", color: "text-orange-600 hover:text-orange-500" },
     { name: "Woo", color: "text-violet-600 hover:text-violet-500" },
@@ -43,45 +43,23 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative h-screen w-full flex flex-col justify-between bg-white text-slate-900 overflow-hidden selection:bg-indigo-500 selection:text-white">
+    <section className="relative min-h-[calc(100vh-5rem)] w-full flex flex-col justify-between bg-white text-slate-900 overflow-hidden selection:bg-amber-500 selection:text-slate-900 pt-6">
       
-      {/* Exact Stripe-Style Dynamic Moving Diagonal Mesh Background */}
-      <div className="absolute top-0 right-0 w-full lg:w-[1200px] h-full pointer-events-none overflow-hidden z-0">
-        
-        {/* Primary Flowing Curved Diagonal Ribbon */}
+      {/* Simple, Clean & Light Background Glow */}
+      <div className="absolute top-0 right-0 w-full lg:w-[1000px] h-full pointer-events-none overflow-hidden z-0">
         <motion.div 
           animate={{ 
-            x: [0, 40, -20, 0], 
-            y: [0, -30, 20, 0],
-            scale: [1, 1.05, 0.97, 1],
-            rotate: [-15, -12, -18, -15] 
+            x: [0, 20, -10, 0], 
+            y: [0, -15, 10, 0],
+            scale: [1, 1.03, 0.98, 1] 
           }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 -right-40 w-[1100px] h-[1100px] bg-gradient-to-tr from-purple-300/40 via-pink-400/50 to-amber-300/60 blur-[100px] rounded-[35%] transform origin-top-right" 
-        />
-
-        {/* Secondary Vibrant Wave for Stripe Effect */}
-        <motion.div 
-          animate={{ 
-            x: [-30, 30, -15, -30], 
-            y: [30, -20, 30, 30],
-            scale: [0.95, 1.08, 1, 0.95],
-            opacity: [0.7, 1, 0.8, 0.7] 
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-10 w-[900px] h-[900px] bg-gradient-to-br from-pink-400/50 via-orange-400/40 to-yellow-300/70 blur-[110px] rounded-full transform" 
-        />
-        
-        {/* Soft Background Glow for Balance */}
-        <motion.div 
-          animate={{ scale: [1, 1.06, 1], opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-32 right-40 w-[600px] h-[600px] bg-indigo-300/30 blur-[130px] rounded-full"
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-20 -right-20 w-[800px] h-[800px] bg-gradient-to-tr from-amber-100/70 via-yellow-100/50 to-amber-50/30 blur-[120px] rounded-full transform origin-top-right" 
         />
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative max-w-7xl mx-auto w-full z-10 px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center my-auto">
+      {/* Main Content Area - Aligned strictly with Navbar Container Width */}
+      <div className="max-w-7xl mx-auto w-full z-10 px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center my-auto">
         
         {/* Left Column: Official Content & Editorial Typography */}
         <motion.div 
@@ -96,16 +74,16 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase shadow-sm"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold tracking-widest uppercase shadow-sm"
           >
-            <Sparkles className="w-3.5 h-3.5 text-indigo-600 animate-spin" style={{ animationDuration: "10s" }} />
+            <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-spin" style={{ animationDuration: "10s" }} />
             <span>SQL Centrix &bull; Growth Partner</span>
           </motion.div>
 
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
               NOTHING BUT <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 font-serif italic font-normal tracking-normal">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">
                 Sales Qualified
               </span> <br />
               LEADS.
@@ -119,14 +97,14 @@ export default function Hero() {
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-1">
             <motion.a
-              whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(99, 102, 241, 0.3)" }}
+              whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(234, 179, 8, 0.3)" }}
               whileTap={{ scale: 0.97 }}
               href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-indigo-600/25 transition-all duration-300 group text-sm cursor-pointer relative overflow-hidden"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-yellow-600 text-slate-900 font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 group text-sm cursor-pointer relative overflow-hidden"
             >
               <span>Get Your Free Growth Strategy</span>
-              <div className="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <div className="w-6 h-6 rounded-lg bg-black/10 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-slate-900" />
               </div>
             </motion.a>
 
@@ -171,13 +149,13 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           className="lg:col-span-5 relative z-10"
         >
-          <div className="relative p-3 rounded-[2.5rem] bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-slate-100 shadow-2xl border border-slate-200/80 backdrop-blur-2xl">
+          <div className="relative p-3 rounded-[2.5rem] bg-gradient-to-tr from-amber-500/10 via-yellow-500/10 to-slate-100 shadow-2xl border border-slate-200/80 backdrop-blur-2xl">
             <div className="bg-white/90 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 space-y-3.5 relative overflow-hidden shadow-sm border border-slate-100">
               
               {/* Card Header */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold shadow-sm">
+                  <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 font-bold shadow-sm border border-amber-200/40">
                     <TrendingUp className="w-4 h-4" />
                   </div>
                   <div>
@@ -197,7 +175,7 @@ export default function Hero() {
                   className="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between shadow-xs"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                    <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
                       <Shield className="w-3.5 h-3.5" />
                     </div>
                     <div>
@@ -205,7 +183,7 @@ export default function Hero() {
                       <div className="text-[10px] text-slate-500">Top-tier search rankings achieved</div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-indigo-600 font-mono">Rank #1</span>
+                  <span className="text-xs font-bold text-amber-600 font-mono">Rank #1</span>
                 </motion.div>
 
                 <motion.div 
@@ -213,7 +191,7 @@ export default function Hero() {
                   className="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between shadow-xs"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+                    <div className="w-7 h-7 rounded-lg bg-yellow-50 text-yellow-600 flex items-center justify-center font-bold">
                       <Award className="w-3.5 h-3.5" />
                     </div>
                     <div>
@@ -221,7 +199,7 @@ export default function Hero() {
                       <div className="text-[10px] text-slate-500">Cost-per-acquisition minimized</div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-purple-600 font-mono">4.8x ROAS</span>
+                  <span className="text-xs font-bold text-yellow-600 font-mono">4.8x ROAS</span>
                 </motion.div>
 
                 <motion.div 
@@ -229,7 +207,7 @@ export default function Hero() {
                   className="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between shadow-xs"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center font-bold">
+                    <div className="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
                       <Layers className="w-3.5 h-3.5" />
                     </div>
                     <div>
@@ -237,7 +215,7 @@ export default function Hero() {
                       <div className="text-[10px] text-slate-500">High-converting luxury interfaces</div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-pink-600 font-mono">99.4% Conv</span>
+                  <span className="text-xs font-bold text-amber-600 font-mono">99.4% Conv</span>
                 </motion.div>
               </div>
 
@@ -261,7 +239,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="w-full border-t border-slate-200 bg-white/90 backdrop-blur-md py-4 overflow-hidden relative z-20 shrink-0"
+        className="w-full border-t border-slate-200 bg-white/90 backdrop-blur-md py-4 overflow-hidden relative z-20 shrink-0 mt-6"
       >
         <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div 

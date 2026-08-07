@@ -1,11 +1,15 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, CheckCircle2, TrendingUp, Users, ShieldCheck } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, TrendingUp, Users, ShieldCheck, Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 export default function Solution() {
   const containerRef = useRef(null);
+  const bgVideoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(containerRef, { amount: 0.2, once: true });
+
+  const [isBgPlaying, setIsBgPlaying] = useState(true);
+  const [isBgMuted, setIsBgMuted] = useState(true);
 
   // 3D Tilt Parallax Motion Values for the Main Card
   const x = useMotionValue(0);
@@ -13,8 +17,8 @@ export default function Solution() {
   const mouseXSpring = useSpring(x, { stiffness: 250, damping: 25 });
   const mouseYSpring = useSpring(y, { stiffness: 250, damping: 25 });
   
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["4deg", "-4deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-4deg", "4deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["2deg", "-2deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-2deg", "2deg"]);
 
   // Spotlight Cursor Tracking Values
   const spotlightX = useMotionValue(0);
@@ -39,20 +43,75 @@ export default function Solution() {
     y.set(0);
   };
 
+  const toggleBgPlay = () => {
+    if (bgVideoRef.current) {
+      if (isBgPlaying) {
+        bgVideoRef.current.pause();
+      } else {
+        bgVideoRef.current.play();
+      }
+      setIsBgPlaying(!isBgPlaying);
+    }
+  };
+
+  const toggleBgMute = () => {
+    if (bgVideoRef.current) {
+      bgVideoRef.current.muted = !isBgMuted;
+      setIsBgMuted(!isBgMuted);
+    }
+  };
+
   return (
     <section 
       ref={containerRef}
       id="pross"
-      className="py-36 px-6 bg-white text-slate-900 relative overflow-hidden border-b border-amber-500/20 perspective-[1200px]"
+      className="py-28 lg:py-36 bg-white text-slate-900 relative overflow-hidden border-b border-slate-100 perspective-[1200px]"
     >
-      {/* Animated Ambient Background Glow Orbs */}
-      <motion.div 
-        animate={{ scale: [1, 1.25, 1], opacity: [0.3, 0.5, 0.3], x: [0, 30, 0], y: [0, -25, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-amber-500/15 via-purple-500/10 to-transparent blur-[130px] pointer-events-none"
-      />
+      {/* Absolute Background Video Covering the Entire Section (Light Theme Styled) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <video 
+          ref={bgVideoRef}
+          autoPlay 
+          loop 
+          muted={isBgMuted} 
+          playsInline
+          className="w-full h-full object-cover opacity-20 scale-105 filter blur-[1px]"
+          src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-code-31951-large.mp4"
+        />
+        {/* Soft Light Overlay to keep background video subtle and maintain text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/85 to-white/95" />
+      </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      {/* Background Floating Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] pointer-events-none overflow-hidden z-0">
+        <motion.div 
+          animate={{ scale: [1, 1.05, 0.95, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full bg-gradient-to-tr from-amber-100/70 via-yellow-100/50 to-amber-200/30 blur-[130px] rounded-full"
+        />
+      </div>
+
+      {/* Floating Controls for Background Video (Bottom Right Corner of Section) */}
+      <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-700 shadow-lg">
+        <span className="text-[10px] font-mono tracking-wider text-slate-500 pr-1 hidden sm:inline">BG VIDEO</span>
+        <button 
+          onClick={toggleBgMute}
+          className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+          aria-label="Toggle Background Video Mute"
+        >
+          {isBgMuted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3" />}
+        </button>
+        <button 
+          onClick={toggleBgPlay}
+          className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+          aria-label="Toggle Background Video Play"
+        >
+          {isBgPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 ml-0.5" />}
+        </button>
+      </div>
+
+      {/* Main Container - Strictly Aligned with Navbar & Hero (max-w-7xl, px-6 lg:px-12) */}
+      <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10">
         
         {/* Interactive 3D Tilt Parallax Main Card Wrapper */}
         <motion.div 
@@ -62,7 +121,7 @@ export default function Solution() {
           initial={{ opacity: 0, y: 30, scale: 0.98 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.98 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center p-8 md:p-16 rounded-[2.5rem] bg-white/95 border border-amber-500/30 shadow-[0_30px_70px_rgba(245,158,11,0.1)] backdrop-blur-2xl relative overflow-hidden group"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center p-8 sm:p-12 lg:p-16 rounded-[2.5rem] bg-white/90 border border-slate-200/80 shadow-[0_20px_50px_rgba(245,158,11,0.06)] backdrop-blur-2xl relative overflow-hidden group"
         >
           
           {/* Dynamic Interactive Cursor Spotlight Effect */}
@@ -71,30 +130,30 @@ export default function Solution() {
             style={{
               background: useTransform(
                 [spotlightX, spotlightY],
-                ([latestX, latestY]) => `radial-gradient(500px circle at ${latestX}px ${latestY}px, rgba(245, 158, 11, 0.08), transparent 80%)`
+                ([latestX, latestY]) => `radial-gradient(500px circle at ${latestX}px ${latestY}px, rgba(245, 158, 11, 0.05), transparent 80%)`
               )
             }}
           />
 
-          {/* Animated Top Shimmer Border Accent */}
-          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-500 via-purple-500 to-amber-600 opacity-90 shadow-sm" />
+          {/* Top Shimmer Border Accent */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-90 shadow-sm" />
 
           {/* Left Column: Core Value Proposition */}
-          <div className="lg:col-span-7 text-left space-y-7 relative z-10">
+          <div className="lg:col-span-7 text-left space-y-6 relative z-10">
             
             {/* Pill Badge */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-xs"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider shadow-xs"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
               Brand Positioning & Growth
             </motion.div>
 
             {/* Staggered Word Reveal Main Heading */}
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12] flex flex-wrap gap-x-2.5 gap-y-1">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12] flex flex-wrap gap-x-2.5 gap-y-1">
               {"At SQL Centrix, every campaign is designed around one objective".split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -113,11 +172,11 @@ export default function Solution() {
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-slate-600 font-normal leading-relaxed"
+              className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
             >
               Generate{" "}
               <motion.span 
-                className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-purple-600 font-bold inline-block"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-bold inline-block"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -126,7 +185,7 @@ export default function Solution() {
               that help your business grow.
             </motion.p>
 
-            {/* Checkpoints list with smooth entry */}
+            {/* Checkpoints list */}
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
@@ -134,114 +193,103 @@ export default function Solution() {
               className="space-y-3 pt-1"
             >
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                <div className="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 border border-amber-200">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <span>Pre-vetted enterprise decision makers ready to buy</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                <div className="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 border border-amber-200">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <span>Predictable pipeline velocity with zero waste</span>
               </div>
             </motion.div>
 
-            {/* Magnetic Interactive Action Button */}
+            {/* Action Button */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              className="pt-3 flex flex-col sm:flex-row items-start sm:items-center gap-4"
             >
               <motion.a
-                whileHover={{ scale: 1.04, boxShadow: "0 20px 40px -10px rgba(245, 158, 11, 0.3)" }}
-                whileTap={{ scale: 0.96 }}
+                whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)" }}
+                whileTap={{ scale: 0.97 }}
                 href="#contact"
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 via-purple-600 to-amber-600 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/25 transition-all duration-300 text-sm md:text-base group cursor-pointer w-full sm:w-auto relative overflow-hidden border border-amber-300/30"
+                className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 text-sm group cursor-pointer w-full sm:w-auto relative overflow-hidden"
               >
-                {/* Continuous Shimmer Overlay */}
-                <motion.div 
-                  animate={{ x: ["-100%", "200%"] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
-                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 pointer-events-none"
-                />
-                
                 <span>Book a Free Strategy Call</span>
-                <div className="w-7 h-7 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <div className="w-6 h-6 rounded-lg bg-black/10 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </motion.a>
-              <span className="text-xs text-slate-500 font-medium pl-1">No commitment required</span>
+              <span className="text-xs text-slate-400 font-medium pl-1">No commitment required</span>
             </motion.div>
 
           </div>
 
-          {/* Right Column: Interactive Live Metric Dashboard Mockup with Black & Purple Background + Yellow Glow Shadow */}
+          {/* Right Column: Metric Dashboard Showcase Card */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.95, x: 20 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-5 relative z-10"
           >
-            <div className="p-6 md:p-8 rounded-3xl bg-gradient-to-br from-black via-slate-950 to-purple-950 text-white shadow-[0_0_50px_rgba(234,179,8,0.4),0_0_100px_rgba(168,85,247,0.2)] border border-amber-500/60 backdrop-blur-2xl space-y-6 relative overflow-hidden">
+            <div className="p-6 sm:p-7 rounded-[2rem] bg-white border border-slate-200/90 shadow-xl shadow-slate-200/50 backdrop-blur-2xl space-y-4 relative overflow-hidden">
               
-              {/* Internal Ambient Purple/Yellow Glow */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-600/20 blur-[60px] pointer-events-none rounded-full" />
-              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-amber-500/20 blur-[60px] pointer-events-none rounded-full" />
-
               {/* Widget Header */}
-              <div className="flex items-center justify-between border-b border-purple-900/40 pb-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
                 <div className="flex items-center gap-2.5">
                   <motion.div 
-                    animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+                    animate={{ scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]" 
+                    className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" 
                   />
-                  <span className="text-xs font-bold uppercase tracking-wider text-purple-200/80">Live Engine Metrics</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-800">Live Engine Metrics</span>
                 </div>
-                <span className="text-[11px] px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 font-semibold border border-amber-500/30">Optimized</span>
+                <span className="text-[10px] px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 font-bold border border-amber-200">Optimized</span>
               </div>
 
-              {/* Data Card 1 with Glass Effect & Hover */}
+              {/* Data Card 1 */}
               <motion.div 
-                whileHover={{ scale: 1.02, backgroundColor: "rgba(30, 27, 75, 0.6)" }}
+                whileHover={{ scale: 1.02, x: 4 }}
                 transition={{ duration: 0.2 }}
-                className="p-4 rounded-2xl bg-purple-950/40 border border-purple-500/30 flex items-center justify-between cursor-pointer shadow-inner backdrop-blur-md"
+                className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between cursor-pointer shadow-xs"
               >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                    <TrendingUp className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
+                    <TrendingUp className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-xs text-purple-300/70 font-medium">Pipeline Growth</p>
-                    <p className="text-lg font-bold text-white tracking-tight">3.4x Average ROI</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Pipeline Growth</p>
+                    <p className="text-sm font-bold text-slate-900 tracking-tight">3.4x Average ROI</p>
                   </div>
                 </div>
-                <span className="text-xs text-emerald-300 font-bold bg-emerald-950/60 border border-emerald-500/40 px-2.5 py-1 rounded-lg">+32%</span>
+                <span className="text-xs text-emerald-600 font-bold bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">+32%</span>
               </motion.div>
 
-              {/* Data Card 2 with Glass Effect & Hover */}
+              {/* Data Card 2 */}
               <motion.div 
-                whileHover={{ scale: 1.02, backgroundColor: "rgba(30, 27, 75, 0.6)" }}
+                whileHover={{ scale: 1.02, x: 4 }}
                 transition={{ duration: 0.2 }}
-                className="p-4 rounded-2xl bg-purple-950/40 border border-purple-500/30 flex items-center justify-between cursor-pointer shadow-inner backdrop-blur-md"
+                className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between cursor-pointer shadow-xs"
               >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                    <Users className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-yellow-50 border border-yellow-200 flex items-center justify-center text-yellow-600">
+                    <Users className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-xs text-purple-300/70 font-medium">Qualified Delivery</p>
-                    <p className="text-lg font-bold text-white tracking-tight">100% Verified SQLs</p>
+                    <p className="text-[11px] text-slate-500 font-medium">Qualified Delivery</p>
+                    <p className="text-sm font-bold text-slate-900 tracking-tight">100% Verified SQLs</p>
                   </div>
                 </div>
-                <span className="text-xs text-amber-300 font-bold bg-amber-500/10 border border-amber-500/40 px-2.5 py-1 rounded-lg">Active</span>
+                <span className="text-xs text-amber-600 font-bold bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg">Active</span>
               </motion.div>
 
               {/* Secure Footer Info */}
-              <div className="flex items-center gap-2 pt-2 text-xs text-purple-200/70 border-t border-purple-900/40">
-                <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
+              <div className="flex items-center gap-2 pt-2 text-xs text-slate-500 border-t border-slate-100">
+                <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>Enterprise compliance & data privacy assured</span>
               </div>
 

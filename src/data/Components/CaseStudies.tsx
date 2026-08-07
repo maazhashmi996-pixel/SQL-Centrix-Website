@@ -1,8 +1,14 @@
-
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView, useSpring, useTransform, animate } from "framer-motion";
-import { Sparkles, ArrowRight, TrendingUp, Award, Zap, CheckCircle2 } from "lucide-react";
+import { 
+  HiOutlineSparkles, 
+  HiOutlineArrowRight, 
+  HiOutlineTrendingUp, 
+  HiOutlineBadgeCheck, 
+  HiOutlineLightningBolt, 
+  HiOutlineCheckCircle 
+} from "react-icons/hi";
 
 const caseStudiesData = [
   {
@@ -84,14 +90,14 @@ function MetricCounter({ value }: { value: string }) {
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="py-32 px-6 lg:px-20 bg-white text-slate-900 relative overflow-hidden border-b border-indigo-500/20 selection:bg-indigo-600 selection:text-white">
+    <section id="case-studies" className="py-32 px-6 lg:px-20 bg-white text-slate-900 relative overflow-hidden border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950">
       
-      {/* Absolute Luxurious Light Ambient Backlights (Indigo/Purple/Pink Theme) */}
-      <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-pink-500/10 via-purple-400/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
+      {/* Absolute Luxurious Light Ambient Backlights (Amber/Yellow Theme) */}
+      <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-gradient-to-tr from-amber-500/10 via-yellow-500/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-amber-400/10 via-yellow-400/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
 
       {/* Ultra-Fine Clean Grid Texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(#6366f112_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -109,15 +115,15 @@ export default function CaseStudies() {
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ transformPerspective: 1000 }}
-              className="p-8 rounded-[2.5rem] bg-white text-slate-900 space-y-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] relative overflow-hidden border border-indigo-500/30 backdrop-blur-xl group"
+              className="p-8 rounded-[2.5rem] bg-white text-slate-900 space-y-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] relative overflow-hidden border border-amber-500/30 backdrop-blur-xl group"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-500/20 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute -right-6 -bottom-6 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-500/20 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute -right-6 -bottom-6 w-36 h-36 bg-yellow-500/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
               
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600" />
 
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shadow-sm">
-                <Award className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shadow-sm">
+                <HiOutlineBadgeCheck className="w-6 h-6" />
               </div>
 
               <div className="space-y-2">
@@ -129,23 +135,23 @@ export default function CaseStudies() {
 
               <div className="space-y-2.5 pt-2 border-t border-slate-100">
                 <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+                  <HiOutlineCheckCircle className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Dedicated Growth Team & Strategy</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+                  <HiOutlineCheckCircle className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Guaranteed Transparent Reporting</span>
                 </div>
               </div>
 
               <motion.a 
-                whileHover={{ scale: 1.03, boxShadow: "0 10px 25px rgba(99, 102, 241, 0.25)" }}
+                whileHover={{ scale: 1.03, boxShadow: "0 10px 25px rgba(245, 158, 11, 0.25)" }}
                 whileTap={{ scale: 0.98 }}
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white font-bold text-sm shadow-md transition-all duration-300 group/btn border border-indigo-400/30 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm shadow-md transition-all duration-300 group/btn border border-amber-300/30 cursor-pointer"
               >
                 <span>Book a Strategy Call</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                <HiOutlineArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
               </motion.a>
             </motion.div>
           </div>
@@ -175,9 +181,9 @@ function HeaderCopy() {
         initial={{ opacity: 0, scale: 0.5, y: -20 }}
         animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.5, y: -20 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-900 text-xs font-bold uppercase tracking-wider shadow-xs backdrop-blur-md"
+        className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-xs backdrop-blur-md"
       >
-        <Sparkles className="w-3.5 h-3.5 text-indigo-600 animate-pulse" />
+        <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
         <span>Proven Results & Case Studies</span>
       </motion.div>
 
@@ -188,7 +194,7 @@ function HeaderCopy() {
         className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]"
       >
         Performance Systems <br />
-        Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 font-serif italic font-normal tracking-normal">Global</span> Partners.
+        Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">Global</span> Partners.
       </motion.h2>
 
       <motion.p 
@@ -211,7 +217,6 @@ function CaseStudyCard({ cs, idx }: { cs: any; idx: number }) {
     once: false,
   });
 
-  // Unique diagonal and dynamic entrance direction based on index position
   const initialX = idx % 2 === 0 ? -60 : 60;
   const initialY = 50;
 
@@ -224,26 +229,26 @@ function CaseStudyCard({ cs, idx }: { cs: any; idx: number }) {
       whileHover={{ 
         y: -8, 
         scale: 1.02,
-        borderColor: "rgba(99, 102, 241, 0.6)",
-        boxShadow: "0 30px 60px -15px rgba(99, 102, 241, 0.18)"
+        borderColor: "rgba(245, 158, 11, 0.6)",
+        boxShadow: "0 30px 60px -15px rgba(245, 158, 11, 0.18)"
       }}
-      className="bg-white rounded-[2.2rem] p-7 border border-indigo-500/20 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] backdrop-blur-xl flex flex-col justify-between space-y-6 group transition-all duration-300 relative overflow-hidden text-left"
+      className="bg-white rounded-[2.2rem] p-7 border border-amber-500/20 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] backdrop-blur-xl flex flex-col justify-between space-y-6 group transition-all duration-300 relative overflow-hidden text-left"
     >
       {/* Top Gradient Accent Line */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-900 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full shadow-xs">
-            <Zap className="w-3 h-3 text-indigo-600 animate-pulse" />
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full shadow-xs">
+            <HiOutlineLightningBolt className="w-3 h-3 text-amber-600 animate-pulse" />
             {cs.industry}
           </span>
-          <span className="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-200/80">
+          <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200/80">
             #{String(idx + 1).padStart(2, '0')}
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug tracking-tight">
+        <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors leading-snug tracking-tight">
           {cs.title}
         </h3>
         
@@ -253,12 +258,12 @@ function CaseStudyCard({ cs, idx }: { cs: any; idx: number }) {
       </div>
 
       {/* Metrics Container with Animated Counters */}
-      <div className="grid grid-cols-2 gap-3 py-4 px-4 border border-indigo-100 bg-gradient-to-br from-indigo-50/40 via-white to-purple-50/20 rounded-2xl relative overflow-hidden shadow-xs">
+      <div className="grid grid-cols-2 gap-3 py-4 px-4 border border-amber-100 bg-gradient-to-br from-amber-50/40 via-white to-yellow-500/10 rounded-2xl relative overflow-hidden shadow-xs">
         <div className="absolute inset-0 bg-white/40 pointer-events-none" />
         {cs.metrics.map((m: any, mIdx: number) => (
           <div key={mIdx} className="space-y-1 relative z-10">
             <div className="text-lg font-black text-slate-950 flex items-center gap-1 tracking-tight font-mono">
-              <TrendingUp className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+              <HiOutlineTrendingUp className="w-3.5 h-3.5 text-amber-600 shrink-0" />
               <MetricCounter value={m.value} />
             </div>
             <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider leading-tight">{m.label}</div>
@@ -270,10 +275,10 @@ function CaseStudyCard({ cs, idx }: { cs: any; idx: number }) {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         href="#contact"
-        className="w-full text-center flex items-center justify-center gap-2 bg-slate-900 hover:bg-gradient-to-r hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white font-bold py-3.5 px-4 rounded-2xl transition-all duration-300 text-xs shadow-md group/btn cursor-pointer"
+        className="w-full text-center flex items-center justify-center gap-2 bg-slate-900 hover:bg-gradient-to-r hover:from-amber-500 hover:via-yellow-500 hover:to-amber-600 hover:text-slate-950 text-white font-bold py-3.5 px-4 rounded-2xl transition-all duration-300 text-xs shadow-md group/btn cursor-pointer"
       >
         <span>View Full Case Study</span>
-        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
+        <HiOutlineArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
       </motion.a>
     </motion.div>
   );

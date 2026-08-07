@@ -1,35 +1,42 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { Sparkles, Compass, Cpu, TrendingUp, BarChart3, ArrowUpRight } from "lucide-react";
+import { 
+  FiZap, 
+  FiCompass, 
+  FiCpu, 
+  FiTrendingUp, 
+  FiBarChart2, 
+  FiArrowUpRight 
+} from "react-icons/fi";
 
 const processSteps = [
   {
     step: "01",
     title: "Brand Positioning",
     description: "Before customers buy from you, they need to trust you. We build memorable brands that create confidence from the very first interaction.",
-    icon: Compass,
+    icon: FiCompass,
     badge: "Phase 1: Foundation",
   },
   {
     step: "02",
     title: "High-Converting Websites",
     description: "Your website shouldn't just look good. It should educate visitors, answer questions, and convert traffic into qualified enquiries.",
-    icon: Cpu,
+    icon: FiCpu,
     badge: "Phase 2: Architecture",
   },
   {
     step: "03",
     title: "Search Visibility",
     description: "Customers can't buy from businesses they can't find. We improve your visibility across search engines and AI-powered search.",
-    icon: TrendingUp,
+    icon: FiTrendingUp,
     badge: "Phase 3: Acceleration",
   },
   {
     step: "04",
     title: "Paid Media & Content",
     description: "We create targeted advertising campaigns and authoritative content that guides prospects through their complete buying journey.",
-    icon: BarChart3,
+    icon: FiBarChart2,
     badge: "Phase 4: Dominance",
   },
 ];
@@ -48,15 +55,16 @@ export default function ProcessSection() {
     <section
       ref={containerRef}
       id="process"
-      className="relative py-32 px-6 lg:px-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-indigo-50/20 border-b border-indigo-100/60 selection:bg-indigo-600 selection:text-white"
+      className="relative py-24 bg-white border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950"
     >
-      {/* Absolute Luxurious Light Ambient Backlights */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-indigo-300/20 via-purple-200/20 to-pink-200/10 blur-[180px] rounded-full pointer-events-none" />
+      {/* Absolute Luxurious Light Ambient Backlights (Amber/Yellow Theme) */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-amber-600/10 blur-[180px] rounded-full pointer-events-none" />
 
       {/* Ultra-Fine Clean Grid Texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(#6366f10d_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      {/* Main Container - Strictly Aligned with Navbar & Hero (max-w-7xl, px-6 lg:px-12) */}
+      <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-24 space-y-4">
@@ -64,21 +72,21 @@ export default function ProcessSection() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-900 text-xs font-bold uppercase tracking-widest shadow-sm backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-xs backdrop-blur-md"
           >
-            <Sparkles className="w-3.5 h-3.5 text-indigo-600 animate-pulse" />
+            <FiZap className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
             <span>How We Generate Sales Qualified Leads</span>
           </motion.div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
             Sales don't happen because of one channel. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">
               Every digital touchpoint works together.
             </span>
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-            At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing. They need predictable systems that generate qualified opportunities. Explore our <a href="/blogs" className="text-indigo-600 font-bold underline hover:text-indigo-800 transition-colors">blogs</a> for deep-dive tutorials.
+            At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing. They need predictable systems that generate qualified opportunities. Explore our <a href="/blogs" className="text-amber-600 font-bold underline hover:text-amber-800 transition-colors">blogs</a> for deep-dive tutorials.
           </p>
         </div>
 
@@ -92,13 +100,13 @@ export default function ProcessSection() {
             fill="none"
             preserveAspectRatio="none"
           >
-            {/* Base Light-Gray Snake Line */}
+            {/* Base Light-Amber Snake Line */}
             <path
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
                  C 600 960, 400 960, 400 1140"
-              stroke="#C7D2FE"
+              stroke="#fde68a"
               strokeWidth="4"
               strokeLinecap="round"
               fill="none"
@@ -109,17 +117,17 @@ export default function ProcessSection() {
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
                  C 600 960, 400 960, 400 1140"
-              stroke="url(#indigoGradientAdvanced)"
+              stroke="url(#amberGradientAdvanced)"
               strokeWidth="5"
               strokeLinecap="round"
               fill="none"
               style={{ pathLength }}
             />
             <defs>
-              <linearGradient id="indigoGradientAdvanced" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#4f46e5" />
-                <stop offset="50%" stopColor="#9333ea" />
-                <stop offset="100%" stopColor="#db2777" />
+              <linearGradient id="amberGradientAdvanced" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#f59e0b" />
+                <stop offset="50%" stopColor="#eab308" />
+                <stop offset="100%" stopColor="#d97706" />
               </linearGradient>
             </defs>
           </svg>
@@ -145,8 +153,8 @@ export default function ProcessSection() {
                       isNodeOnRight ? "md:left-[60%]" : "md:left-[40%]"
                     }`}
                   >
-                    <div className="w-20 h-20 rounded-full bg-white border-2 border-indigo-500/40 p-1.5 shadow-[0_0_30px_rgba(99,102,241,0.25)] flex items-center justify-center backdrop-blur-md">
-                      <div className="w-full h-full rounded-full border border-indigo-200 flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 font-mono font-black text-white text-lg shadow-inner">
+                    <div className="w-20 h-20 rounded-full bg-white border-2 border-amber-200 p-1.5 shadow-[0_0_30px_rgba(245,158,11,0.2)] flex items-center justify-center backdrop-blur-md">
+                      <div className="w-full h-full rounded-full border border-amber-100 flex items-center justify-center bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 font-mono font-black text-slate-950 text-lg shadow-inner">
                         {step.step}
                       </div>
                     </div>
@@ -196,29 +204,29 @@ function ProcessCard({
       }}
       whileHover={{ 
         y: -6, 
-        borderColor: "rgba(99, 102, 241, 0.5)",
-        boxShadow: "0 25px 50px -12px rgba(99, 102, 241, 0.15)"
+        borderColor: "rgba(245, 158, 11, 0.5)",
+        boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.15)"
       }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full max-w-md bg-white/95 hover:bg-white rounded-[2.2rem] p-8 shadow-[0_15px_35px_-10px_rgba(99,102,241,0.06)] border border-indigo-100 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
+      className="w-full max-w-md bg-white hover:bg-amber-50/20 rounded-[2.2rem] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-amber-500/20 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
     >
       {/* Top Gradient Line Accent */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 opacity-80 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
       {/* Card Header row with badge & icon */}
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-900 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full shadow-sm">
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full shadow-xs">
           {step.badge}
         </span>
-        <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-sm">
-          <IconComponent className="w-4 h-4" />
+        <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-slate-950 transition-all duration-300 shadow-xs">
+          <IconComponent className="w-5 h-5" />
         </div>
       </div>
 
       <div className="space-y-2.5">
-        <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors tracking-tight flex items-center justify-between">
+        <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight flex items-center justify-between">
           <span>{step.title}</span>
-          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
+          <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
         </h3>
         <p className="text-slate-600 text-sm leading-relaxed font-normal">
           {step.description}
