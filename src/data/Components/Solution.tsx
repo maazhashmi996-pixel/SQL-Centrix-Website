@@ -149,7 +149,7 @@ export default function Solution() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider shadow-xs"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-              Brand Positioning & Growth
+              The Solution (Brand Positioning)
             </motion.div>
 
             {/* Staggered Word Reveal Main Heading */}
@@ -206,25 +206,34 @@ export default function Solution() {
               </div>
             </motion.div>
 
-            {/* Action Button */}
+            {/* Action Button & Headline Card Combination */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="pt-3 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              className="pt-4 space-y-4"
             >
-              <motion.a
-                whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)" }}
-                whileTap={{ scale: 0.97 }}
-                href="#contact"
-                className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 text-sm group cursor-pointer w-full sm:w-auto relative overflow-hidden"
-              >
-                <span>Book a Free Strategy Call</span>
-                <div className="w-6 h-6 rounded-lg bg-black/10 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              {/* Headline Ready to build a marketing system focused */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-800">System Integration</span>
+                  <p className="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">
+                    Ready to build a marketing system focused
+                  </p>
                 </div>
-              </motion.a>
-              <span className="text-xs text-slate-400 font-medium pl-1">No commitment required</span>
+                
+                <motion.a
+                  whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)" }}
+                  whileTap={{ scale: 0.97 }}
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-bold px-5 py-3 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 text-xs sm:text-sm group cursor-pointer shrink-0 whitespace-nowrap"
+                >
+                  <span>Book a Free Strategy Call</span>
+                  <div className="w-5 h-5 rounded-lg bg-black/10 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </motion.a>
+              </div>
             </motion.div>
 
           </div>

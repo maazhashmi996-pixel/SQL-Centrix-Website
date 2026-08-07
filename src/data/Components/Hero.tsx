@@ -82,11 +82,7 @@ export default function Hero() {
 
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
-              NOTHING BUT <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">
-                Sales Qualified
-              </span> <br />
-              LEADS.
+              Nothing But Sales Qualified Leads.
             </h1>
 
             <p className="text-slate-600 text-sm sm:text-base max-w-xl font-normal leading-relaxed">

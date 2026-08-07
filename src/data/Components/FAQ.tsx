@@ -13,31 +13,31 @@ import {
 const processSteps = [
   {
     step: "01",
-    title: "Brand Positioning",
-    description: "Before customers buy from you, they need to trust you. We build memorable brands that create confidence from the very first interaction.",
+    title: "Who We Are & Our Track Record",
+    description: "With 10+ years of combined experience across 25+ industries and 500+ performance-driven campaigns launched, we engineer predictable growth systems for businesses throughout Pakistan, UAE, Saudi Arabia, the UK, and the USA.",
     icon: FiCompass,
-    badge: "Phase 1: Foundation",
+    badge: "Company Overview",
   },
   {
     step: "02",
-    title: "High-Converting Websites",
-    description: "Your website shouldn't just look good. It should educate visitors, answer questions, and convert traffic into qualified enquiries.",
+    title: "10. Case Studies: Desiro LLC",
+    description: "Building an End-to-End Customer Acquisition & Sales System. Partnered with SQL Centrix to connect performance marketing with Bitrix24 CRM and WhatsApp pipelines, driving 7,914+ WhatsApp conversations and reaching 435K+ people.",
     icon: FiCpu,
-    badge: "Phase 2: Architecture",
+    badge: "Digital Marketing & Advertising",
   },
   {
     step: "03",
-    title: "Search Visibility",
-    description: "Customers can't buy from businesses they can't find. We improve your visibility across search engines and AI-powered search.",
+    title: "Case Studies: Kryalon & EVE Beauty",
+    description: "Scaling E-commerce & Beauty Brands Through Performance Marketing. Developed structured frameworks for TikTok ads, creative testing, and audience targeting, generating 856+ purchases and 19.5M+ paid impressions.",
     icon: FiTrendingUp,
-    badge: "Phase 3: Acceleration",
+    badge: "E-Commerce & Beauty",
   },
   {
     step: "04",
-    title: "Paid Media & Content",
-    description: "We create targeted advertising campaigns and authoritative content that guides prospects through their complete buying journey.",
+    title: "Case Studies: ZAM UK VODA",
+    description: "Driving High-Intent B2B Search Demand Through Google Ads. Strengthened search presence within telecommunications, capturing high-intent business enquiries and managing $17.2K in ad investment with precise keyword strategy.",
     icon: FiBarChart2,
-    badge: "Phase 4: Dominance",
+    badge: "Enterprise Connectivity",
   },
 ];
 
@@ -75,18 +75,18 @@ export default function ProcessSection() {
             className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-xs backdrop-blur-md"
           >
             <FiZap className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-            <span>How We Generate Sales Qualified Leads</span>
+            <span>11. Conclusion & Track Record</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
-            Sales don't happen because of one channel. <br />
+            Stop Chasing Marketing Strategies. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">
-              Every digital touchpoint works together.
+              Start Building a Marketing System.
             </span>
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-            At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing. They need predictable systems that generate qualified opportunities. Explore our <a href="/blogs" className="text-amber-600 font-bold underline hover:text-amber-800 transition-colors">blogs</a> for deep-dive tutorials.
+            At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing. Across 500+ campaigns globally, we engineer predictable systems that generate qualified opportunities. Explore our <a href="/blogs" className="text-amber-600 font-bold underline hover:text-amber-800 transition-colors">blogs</a> for expert insights.
           </p>
         </div>
 

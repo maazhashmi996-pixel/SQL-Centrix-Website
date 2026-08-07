@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { XCircle, AlertTriangle, Activity, Zap, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { XCircle, AlertTriangle, Activity, ArrowUpRight } from "lucide-react";
 
 const problems = [
   "Brand awareness is important",
@@ -69,7 +69,7 @@ export default function Problem() {
               className="w-2.5 h-2.5 rounded-full bg-amber-600 shadow-[0_0_12px_rgba(245,158,11,0.9)]"
             />
             <Activity className="w-4 h-4 text-amber-600" />
-            Traditional Marketing Limits
+            The Problem
           </motion.div>
 
           <motion.h2 
@@ -166,24 +166,39 @@ export default function Problem() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5, type: "spring", stiffness: 200 }}
           whileHover={{ scale: 1.02, boxShadow: "0 30px 60px -15px rgba(234, 179, 8, 0.25)" }}
-          className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-yellow-50 border border-amber-200 text-slate-900 text-base md:text-lg font-black shadow-2xl shadow-amber-500/10 max-w-2xl mx-auto flex items-center justify-center gap-4 text-center backdrop-blur-md overflow-hidden group"
+          className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-yellow-50 border border-amber-200 text-slate-900 text-base md:text-lg font-black shadow-2xl shadow-amber-500/10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left backdrop-blur-md overflow-hidden group"
         >
           {/* Subtle Hover Pulse Lighting */}
           <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-          <motion.div
-            animate={{ y: [0, -6, 0], rotate: [0, -12, 0, 12, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10 flex-shrink-0"
+          <div className="flex items-center gap-4">
+            <motion.div
+              animate={{ y: [0, -6, 0], rotate: [0, -12, 0, 12, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 flex-shrink-0"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center shadow-inner">
+                <AlertTriangle className="w-6 h-6 text-amber-600" />
+              </div>
+            </motion.div>
+            
+            <span className="relative z-10 tracking-tight text-slate-900">
+              But none of them matter if they don't generate business.
+            </span>
+
+          </div>
+
+          <motion.a
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(234, 179, 8, 0.3)" }}
+            whileTap={{ scale: 0.97 }}
+            href="#contact"
+            className="relative z-10 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-yellow-600 text-slate-900 font-bold px-5 py-3 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 group/btn text-xs sm:text-sm cursor-pointer whitespace-nowrap shrink-0"
           >
-            <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center shadow-inner">
-              <AlertTriangle className="w-6 h-6 text-amber-600" />
+            <span>Get Your Free Growth Strategy</span>
+            <div className="w-5 h-5 rounded-lg bg-black/10 flex items-center justify-center group-hover/btn:bg-black/20 transition-colors">
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 text-slate-900" />
             </div>
-          </motion.div>
-          
-          <span className="relative z-10 tracking-tight text-slate-900">
-            But none of them matter if they don't generate business.
-          </span>
+          </motion.a>
 
         </motion.div>
 

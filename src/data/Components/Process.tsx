@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { 
   HiOutlineSearch, 
   HiOutlineSpeakerphone, 
@@ -11,9 +11,9 @@ import {
   HiOutlineSparkles, 
   HiOutlineArrowRight, 
   HiOutlineCheckCircle, 
-  HiOutlineGlobe 
+  HiOutlineGlobe,
+  HiOutlineXCircle
 } from "react-icons/hi";
-import { RiPlaneLine } from "react-icons/ri";
 
 const services = [
   {
@@ -88,23 +88,13 @@ export default function Process() {
     setIsMounted(true);
   }, []);
 
-  // Scroll Progress for the Flying Airplane Animation along the section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const airplaneX = useTransform(scrollYProgress, [0, 1], ["-10vw", "105vw"]);
-  const airplaneY = useTransform(scrollYProgress, [0, 0.5, 1], ["0vh", "35vh", "70vh"]);
-  const airplaneRotate = useTransform(scrollYProgress, [0, 0.5, 1], [15, 25, 10]);
-
   return (
-    <section ref={containerRef} id="process" className="py-6 bg-white text-slate-900 relative overflow-hidden border-b border-slate-100">
+    <section ref={containerRef} id="process" className="py-20 bg-white text-slate-900 relative overflow-hidden border-b border-slate-100">
       
       {/* Background Soft Subtle Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {isMounted &&
-          [Array(20)].map((_, i) => (
+          [...Array(20)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-1.5 h-1.5 rounded-full bg-amber-200/50 border border-amber-300/20"
@@ -129,104 +119,201 @@ export default function Process() {
       {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-amber-100/60 via-yellow-100/30 to-transparent blur-[120px] pointer-events-none" />
 
-      {/* Animated Scroll-Triggered Flying Airplane Element */}
-      <motion.div
-        style={{ x: airplaneX, y: airplaneY, rotate: airplaneRotate }}
-        className="absolute top-20 left-0 z-20 pointer-events-none hidden md:flex items-center gap-3 filter drop-shadow-[0_10px_20px_rgba(245,158,11,0.2)]"
-      >
-        <div className="relative p-3 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-slate-950 shadow-lg border border-amber-300/40">
-          <RiPlaneLine className="w-6 h-6 transform -rotate-45" />
-          <div className="absolute right-full top-1/2 -translate-y-1/2 w-24 h-1 bg-gradient-to-l from-amber-400 to-transparent blur-xs" />
-        </div>
-        <span className="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-white border border-amber-200 text-amber-800 shadow-sm backdrop-blur-md">
-          SQL Centrix Flight
-        </span>
-      </motion.div>
-
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10 space-y-20">
+      <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10 space-y-24">
         
-        {/* Section Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8, y: -10 }}
-            animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: -10 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider"
-          >
-            <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-            Our High-Impact Framework
-          </motion.div>
+        {/* PHILOSOPHY SECTION BLOCK */}
+        <div className="space-y-12">
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8, y: -10 }}
+              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: -10 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider"
+            >
+              <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+              The SQL Centrix Philosophy
+            </motion.div>
 
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.15]"
-          >
-            How We Generate <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600">Sales Qualified Leads</span>
-          </motion.h2>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.15]"
+            >
+              Most businesses invest in marketing activities. <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600">We invest in business outcomes.</span>
+            </motion.h2>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-600 text-base md:text-lg leading-relaxed font-normal"
-          >
-            Sales don't happen because of one marketing channel. They happen because every digital touchpoint works together. That's exactly how SQL Centrix operates.
-          </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-slate-600 text-base md:text-lg leading-relaxed font-normal"
+            >
+              Because clicks don't grow businesses. Customers do.
+            </motion.p>
+          </div>
+
+          {/* Comparison Grid UI */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+            
+            {/* Instead of asking Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-slate-50/80 p-8 sm:p-10 rounded-[2.5rem] border border-slate-200/90 flex flex-col justify-between space-y-8 relative overflow-hidden group shadow-sm"
+            >
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-slate-300" />
+              
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/60 text-slate-700 text-xs font-bold uppercase tracking-wider">
+                  <HiOutlineXCircle className="w-4 h-4 text-slate-500" />
+                  Instead of asking:
+                </div>
+
+                <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                  <p className="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight italic">
+                    "How many clicks did we get?"
+                  </p>
+                </div>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Focusing purely on vanity metrics and superficial traffic leaves your sales team chasing unverified leads with zero purchasing intent.
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 font-semibold uppercase tracking-wider">
+                <span>Traditional Approach</span>
+                <span className="text-slate-400">Outdated</span>
+              </div>
+            </motion.div>
+
+            {/* We ask Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white p-8 sm:p-10 rounded-[2.5rem] border border-amber-500/40 shadow-[0_20px_40px_rgba(245,158,11,0.08)] flex flex-col justify-between space-y-8 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600" />
+              
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider border border-amber-200">
+                  <HiOutlineCheckCircle className="w-4 h-4 text-amber-600" />
+                  We ask:
+                </div>
+
+                <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-amber-50/70 via-yellow-50/40 to-amber-50/30 border border-amber-200/80 shadow-xs">
+                  <p className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                    "How many qualified customers are ready to buy?"
+                  </p>
+                </div>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  We build high-impact systems aligned directly with your pipeline velocity, ensuring every visitor is primed to convert into high-value sales.
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-800">
+                <span className="uppercase tracking-wider">SQL Centrix Standard</span>
+                <div className="flex items-center gap-1 text-amber-600 group-hover:translate-x-1 transition-transform">
+                  <span>Result Driven</span>
+                  <HiOutlineArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
 
-        {/* Modern Bento Grid UI - Light Theme */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((item, idx) => {
-            const IconComponent = item.icon;
+        {/* Divider */}
+        <div className="w-full h-px bg-slate-200/80" />
 
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-white p-8 rounded-[2.5rem] border border-slate-200/80 hover:border-amber-500/40 hover:bg-slate-50/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(245,158,11,0.08)]"
-              >
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* PROCESS / FRAMEWORK SECTION BLOCK */}
+        <div className="space-y-12">
+          {/* Section Header */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8, y: -10 }}
+              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: -10 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider"
+            >
+              <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+              Applying The Philosophy
+            </motion.div>
 
-                <div className="space-y-6 relative z-10">
-                  <div className="flex items-center justify-between">
-                    <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-slate-950 transition-all duration-300 shadow-xs">
-                      <IconComponent className="w-6 h-6" />
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.15]"
+            >
+              How We Generate <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600">Sales Qualified Leads</span>
+            </motion.h2>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-slate-600 text-base md:text-lg leading-relaxed font-normal"
+            >
+              Sales don't happen because of one marketing channel. They happen because every digital touchpoint works together. That's exactly how SQL Centrix operates.
+            </motion.p>
+          </div>
+
+          {/* Modern Bento Grid UI - Light Theme */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((item, idx) => {
+              const IconComponent = item.icon;
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                  className="bg-white p-8 rounded-[2.5rem] border border-slate-200/80 hover:border-amber-500/40 hover:bg-slate-50/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(245,158,11,0.08)]"
+                >
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="space-y-6 relative z-10">
+                    <div className="flex items-center justify-between">
+                      <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-slate-950 transition-all duration-300 shadow-xs">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+
+                      <span className="text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
+                        {item.tag}
+                      </span>
                     </div>
 
-                    <span className="text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
-                      {item.tag}
-                    </span>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                      {item.desc}
-                    </p>
+                  <div className="pt-6 mt-8 border-t border-slate-100 flex items-center justify-between relative z-10">
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-800 bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200">
+                      <HiOutlineCheckCircle className="w-3.5 h-3.5 text-amber-600" />
+                      <span>{item.metrics}</span>
+                    </div>
+                    
+                    <div className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-slate-950 group-hover:border-amber-500 group-hover:translate-x-1 transition-all duration-300">
+                      <HiOutlineArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
-                </div>
-
-                <div className="pt-6 mt-8 border-t border-slate-100 flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-800 bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200">
-                    <HiOutlineCheckCircle className="w-3.5 h-3.5 text-amber-600" />
-                    <span>{item.metrics}</span>
-                  </div>
-                  
-                  <div className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-slate-950 group-hover:border-amber-500 group-hover:translate-x-1 transition-all duration-300">
-                    <HiOutlineArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Bottom Moving Brands Marquee Row */}
