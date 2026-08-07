@@ -72,7 +72,6 @@ const processSteps = [
   },
 ];
 
-// Reusable counter component for metrics inside case studies
 function MetricCounter({ value }: { value: string }) {
   const numericVal = parseFloat(value.replace(/[^0-9.]/g, ""));
   const hasPlus = value.startsWith("+") || value.endsWith("+");
@@ -132,16 +131,12 @@ export default function ProcessSection() {
       id="process"
       className="relative py-24 bg-white border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950"
     >
-      {/* Absolute Luxurious Light Ambient Backlights (Amber/Yellow Theme) */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-amber-600/10 blur-[180px] rounded-full pointer-events-none" />
 
-      {/* Ultra-Fine Clean Grid Texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      {/* Main Container - Strictly Aligned with Navbar & Hero (max-w-7xl, px-6 lg:px-12) */}
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10">
         
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-24 space-y-4">
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
@@ -165,17 +160,14 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        {/* Snake Layout Wrapper */}
         <div className="relative max-w-6xl mx-auto py-8">
           
-          {/* Desktop Curved Path SVG Line */}
           <svg
             className="absolute bottom-40 left-0 w-full h-full pointer-events-none hidden md:block"
             viewBox="0 0 1000 1230"
             fill="none"
             preserveAspectRatio="none"
           >
-            {/* Base Light-Amber Snake Line */}
             <path
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
@@ -186,7 +178,6 @@ export default function ProcessSection() {
               strokeLinecap="round"
               fill="none"
             />
-            {/* Scroll-Driven Animated Gradient Line */}
             <motion.path
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
@@ -207,7 +198,6 @@ export default function ProcessSection() {
             </defs>
           </svg>
 
-          {/* Process Steps List */}
           <div className="space-y-36 relative z-10">
             {processSteps.map((step, idx) => {
               const isNodeOnRight = idx % 2 === 0;
@@ -217,12 +207,10 @@ export default function ProcessSection() {
                   key={step.step}
                   className="relative flex flex-col md:flex-row items-center justify-between"
                 >
-                  {/* Left Slot */}
                   <div className="w-full md:w-[45%] flex justify-end pr-0 md:pr-10">
                     {isNodeOnRight && <ProcessCard step={step} direction="left" />}
                   </div>
 
-                  {/* Advanced Glowing Numbered Node Badge */}
                   <div
                     className={`my-6 md:my-0 md:absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 ${
                       isNodeOnRight ? "md:left-[60%]" : "md:left-[40%]"
@@ -235,7 +223,6 @@ export default function ProcessSection() {
                     </div>
                   </div>
 
-                  {/* Right Slot */}
                   <div className="w-full md:w-[45%] flex justify-start pl-0 md:pl-10">
                     {!isNodeOnRight && <ProcessCard step={step} direction="right" />}
                   </div>
@@ -250,7 +237,6 @@ export default function ProcessSection() {
   );
 }
 
-// Premium Light-Theme Glass Process Card Sub-component with Side Scroll Animations
 function ProcessCard({
   step,
   direction,
@@ -285,10 +271,8 @@ function ProcessCard({
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-lg bg-white hover:bg-amber-50/10 rounded-[2.2rem] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-amber-500/25 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
     >
-      {/* Top Gradient Line Accent */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
-      {/* Card Header row with badge & icon */}
       <div className="flex items-center justify-between">
         <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full shadow-xs">
           {step.badge}
@@ -314,7 +298,6 @@ function ProcessCard({
           {step.description}
         </p>
 
-        {/* Render Metrics Grid if available */}
         {step.metrics && (
           <div className="space-y-3 pt-3 border-t border-slate-100">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Business Outcomes</div>
@@ -333,7 +316,6 @@ function ProcessCard({
           </div>
         )}
 
-        {/* Render Services Delivered if available */}
         {step.services && (
           <div className="space-y-1.5 pt-2">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Services Delivered</div>
@@ -344,7 +326,6 @@ function ProcessCard({
         )}
       </div>
 
-      {/* Button link view full case study */}
       {step.type === "casestudy" && (
         <div className="pt-2">
           <a 
@@ -360,3 +341,21 @@ function ProcessCard({
     </motion.div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
