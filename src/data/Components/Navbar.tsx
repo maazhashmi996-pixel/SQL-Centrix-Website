@@ -28,10 +28,8 @@ export default function Navbar() {
         ? "bg-white/95 backdrop-blur-md border-b border-amber-500/20 shadow-[0_10px_30px_rgba(234,179,8,0.08)] py-3" 
         : "bg-white border-b border-amber-500/10 py-2"
     }`}>
-      {/* Aligned with Hero Section Container max-w-7xl and px-6 lg:px-12 */}
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 flex items-center justify-between">
         
-        {/* Unique Logo UI with Zoomed Content */}
         <div className="flex items-center">
           <a href="#" className="flex items-center gap-3.5 focus:outline-none group">
             <div className="relative p-0.5 rounded-2xl bg-gradient-to-tr from-amber-500 via-yellow-500 to-amber-400 shadow-[0_0_15px_rgba(234,179,8,0.25)] group-hover:shadow-[0_0_25px_rgba(234,179,8,0.4)] transition-all duration-300 group-hover:scale-105">
@@ -55,7 +53,6 @@ export default function Navbar() {
           </a>
         </div>
         
-        {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
           {navLinks.map((item) => (
             <a
@@ -68,7 +65,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Action Button with Moving/Pulsing Glow Shadow Border */}
         <div className="hidden md:block">
           <motion.a
             href="#contact"
@@ -91,7 +87,6 @@ export default function Navbar() {
           </motion.a>
         </div>
 
-        {/* Mobile Toggle */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -104,7 +99,6 @@ export default function Navbar() {
 
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

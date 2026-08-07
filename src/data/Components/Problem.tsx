@@ -18,7 +18,6 @@ export default function Problem() {
   return (
     <section className="py-36 px-6 bg-white text-slate-900 border-b border-amber-500/20 relative overflow-hidden">
       
-      {/* Background Animated Gradient Aurora Orbs aligned with yellow/amber palette */}
       <motion.div 
         animate={{ 
           scale: [1, 1.3, 1], 
@@ -29,10 +28,8 @@ export default function Problem() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-amber-500/15 via-yellow-500/10 to-amber-400/15 blur-[180px] rounded-full pointer-events-none"
       />
 
-      {/* High-Contrast Interactive Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#eab30815_1px,transparent_1px),linear-gradient(to_bottom,#eab30815_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      {/* Dynamic Connected Data Lines SVG */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-60">
         <motion.path
           d="M 50 150 Q 350 50 650 250 T 1300 350"
@@ -54,7 +51,6 @@ export default function Problem() {
 
       <div className="relative max-w-4xl mx-auto text-center space-y-16 z-10">
         
-        {/* Section Header */}
         <div className="space-y-5">
           <motion.div 
             initial={{ opacity: 0, y: -20, scale: 0.8 }}
@@ -93,7 +89,6 @@ export default function Problem() {
           </motion.p>
         </div>
 
-        {/* Interactive Staggered Grid Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
           {problems.map((item, idx) => {
             const isHovered = hoveredIdx === idx;
@@ -121,7 +116,6 @@ export default function Problem() {
                   isHovered ? "border-amber-500 bg-gradient-to-r from-amber-50/80 via-white to-white shadow-xl" : "border-slate-200"
                 }`}
               >
-                {/* Active Shimmer Glow Background Effect */}
                 {isHovered && (
                   <motion.div 
                     layoutId="cardGlow"
@@ -143,7 +137,6 @@ export default function Problem() {
                   {item}
                 </span>
 
-                {/* Animated Interactive Node Indicator */}
                 <div className="ml-auto relative z-10 flex items-center justify-center">
                   <motion.div 
                     animate={{ 
@@ -159,7 +152,6 @@ export default function Problem() {
           })}
         </div>
 
-        {/* High-Impact Alert Banner with Glowing Pulse */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -168,7 +160,6 @@ export default function Problem() {
           whileHover={{ scale: 1.02, boxShadow: "0 30px 60px -15px rgba(234, 179, 8, 0.25)" }}
           className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-yellow-50 border border-amber-200 text-slate-900 text-base md:text-lg font-black shadow-2xl shadow-amber-500/10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left backdrop-blur-md overflow-hidden group"
         >
-          {/* Subtle Hover Pulse Lighting */}
           <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
           <div className="flex items-center gap-4">

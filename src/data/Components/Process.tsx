@@ -82,7 +82,6 @@ export default function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { amount: 0.1, once: true });
 
-  // Prevent SSR mismatch by checking if mounted on client
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);
@@ -91,7 +90,6 @@ export default function Process() {
   return (
     <section ref={containerRef} id="process" className="py-20 bg-white text-slate-900 relative overflow-hidden border-b border-slate-100">
       
-      {/* Background Soft Subtle Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {isMounted &&
           [...Array(20)].map((_, i) => (
@@ -116,13 +114,10 @@ export default function Process() {
           ))}
       </div>
 
-      {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-amber-100/60 via-yellow-100/30 to-transparent blur-[120px] pointer-events-none" />
 
-      {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10 space-y-24">
         
-        {/* PHILOSOPHY SECTION BLOCK */}
         <div className="space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <motion.div 
@@ -154,10 +149,8 @@ export default function Process() {
             </motion.p>
           </div>
 
-          {/* Comparison Grid UI */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
             
-            {/* Instead of asking Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
@@ -189,7 +182,6 @@ export default function Process() {
               </div>
             </motion.div>
 
-            {/* We ask Card */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
@@ -227,12 +219,9 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-slate-200/80" />
 
-        {/* PROCESS / FRAMEWORK SECTION BLOCK */}
         <div className="space-y-12">
-          {/* Section Header */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, y: -10 }}
@@ -263,7 +252,6 @@ export default function Process() {
             </motion.p>
           </div>
 
-          {/* Modern Bento Grid UI - Light Theme */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((item, idx) => {
               const IconComponent = item.icon;
@@ -316,7 +304,6 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Bottom Moving Brands Marquee Row */}
         <div className="pt-8 border-t border-slate-200 overflow-hidden relative">
           <div className="absolute left-0 inset-y-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 inset-y-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

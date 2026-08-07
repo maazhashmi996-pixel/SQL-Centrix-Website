@@ -141,7 +141,6 @@ const faqsData = [
   }
 ];
 
-// Reusable counter component for metrics inside case studies
 function MetricCounter({ value }: { value: string }) {
   const numericVal = parseFloat(value.replace(/[^0-9.]/g, ""));
   const hasPlus = value.startsWith("+");
@@ -187,23 +186,18 @@ export default function CaseStudies() {
   return (
     <section id="case-studies" className="py-32 px-6 lg:px-20 bg-white text-slate-900 relative overflow-hidden border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950">
       
-      {/* Absolute Luxurious Light Ambient Backlights (Amber/Yellow Theme) */}
       <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-gradient-to-tr from-amber-500/10 via-yellow-500/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-amber-400/10 via-yellow-400/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
 
-      {/* Ultra-Fine Clean Grid Texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 space-y-32">
         
-        {/* Grid Layout: Left Sticky Header & Right Case Study Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Sticky Header with 3D Perspective Flip Animation */}
           <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-32">
             <HeaderCopy />
 
-            {/* Premium Light-Theme Glass Impact Card */}
             <motion.div 
               initial={{ opacity: 0, rotateY: 25, x: -30 }}
               whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
@@ -251,7 +245,6 @@ export default function CaseStudies() {
             </motion.div>
           </div>
 
-          {/* Right Column: Case Studies Cards with Unique Creative Scroll Reveals */}
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             {caseStudiesData.map((cs, idx) => (
               <CaseStudyCard key={idx} cs={cs} idx={idx} />
@@ -260,7 +253,6 @@ export default function CaseStudies() {
 
         </div>
 
-        {/* --- Who We Are Section --- */}
         <div className="pt-16 border-t border-slate-200/80 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider">
@@ -291,7 +283,6 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* --- Frequently Asked Questions Section --- */}
         <div className="pt-16 border-t border-slate-200/80 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider">
@@ -316,7 +307,6 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* 6. How Everything Works Together (Diagram) Section */}
         <div className="pt-16 border-t border-slate-200/80 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider">
@@ -331,7 +321,6 @@ export default function CaseStudies() {
             </p>
           </div>
 
-          {/* Diagram Flow Container */}
           <div className="max-w-4xl mx-auto bg-slate-50/80 border border-slate-200/90 rounded-[2.5rem] p-8 sm:p-12 shadow-sm space-y-6 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600" />
             
@@ -390,7 +379,6 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* 7. Why Businesses Choose SQL Centrix Section */}
         <div className="pt-16 border-t border-slate-200/85 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider">
@@ -448,7 +436,6 @@ export default function CaseStudies() {
   );
 }
 
-// --- Header Copy Component ---
 function HeaderCopy() {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.3, once: false }); 
@@ -487,7 +474,6 @@ function HeaderCopy() {
   );
 }
 
-// --- Case Study Card Component with Creative 3D Tilt & Diagonal Reveal Scroll Animation ---
 function CaseStudyCard({ cs, idx }: { cs: any; idx: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, {
@@ -512,7 +498,6 @@ function CaseStudyCard({ cs, idx }: { cs: any; idx: number }) {
       }}
       className="bg-white rounded-[2.2rem] p-7 border border-amber-500/20 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] backdrop-blur-xl flex flex-col justify-between space-y-6 group transition-all duration-300 relative overflow-hidden text-left"
     >
-      {/* Top Gradient Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="space-y-4">

@@ -9,7 +9,6 @@ export default function Footer() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // 3D Parallax Tilt Effect setup
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x, { stiffness: 200, damping: 20 });
@@ -45,14 +44,12 @@ export default function Footer() {
       id="contact" 
       className="relative pt-32 pb-20 px-6 lg:px-20 bg-white overflow-hidden text-slate-900 border-t border-amber-500/20 selection:bg-amber-500 selection:text-slate-950"
     >
-      {/* Background Ambience */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[700px] bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(245,158,11,0.12),rgba(255,255,255,0))] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pb-20 border-b border-slate-200/80">
           
-          {/* Left Column */}
           <motion.div 
             initial={{ opacity: 0, x: -80 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
@@ -77,7 +74,6 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Contact Details */}
             <div className="space-y-4">
               {[
                 { icon: HiOutlineOfficeBuilding, title: "Company Entity", value: "SQL Centrix Pvt. Ltd.", isAddress: false },
@@ -96,7 +92,6 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Social Links */}
             <div className="space-y-3 pt-2">
               <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Social Links</div>
               <div className="flex items-center gap-3">
@@ -120,7 +115,6 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Right Column: Form */}
           <motion.div 
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
