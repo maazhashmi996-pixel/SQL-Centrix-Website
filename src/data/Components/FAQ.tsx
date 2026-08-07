@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useInView, useSpring, animate } from "framer-motion";
 import { 
   FiZap, 
   FiCompass, 
@@ -17,29 +17,104 @@ const processSteps = [
     description: "With 10+ years of combined experience across 25+ industries and 500+ performance-driven campaigns launched, we engineer predictable growth systems for businesses throughout Pakistan, UAE, Saudi Arabia, the UK, and the USA.",
     icon: FiCompass,
     badge: "Company Overview",
+    type: "overview",
   },
   {
     step: "02",
-    title: "10. Case Studies: Desiro LLC",
-    description: "Building an End-to-End Customer Acquisition & Sales System. Partnered with SQL Centrix to connect performance marketing with Bitrix24 CRM and WhatsApp pipelines, driving 7,914+ WhatsApp conversations and reaching 435K+ people.",
+    title: "Desiro LLC",
+    subtitle: "Building an End-to-End Customer Acquisition & Sales System",
+    industry: "Digital Marketing & Advertising",
+    description: "Desiro partnered with SQL Centrix to build more than a lead generation campaign. We designed a complete customer acquisition system that connected performance marketing with sales operations and customer success. From Meta advertising and WhatsApp lead generation to Bitrix24 CRM implementation, sales pipeline automation, and onboarding workflows, every stage was built to help the business convert more enquiries into long-term clients.",
+    metrics: [
+      { value: "7,914+", label: "WhatsApp Conversations" },
+      { value: "435K+", label: "People Reached" },
+      { value: "1.7M+", label: "Impressions Delivered" },
+      { value: "0.66", label: "Lowest Cost per Conversation (AED)" },
+    ],
+    services: "Performance Marketing • Creative Strategy • Bitrix24 CRM • WhatsApp Integration • Sales Pipeline Design • Lead Management • Customer Onboarding • Client Servicing",
     icon: FiCpu,
     badge: "Digital Marketing & Advertising",
+    type: "casestudy",
   },
   {
     step: "03",
-    title: "Case Studies: Kryalon & EVE Beauty",
-    description: "Scaling E-commerce & Beauty Brands Through Performance Marketing. Developed structured frameworks for TikTok ads, creative testing, and audience targeting, generating 856+ purchases and 19.5M+ paid impressions.",
+    title: "Kryalon Store & EVE Beauty",
+    subtitle: "Scaling E-Commerce & Beauty Brands Through Performance Marketing",
+    industry: "E-Commerce & Beauty",
+    description: "Partnered with SQL Centrix to build scalable performance marketing systems focused on profitable customer acquisition. We developed structured frameworks for creative testing, audience targeting, campaign optimization, and conversion tracking across TikTok and multi-brand campaigns.",
+    metrics: [
+      { value: "856+", label: "Purchases" },
+      { value: "19.5M+", label: "Paid Impressions" },
+      { value: "73K+", label: "Website Clicks" },
+      { value: "0.76", label: "Average CPM (AED)" },
+    ],
+    services: "TikTok Advertising • Creative Strategy • Performance Marketing • Conversion Tracking • Campaign Optimization • Analytics • Media Buying • Audience Research",
     icon: FiTrendingUp,
     badge: "E-Commerce & Beauty",
+    type: "casestudy",
   },
   {
     step: "04",
-    title: "Case Studies: ZAM UK VODA",
-    description: "Driving High-Intent B2B Search Demand Through Google Ads. Strengthened search presence within telecommunications, capturing high-intent business enquiries and managing $17.2K in ad investment with precise keyword strategy.",
+    title: "ZAM UK VODA",
+    subtitle: "Driving High-Intent B2B Search Demand Through Google Ads",
+    industry: "Telecommunications & Enterprise Connectivity",
+    description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions.",
+    metrics: [
+      { value: "3.48K+", label: "Clicks" },
+      { value: "125K+", label: "Impressions" },
+      { value: "$17.2K", label: "Ad Investment Managed" },
+      { value: "$4.94", label: "Average Cost Per Click" },
+    ],
+    services: "Google Ads Strategy • Search Campaign Management • Keyword Research • Ad Copywriting • Bid Optimization • Performance Monitoring • Search Intent Targeting • Campaign Reporting",
     icon: FiBarChart2,
     badge: "Enterprise Connectivity",
+    type: "casestudy",
   },
 ];
+
+// Reusable counter component for metrics inside case studies
+function MetricCounter({ value }: { value: string }) {
+  const numericVal = parseFloat(value.replace(/[^0-9.]/g, ""));
+  const hasPlus = value.startsWith("+") || value.endsWith("+");
+  const hasDollar = value.startsWith("$");
+  const hasX = value.endsWith("x");
+  const hasPercent = value.endsWith("%");
+
+  const count = useSpring(0, { stiffness: 50, damping: 20 });
+  const rounded = useTransform(count, (latest) => {
+    if (value.includes(".")) {
+      return latest.toFixed(2);
+    }
+    return Math.round(latest).toString();
+  });
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  useEffect(() => {
+    if (isInView && !isNaN(numericVal)) {
+      animate(count, numericVal, { duration: 2.2, ease: "easeOut" });
+    } else if (!isInView) {
+      count.set(0);
+    }
+  }, [isInView, numericVal, count]);
+
+  if (isNaN(numericVal)) {
+    return <span>{value}</span>;
+  }
+
+  return (
+    <span ref={ref} className="inline-flex items-center gap-0.5">
+      {hasDollar && "$"}
+      {!hasDollar && value.startsWith("$") && "$"}
+      <motion.span>{rounded}</motion.span>
+      {hasPlus && "+"}
+      {value.includes("AED") && " AED"}
+      {hasPercent && "%"}
+      {hasX && "x"}
+    </span>
+  );
+}
 
 export default function ProcessSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -75,7 +150,7 @@ export default function ProcessSection() {
             className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-xs backdrop-blur-md"
           >
             <FiZap className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-            <span>11. Conclusion & Track Record</span>
+            <span>10. Case Studies & Track Record</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
@@ -95,7 +170,7 @@ export default function ProcessSection() {
           
           {/* Desktop Curved Path SVG Line */}
           <svg
-            className="absolute top-0 left-0 w-full h-full pointer-events-none hidden md:block"
+            className="absolute bottom-40 left-0 w-full h-full pointer-events-none hidden md:block"
             viewBox="0 0 1000 1230"
             fill="none"
             preserveAspectRatio="none"
@@ -180,7 +255,7 @@ function ProcessCard({
   step,
   direction,
 }: {
-  step: { step: string; title: string; description: string; icon: any; badge: string };
+  step: any;
   direction: "left" | "right";
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -208,7 +283,7 @@ function ProcessCard({
         boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.15)"
       }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full max-w-md bg-white hover:bg-amber-50/20 rounded-[2.2rem] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-amber-500/20 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
+      className="w-full max-w-lg bg-white hover:bg-amber-50/10 rounded-[2.2rem] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-amber-500/25 backdrop-blur-2xl relative overflow-hidden group text-left space-y-5"
     >
       {/* Top Gradient Line Accent */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity" />
@@ -228,10 +303,59 @@ function ProcessCard({
           <span>{step.title}</span>
           <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
         </h3>
+
+        {step.subtitle && (
+          <h4 className="text-sm font-semibold text-amber-800 tracking-tight">
+            {step.subtitle}
+          </h4>
+        )}
+
         <p className="text-slate-600 text-sm leading-relaxed font-normal">
           {step.description}
         </p>
+
+        {/* Render Metrics Grid if available */}
+        {step.metrics && (
+          <div className="space-y-3 pt-3 border-t border-slate-100">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Business Outcomes</div>
+            <div className="grid grid-cols-2 gap-3">
+              {step.metrics.map((m: any, mIdx: number) => (
+                <div key={mIdx} className="p-3 rounded-xl bg-amber-50/40 border border-amber-100 space-y-0.5">
+                  <div className="text-base font-black text-slate-900 font-mono tracking-tight">
+                    <MetricCounter value={m.value} />
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-600 leading-tight">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Render Services Delivered if available */}
+        {step.services && (
+          <div className="space-y-1.5 pt-2">
+            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Services Delivered</div>
+            <p className="text-xs text-slate-700 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+              {step.services}
+            </p>
+          </div>
+        )}
       </div>
+
+      {/* Button link view full case study */}
+      {step.type === "casestudy" && (
+        <div className="pt-2">
+          <a 
+            href="#contact" 
+            className="inline-flex items-center gap-2 text-xs font-bold text-amber-600 hover:text-amber-800 uppercase tracking-wider group/link transition-colors cursor-pointer"
+          >
+            <span>View Full Case Study</span>
+            <FiArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+          </a>
+        </div>
+      )}
 
     </motion.div>
   );
