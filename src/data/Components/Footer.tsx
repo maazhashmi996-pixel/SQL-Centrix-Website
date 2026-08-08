@@ -63,10 +63,7 @@ export default function Footer() {
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
-                Let's discuss your <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">
-                  growth goals.
-                </span>
+                Contact
               </h2>
 
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
@@ -94,22 +91,21 @@ export default function Footer() {
 
             <div className="space-y-3 pt-2">
               <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Social Links</div>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 {[
-                  { icon: FaInstagram, href: "https://www.instagram.com/", label: "Instagram" },
-                  { icon: FaLinkedinIn, href: "linkedin.com/feed", label: "Linkedin" },
-                  { icon: FaFacebookF, href: "https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATqqRMnmsoZJ3WdUuA4YPqvQzonAdiu9QHJ9q6pVLKwRh94X4IGUuq0wAcWmJnDTi5qmpmnFzN76nHbxQs6cgcpyNDTDpT_X7ObeEKhH36R3CRicp-7uHxeD1kgeaSAwJGtmbLsRR8qkvHTZd31qPBLZOoDyfWL4o9-oxDAE8QsIHcuFP9KvOQJuhjjJMWWbgjdET27u20vE0qcdKxhJi2LTJWTzzhVu2OILpK4_fa_a7d3g48dbIkpiZdY0Ot0bwXjIw_1nYlftneENueEEsHf5qw", label: "Facebook" },
-                  { icon: FaTiktok, href: "https://www.tiktok.com/en/", label: "Tiktok" },
-                  { icon: FaYoutube, href: "https://www.youtube.com/", label: "Youtube" },
+                  { name: "Instagram", icon: FaInstagram },
+                  { name: "Linkedin", icon: FaLinkedinIn },
+                  { name: "Facebook", icon: FaFacebookF },
+                  { name: "Tiktok", icon: FaTiktok },
+                  { name: "Youtube", icon: FaYoutube }
                 ].map((social, idx) => (
-                  <a
+                  <div
                     key={idx}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center hover:bg-gradient-to-r hover:from-amber-500 hover:to-amber-600 hover:text-slate-950 hover:border-transparent transition-all duration-300 shadow-sm"
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold shadow-sm"
                   >
-                    <social.icon className="w-4 h-4" />
-                  </a>
+                    <social.icon className="w-4 h-4 text-amber-600" />
+                    <span>{social.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -123,6 +119,8 @@ export default function Footer() {
           >
             <form onSubmit={handleSubmit} className="bg-white p-8 sm:p-12 rounded-[2.5rem] border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.06)] space-y-6 relative">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600" />
+              
+              <h3 className="text-2xl font-black text-slate-900">Form</h3>
 
               {isSubmitted && (
                 <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-sm font-semibold flex items-center gap-3">
@@ -131,44 +129,37 @@ export default function Footer() {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">First Name*</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Last Name*</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-                </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">First Name*</label>
+                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
               </div>
-
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Last Name*</label>
+                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
+              </div>
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Email Address*</label>
                 <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
               </div>
-
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Phone Number*</label>
                 <input type="tel" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
               </div>
-
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Organization</label>
                 <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" />
               </div>
-
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Purpose*</label>
                 <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
               </div>
-
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Message</label>
                 <textarea rows={3} className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all resize-none shadow-xs"></textarea>
               </div>
 
               <button type="submit" className="w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold py-4.5 rounded-2xl shadow-md flex items-center justify-center gap-3 transition-all duration-300 border border-amber-300/30 cursor-pointer">
-                <span>Speak With Our Team</span>
+                <span>Submit</span>
                 <HiOutlinePaperAirplane className="w-4 h-4 -rotate-45" />
               </button>
             </form>

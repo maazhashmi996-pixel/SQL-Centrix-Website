@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { XCircle, AlertTriangle, Activity, ArrowUpRight } from "lucide-react";
+import { XCircle, AlertTriangle, Activity } from "lucide-react";
 
 const problems = [
   "Brand awareness is important",
@@ -16,7 +16,7 @@ export default function Problem() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section className="py-36 px-6 bg-white text-slate-900 border-b border-amber-500/20 relative overflow-hidden">
+    <section className="py-36 px-6 bg-white text-slate-900 border-b border-yellow-500/20 relative overflow-hidden">
       
       <motion.div 
         animate={{ 
@@ -25,29 +25,10 @@ export default function Problem() {
           rotate: [0, 180, 360]
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-amber-500/15 via-yellow-500/10 to-amber-400/15 blur-[180px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-yellow-500/15 via-yellow-400/10 to-yellow-500/15 blur-[180px] rounded-full pointer-events-none"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#eab30815_1px,transparent_1px),linear-gradient(to_bottom,#eab30815_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
-
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-60">
-        <motion.path
-          d="M 50 150 Q 350 50 650 250 T 1300 350"
-          fill="none"
-          stroke="url(#amberYellowGradient)"
-          strokeWidth="3"
-          strokeDasharray="10 10"
-          animate={{ strokeDashoffset: [0, -120] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        />
-        <defs>
-          <linearGradient id="amberYellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#eab308" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#d97706" stopOpacity="0.9" />
-          </linearGradient>
-        </defs>
-      </svg>
 
       <div className="relative max-w-4xl mx-auto text-center space-y-16 z-10">
         
@@ -57,15 +38,15 @@ export default function Problem() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-black uppercase tracking-widest shadow-md backdrop-blur-md"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-900 text-xs font-black uppercase tracking-widest shadow-md backdrop-blur-md"
           >
             <motion.span 
               animate={{ scale: [1, 1.6, 1], opacity: [1, 0.5, 1] }} 
               transition={{ duration: 1.8, repeat: Infinity }}
-              className="w-2.5 h-2.5 rounded-full bg-amber-600 shadow-[0_0_12px_rgba(245,158,11,0.9)]"
+              className="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_12px_rgba(234,179,8,0.9)]"
             />
-            <Activity className="w-4 h-4 text-amber-600" />
-            The Problem
+            <Activity className="w-4 h-4 text-yellow-600" />
+            2. The Problem
           </motion.div>
 
           <motion.h2 
@@ -75,18 +56,8 @@ export default function Problem() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 leading-[1.1]"
           >
-            The Reality of <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">Marketing Channels</span>
+             <span className="text-yellow-500">The Problem</span>
           </motion.h2>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="text-slate-600 text-lg md:text-xl max-w-xl mx-auto font-semibold"
-          >
-            We respect the channels, but we look past vanity metrics.
-          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
@@ -113,13 +84,13 @@ export default function Problem() {
                 }}
                 whileTap={{ scale: 0.97 }}
                 className={`relative flex items-center space-x-4 p-5 rounded-2xl bg-white border transition-all duration-300 cursor-pointer overflow-hidden shadow-md ${
-                  isHovered ? "border-amber-500 bg-gradient-to-r from-amber-50/80 via-white to-white shadow-xl" : "border-slate-200"
+                  isHovered ? "border-yellow-500 bg-gradient-to-r from-yellow-50/80 via-white to-white shadow-xl" : "border-slate-200"
                 }`}
               >
                 {isHovered && (
                   <motion.div 
                     layoutId="cardGlow"
-                    className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-transparent pointer-events-none"
+                    className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-yellow-400/5 to-transparent pointer-events-none"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -141,10 +112,10 @@ export default function Problem() {
                   <motion.div 
                     animate={{ 
                       scale: isHovered ? [1, 1.5, 1] : 1, 
-                      backgroundColor: isHovered ? "#d97706" : "#cbd5e1" 
+                      backgroundColor: isHovered ? "#eab308" : "#cbd5e1" 
                     }}
                     transition={{ duration: 1, repeat: Infinity }}
-                    className={`w-2.5 h-2.5 rounded-full ${isHovered ? "shadow-[0_0_10px_rgba(217,119,6,1)]" : ""}`}
+                    className={`w-2.5 h-2.5 rounded-full ${isHovered ? "shadow-[0_0_10px_rgba(234,179,8,1)]" : ""}`}
                   />
                 </div>
               </motion.div>
@@ -158,38 +129,25 @@ export default function Problem() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5, type: "spring", stiffness: 200 }}
           whileHover={{ scale: 1.02, boxShadow: "0 30px 60px -15px rgba(234, 179, 8, 0.25)" }}
-          className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-yellow-50 border border-amber-200 text-slate-900 text-base md:text-lg font-black shadow-2xl shadow-amber-500/10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left backdrop-blur-md overflow-hidden group"
+          className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-r from-yellow-50 via-white to-yellow-50 border border-yellow-200 text-slate-900 text-base md:text-lg font-black shadow-2xl shadow-yellow-500/10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 text-center backdrop-blur-md overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-transparent to-yellow-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-center">
             <motion.div
               animate={{ y: [0, -6, 0], rotate: [0, -12, 0, 12, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               className="relative z-10 flex-shrink-0"
             >
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center shadow-inner">
-                <AlertTriangle className="w-6 h-6 text-amber-600" />
+              <div className="w-12 h-12 rounded-2xl bg-yellow-100 border border-yellow-300 flex items-center justify-center shadow-inner">
+                <AlertTriangle className="w-6 h-6 text-yellow-600" />
               </div>
             </motion.div>
             
             <span className="relative z-10 tracking-tight text-slate-900">
               But none of them matter if they don't generate business.
             </span>
-
           </div>
-
-          <motion.a
-            whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(234, 179, 8, 0.3)" }}
-            whileTap={{ scale: 0.97 }}
-            href="#contact"
-            className="relative z-10 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-yellow-600 text-slate-900 font-bold px-5 py-3 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 group/btn text-xs sm:text-sm cursor-pointer whitespace-nowrap shrink-0"
-          >
-            <span>Get Your Free Growth Strategy</span>
-            <div className="w-5 h-5 rounded-lg bg-black/10 flex items-center justify-center group-hover/btn:bg-black/20 transition-colors">
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 text-slate-900" />
-            </div>
-          </motion.a>
 
         </motion.div>
 

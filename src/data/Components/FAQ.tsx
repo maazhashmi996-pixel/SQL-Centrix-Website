@@ -7,17 +7,25 @@ import {
   FiCpu, 
   FiTrendingUp, 
   FiBarChart2, 
-  FiArrowUpRight 
+  FiArrowUpRight,
+  FiShoppingBag,
+  FiCheckCircle
 } from "react-icons/fi";
 
 const processSteps = [
   {
     step: "01",
     title: "Who We Are & Our Track Record",
-    description: "With 10+ years of combined experience across 25+ industries and 500+ performance-driven campaigns launched, we engineer predictable growth systems for businesses throughout Pakistan, UAE, Saudi Arabia, the UK, and the USA.",
-    icon: FiCompass,
     badge: "Company Overview",
     type: "overview",
+    icon: FiCompass,
+    stats: [
+      { label: "Combined Years of Experience", value: "10+ Years" },
+      { label: "Industries We Served", value: "25+ From Fintech to Real Estate" },
+      { label: "Marketing Channels Managed", value: "TikTok, Youtube, Meta, Google, LinkedIn, Wikipedia, Snapchat, Reddit, Pinterest, WhatsApp Business" },
+      { label: "Businesses Worked With", value: "50+ Businesses Around Pakistan, UAE, Saudi Arabia, United Kingdom and USA" },
+      { label: "Campaigns Launched", value: "500+ Performance-Driven Campaigns Delivered" },
+    ],
   },
   {
     step: "02",
@@ -38,37 +46,64 @@ const processSteps = [
   },
   {
     step: "03",
-    title: "Kryalon Store & EVE Beauty",
-    subtitle: "Scaling E-Commerce & Beauty Brands Through Performance Marketing",
+    title: "Kryalon Store",
+    subtitle: "Scaling an E-Commerce Brand Through Performance Marketing",
     industry: "E-Commerce & Beauty",
-    description: "Partnered with SQL Centrix to build scalable performance marketing systems focused on profitable customer acquisition. We developed structured frameworks for creative testing, audience targeting, campaign optimization, and conversion tracking across TikTok and multi-brand campaigns.",
+    description: "Kryalon Store partnered with SQL Centrix to build a scalable performance marketing system focused on profitable customer acquisition. Rather than simply launching advertisements, we developed a structured framework for creative testing, audience targeting, campaign optimization, and conversion tracking. By continuously analyzing performance data and refining campaigns, we helped the brand scale online sales while maintaining efficient advertising costs through a data-driven optimization process.",
     metrics: [
       { value: "856+", label: "Purchases" },
-      { value: "19.5M+", label: "Paid Impressions" },
+      { value: "5.8M+", label: "Impressions Delivered" },
       { value: "73K+", label: "Website Clicks" },
       { value: "0.76", label: "Average CPM (AED)" },
     ],
-    services: "TikTok Advertising • Creative Strategy • Performance Marketing • Conversion Tracking • Campaign Optimization • Analytics • Media Buying • Audience Research",
-    icon: FiTrendingUp,
+    services: "TikTok Advertising • Creative Strategy • Performance Marketing • Conversion Tracking • Campaign Optimization • Analytics",
+    icon: FiShoppingBag,
     badge: "E-Commerce & Beauty",
     type: "casestudy",
   },
   {
     step: "04",
+    title: "EVE Beauty",
+    subtitle: "Building a Scalable Performance Marketing System",
+    industry: "Beauty & Cosmetics",
+    description: "EVE Beauty partnered with SQL Centrix to build a scalable customer acquisition system across multiple beauty brands. Rather than simply managing paid advertisements, we developed a structured performance marketing framework that combined creative strategy, audience research, campaign architecture, and continuous optimization. Through ongoing creative testing, media buying, and data-driven decision making, every campaign was designed to improve customer acquisition efficiency while supporting long-term e-commerce growth.",
+    metrics: [
+      { value: "$3,000", label: "Advertising Spend" },
+      { value: "19.5M+", label: "Paid Impressions" },
+      { value: "364,999", label: "Website Clicks" },
+      { value: "+7M", label: "2-Second Video Views" },
+    ],
+    services: "Performance Marketing • Creative Strategy • Media Buying • Campaign Optimization • Audience Research",
+    icon: FiTrendingUp,
+    badge: "Beauty & Cosmetics",
+    type: "casestudy",
+  },
+  {
+    step: "05",
     title: "ZAM UK VODA",
     subtitle: "Driving High-Intent B2B Search Demand Through Google Ads",
     industry: "Telecommunications & Enterprise Connectivity",
-    description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions.",
+    description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions, ensuring advertising spend generated qualified opportunities instead of low-quality traffic.\n\nSQL Centrix developed and managed a structured Google Ads strategy built around intent-based keyword targeting, compelling search ad copy, continuous bid optimization, and ongoing performance analysis. Campaigns were refined over time to maximize visibility for relevant searches while maintaining cost efficiency and improving overall campaign performance.",
     metrics: [
       { value: "3.48K+", label: "Clicks" },
       { value: "125K+", label: "Impressions" },
-      { value: "$17.2K", label: "Ad Investment Managed" },
-      { value: "$4.94", label: "Average Cost Per Click" },
+      { value: "$17.2K", label: "Advertising Investment Managed" },
+      { value: "4.94", label: "Average Cost Per Click" },
     ],
     services: "Google Ads Strategy • Search Campaign Management • Keyword Research • Ad Copywriting • Bid Optimization • Performance Monitoring • Search Intent Targeting • Campaign Reporting",
     icon: FiBarChart2,
-    badge: "Enterprise Connectivity",
+    badge: "11. Conclusion",
     type: "casestudy",
+  },
+  {
+    step: "06",
+    title: "Let's Build a Growth System That Delivers Sales Qualified Leads",
+    subtitle: "Ready to scale your business with predictable customer acquisition systems?",
+    description: "At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing.\n\nThey need predictable systems that generate qualified opportunities, accelerate growth, and drive measurable business results.",
+    services: "CTA • Contact Us",
+    icon: FiZap,
+    badge: "Get Started",
+    type: "cta",
   },
 ];
 
@@ -163,8 +198,8 @@ export default function ProcessSection() {
         <div className="relative max-w-6xl mx-auto py-8">
           
           <svg
-            className="absolute bottom-40 left-0 w-full h-full pointer-events-none hidden md:block"
-            viewBox="0 0 1000 1230"
+            className="absolute bottom-0 left-0 w-full h-full pointer-events-none hidden md:block"
+            viewBox="0 0 1000 1850"
             fill="none"
             preserveAspectRatio="none"
           >
@@ -172,7 +207,9 @@ export default function ProcessSection() {
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
-                 C 600 960, 400 960, 400 1140"
+                 C 600 960, 400 960, 400 1140
+                 C 400 1320, 600 1320, 600 1500
+                 C 600 1680, 400 1680, 400 1750"
               stroke="#fde68a"
               strokeWidth="4"
               strokeLinecap="round"
@@ -182,7 +219,9 @@ export default function ProcessSection() {
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
-                 C 600 960, 400 960, 400 1140"
+                 C 600 960, 400 960, 400 1140
+                 C 400 1320, 600 1320, 600 1500
+                 C 600 1680, 400 1680, 400 1750"
               stroke="url(#amberGradientAdvanced)"
               strokeWidth="5"
               strokeLinecap="round"
@@ -285,8 +324,25 @@ function ProcessCard({
       <div className="space-y-2.5">
         <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight flex items-center justify-between">
           <span>{step.title}</span>
-          <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
+          {step.type !== "cta" && step.type !== "overview" && (
+            <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
+          )}
         </h3>
+
+        {step.type === "overview" && step.stats && (
+          <div className="space-y-4 pt-2">
+            {step.stats.map((stat: any, sIdx: number) => (
+              <div key={sIdx} className="space-y-0.5 border-b border-slate-100 pb-2.5 last:border-0 last:pb-0">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+                  {stat.label}:
+                </span>
+                <span className="text-sm font-semibold text-slate-800 block">
+                  {stat.value}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {step.subtitle && (
           <h4 className="text-sm font-semibold text-amber-800 tracking-tight">
@@ -294,9 +350,17 @@ function ProcessCard({
           </h4>
         )}
 
-        <p className="text-slate-600 text-sm leading-relaxed font-normal">
-          {step.description}
-        </p>
+        {step.industry && (
+          <div className="text-xs font-semibold text-slate-500">
+            <span className="text-slate-900">Industry:</span> {step.industry}
+          </div>
+        )}
+
+        {step.description && (
+          <p className="text-slate-600 text-sm leading-relaxed font-normal whitespace-pre-line">
+            {step.description}
+          </p>
+        )}
 
         {step.metrics && (
           <div className="space-y-3 pt-3 border-t border-slate-100">
@@ -316,7 +380,7 @@ function ProcessCard({
           </div>
         )}
 
-        {step.services && (
+        {step.services && step.type !== "cta" && (
           <div className="space-y-1.5 pt-2">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Services Delivered</div>
             <p className="text-xs text-slate-700 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-200/60">
@@ -338,24 +402,18 @@ function ProcessCard({
         </div>
       )}
 
+      {step.type === "cta" && (
+        <div className="pt-4">
+          <a 
+            href="#contact" 
+            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-slate-950 font-bold text-sm tracking-wide shadow-lg shadow-amber-500/20 hover:opacity-95 transition-all cursor-pointer"
+          >
+            <span>Contact Us</span>
+            <FiArrowUpRight className="w-4 h-4" />
+          </a>
+        </div>
+      )}
+
     </motion.div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
