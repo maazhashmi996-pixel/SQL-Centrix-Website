@@ -1638,523 +1638,657 @@
 
 
 
+
+
+
+
+
+
+
+
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Users,
-  Filter,
+  Sparkles,
   CheckCircle2,
   TrendingUp,
   MousePointer2,
   Target,
-  Sparkles,
+  Zap,
+  BarChart3,
 } from "lucide-react";
 
 export default function Hero() {
-  const funnelItems = [
-    {
-      title: "TRAFFIC",
-      subtitle: "Targeted Visitors",
-      icon: Users,
-      type: "yellow",
-    },
-    {
-      title: "QUALIFIED",
-      subtitle: "High Intent Leads",
-      icon: Filter,
-      type: "dark",
-    },
-    {
-      title: "SQL",
-      subtitle: "Sales Qualified Leads",
-      icon: CheckCircle2,
-      type: "light",
-    },
-    {
-      title: "REVENUE",
-      subtitle: "Business Growth",
-      icon: TrendingUp,
-      type: "dark",
-    },
-  ];
-
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#fffdf8] text-slate-950">
+    <section className="relative min-h-screen overflow-hidden bg-[#fcfcfa] text-slate-950">
+
       {/* =====================================================
           BACKGROUND
       ===================================================== */}
 
-      <div className="pointer-events-none absolute inset-0">
-        {/* Warm glow */}
-        <div className="absolute right-[8%] top-[12%] h-[600px] w-[600px] rounded-full bg-yellow-200/25 blur-[130px]" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-        <div className="absolute bottom-[-200px] left-[25%] h-[500px] w-[500px] rounded-full bg-yellow-100/30 blur-[120px]" />
-
-        {/* Dot pattern */}
-        <div
-          className="absolute right-0 top-24 h-[500px] w-[300px] opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(#d8d1c2 1.2px, transparent 1.2px)",
-            backgroundSize: "18px 18px",
-            maskImage:
-              "linear-gradient(to left, black, transparent)",
+        {/* Main natural yellow glow */}
+        <motion.div
+          animate={{
+            x: [0, 35, -15, 0],
+            y: [0, -25, 20, 0],
+            scale: [1, 1.08, 0.98, 1],
           }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -right-48 -top-56 h-[720px] w-[720px] rounded-full bg-yellow-300/20 blur-[150px]"
         />
 
-        {/* Bottom dots */}
-        <div
-          className="absolute bottom-10 left-0 h-40 w-48 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(#d8d1c2 1.2px, transparent 1.2px)",
-            backgroundSize: "16px 16px",
-            maskImage:
-              "linear-gradient(to right, black, transparent)",
+        {/* Secondary warm glow */}
+        <motion.div
+          animate={{
+            x: [0, -25, 20, 0],
+            y: [0, 20, -15, 0],
+            scale: [1, 0.95, 1.06, 1],
           }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -bottom-64 -left-56 h-[600px] w-[600px] rounded-full bg-amber-200/20 blur-[150px]"
         />
 
-        {/* Large soft circle */}
-        <div className="absolute right-[5%] top-[15%] h-[650px] w-[650px] rounded-full border border-yellow-200/30" />
+        {/* Soft white center */}
+        <div className="absolute left-1/2 top-1/2 h-[700px] w-[1100px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 blur-[130px]" />
 
-        <div className="absolute right-[8%] top-[19%] h-[560px] w-[560px] rounded-full border border-yellow-100/40" />
+        {/* Premium grid */}
+        <div
+          className="
+            absolute inset-0
+            opacity-[0.32]
+            bg-[linear-gradient(to_right,rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.035)_1px,transparent_1px)]
+            bg-[size:5rem_5rem]
+          "
+        />
+
+        {/* Fine radial texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.45)_75%,rgba(255,255,255,0.8)_100%)]" />
       </div>
 
       {/* =====================================================
-          NAVBAR
+          MAIN CONTAINER
       ===================================================== */}
 
-    
-      {/* =====================================================
-          MAIN HERO
-      ===================================================== */}
+      <div className="relative z-20 mx-auto w-full max-w-[1240px] px-6 lg:px-8">
 
-      <div className="relative z-20 mx-auto grid min-h-[calc(100vh-100px)] w-full max-w-[1400px] items-center gap-8 px-6 pb-16 pt-8 lg:grid-cols-[0.95fr_1.05fr] lg:px-10 lg:pt-0">
-        {/* =================================================
-            LEFT CONTENT
-        ================================================= */}
+        {/* ===================================================
+            TOP BAR
+        =================================================== */}
 
-        <motion.div
-          initial={{ opacity: 0, x: -35 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 0.9,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="relative z-20"
-        >
-          {/* Sub Heading */}
+        <div className="flex items-center justify-between pt-6 lg:pt-8">
 
-          <div className="mb-7">
-            <div className="flex items-center gap-3">
-              <span className="h-[2px] w-16 bg-yellow-400" />
+          {/* Brand */}
 
-              <span className="text-xs font-black uppercase tracking-[0.3em] text-yellow-600">
-                Sub Heading
-              </span>
-            </div>
-          </div>
-
-          {/* Main Heading */}
-
-          <h1 className="max-w-[700px] text-[clamp(3.4rem,6.3vw,6.5rem)] font-black leading-[0.9] tracking-[-0.065em]">
-            <span className="block text-slate-950">
-              Nothing But
-            </span>
-
-            <span className="block text-yellow-500">
-              Sales Qualified
-            </span>
-
-            <span className="block text-yellow-500">
-              Leads<span className="text-slate-950">.</span>
-            </span>
-          </h1>
-
-          {/* Yellow underline */}
-
-          <div className="mt-7 flex items-center gap-2">
-            <div className="h-[3px] w-44 rounded-full bg-yellow-400" />
-
-            <div className="h-3 w-3 rounded-full bg-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.7)]" />
-          </div>
-
-          {/* Description */}
-
-          <div className="mt-8 max-w-[590px]">
-            <p className="text-base leading-7 text-slate-600 lg:text-[17px]">
-              At{" "}
-              <span className="font-bold text-slate-950">
-                SQL Centrix
-              </span>
-              , every strategy, campaign, website, advertisement, and piece of content has one objective: Bringing your business, qualified opportunities that convert into revenue.
-            </p>
-
-            {/* Quote */}
-
-            <div className="mt-7 border-l-[3px] border-yellow-400 pl-5">
-              <p className="font-bold leading-6 text-slate-900">
-                Marketing is the process. SQL&apos;s are the results.
-              </p>
-
-              <p className="mt-1 text-sm text-slate-500">
-                At SQL Centrix the results are our starting point.
-              </p>
-            </div>
-          </div>
-
-          {/* CTA */}
-
-          <motion.a
-            href="#contact"
-            whileHover={{
-              scale: 1.025,
-              y: -3,
-            }}
-            whileTap={{
-              scale: 0.97,
-            }}
-            className="group mt-8 inline-flex items-center gap-5 rounded-full bg-[#111111] py-2 pl-7 pr-2 text-sm font-bold text-white shadow-[0_20px_45px_rgba(0,0,0,0.15)]"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex items-center gap-3"
           >
-            <span>Get Your Free Growth Strategy</span>
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-[13px] bg-slate-950 shadow-[0_12px_30px_rgba(15,23,42,0.16)]">
+              <Sparkles className="h-4 w-4 text-yellow-400" />
 
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-400 text-slate-950 transition-transform duration-300 group-hover:rotate-45">
-              <ArrowUpRight className="h-5 w-5" />
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-yellow-400 ring-4 ring-[#fcfcfa]" />
+            </div>
+
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-950">
+                SQL Centrix
+              </p>
+
+              <p className="mt-0.5 text-[8px] font-medium text-slate-400">
+                Revenue-driven growth
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Status */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="hidden items-center gap-2.5 rounded-full border border-slate-200/80 bg-white/75 px-4 py-2.5 shadow-[0_8px_25px_rgba(15,23,42,0.05)] backdrop-blur-xl sm:flex"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-          </motion.a>
 
-          {/* =================================================
-              STATS
-          ================================================= */}
+            <span className="text-[9px] font-bold tracking-[0.14em] text-slate-500">
+              REVENUE-DRIVEN B2B GROWTH
+            </span>
+          </motion.div>
+        </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-6">
-            {/* Stat 1 */}
+        {/* ===================================================
+            HERO
+        =================================================== */}
 
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-yellow-100">
-                <Users className="h-5 w-5 text-slate-900" />
-              </div>
+        <div className="flex min-h-[calc(100vh-90px)] items-center pb-16 pt-14 lg:pb-20 lg:pt-10">
 
-              <div>
-                <p className="text-lg font-black">100+</p>
-                <p className="text-xs text-slate-500">
-                  Happy Clients
-                </p>
-              </div>
-            </div>
+          <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-[1.03fr_0.97fr] lg:gap-12">
 
-            <div className="h-10 w-px bg-slate-200" />
+            {/* =================================================
+                LEFT CONTENT
+            ================================================= */}
 
-            {/* Stat 2 */}
-
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-yellow-100">
-                <Target className="h-5 w-5 text-slate-900" />
-              </div>
-
-              <div>
-                <p className="text-lg font-black">250K+</p>
-                <p className="text-xs text-slate-500">
-                  SQLs Delivered
-                </p>
-              </div>
-            </div>
-
-            <div className="h-10 w-px bg-slate-200" />
-
-            {/* Stat 3 */}
-
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-yellow-100">
-                <TrendingUp className="h-5 w-5 text-slate-900" />
-              </div>
-
-              <div>
-                <p className="text-lg font-black">98%</p>
-                <p className="text-xs text-slate-500">
-                  Client Retention
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* =================================================
-            RIGHT FUNNEL
-        ================================================= */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            x: 40,
-            scale: 0.95,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1,
-            delay: 0.15,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="relative flex min-h-[600px] items-center justify-center lg:min-h-[720px]"
-        >
-          {/* Floating people */}
-
-          {[
-            { left: "20%", top: "13%", yellow: true },
-            { left: "39%", top: "17%", yellow: false },
-            { left: "57%", top: "9%", yellow: false },
-            { left: "70%", top: "15%", yellow: true },
-            { left: "28%", top: "25%", yellow: false },
-            { left: "51%", top: "27%", yellow: true },
-            { left: "77%", top: "26%", yellow: false },
-          ].map((item, index) => (
             <motion.div
-              key={index}
-              animate={{
-                y: [0, -8, 0],
-              }}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 2.5 + index * 0.2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.2,
+                duration: 0.9,
+                ease: [0.16, 1, 0.3, 1],
               }}
-              style={{
-                left: item.left,
-                top: item.top,
-              }}
-              className={`absolute z-20 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white shadow-lg ${
-                item.yellow
-                  ? "bg-yellow-400 text-slate-950"
-                  : "bg-[#171717] text-white"
-              }`}
+              className="relative z-20"
             >
-              <Users className="h-4 w-4" />
-            </motion.div>
-          ))}
 
-          {/* Vertical lines */}
+              {/* Label */}
 
-          <div className="absolute left-[20%] top-[18%] h-[120px] w-px bg-yellow-300/70" />
-          <div className="absolute left-[39%] top-[22%] h-[100px] w-px bg-slate-300" />
-          <div className="absolute left-[57%] top-[15%] h-[150px] w-px bg-yellow-300/70" />
-          <div className="absolute left-[70%] top-[20%] h-[120px] w-px bg-yellow-300/70" />
+              <div className="mb-7 flex items-center gap-3">
 
-          {/* Funnel */}
+                <span className="h-[2px] w-10 rounded-full bg-yellow-500" />
 
-          <div className="relative mt-12 flex w-full max-w-[620px] flex-col items-center">
-            {funnelItems.map((item, index) => {
-              const Icon = item.icon;
+                <span className="text-[10px] font-black uppercase tracking-[0.26em] text-yellow-600 sm:text-xs">
+                  Sub Heading
+                </span>
 
-              const widths = [
-                "w-[94%]",
-                "w-[82%]",
-                "w-[68%]",
-                "w-[55%]",
-              ];
+                <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
+              </div>
 
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{
-                    opacity: 0,
-                    y: -20,
-                    scale: 0.9,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  transition={{
-                    duration: 0.7,
-                    delay: 0.4 + index * 0.18,
-                  }}
-                  className={`${widths[index]} relative z-10 -mb-1`}
-                >
+              {/* Heading */}
+
+              <h1 className="max-w-[760px] text-[clamp(3.4rem,6.3vw,6.9rem)] font-black leading-[0.88] tracking-[-0.078em] text-slate-950">
+
+                Nothing But{" "}
+
+                <span className="relative inline-block">
+
+                  <span className="relative z-10 text-yellow-500">
+                    Sales Qualified Leads.
+                  </span>
+
+                  {/* Marker */}
+
+                  <motion.span
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: "68%", opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 0.75,
+                      ease: "easeOut",
+                    }}
+                    className="absolute -bottom-3 left-0 h-2.5 rounded-full bg-yellow-300/60"
+                  />
+
+                  {/* Glow */}
+
+                  <span className="absolute -inset-x-3 bottom-0 -z-10 h-8 rounded-full bg-yellow-200/20 blur-xl" />
+                </span>
+              </h1>
+
+              {/* Description */}
+
+              <div className="mt-9 max-w-[650px]">
+
+                <p className="text-sm leading-7 text-slate-600 sm:text-base sm:leading-8 lg:text-lg">
+                  At{" "}
+                  <span className="font-bold text-slate-950">
+                    SQL Centrix
+                  </span>
+                  , every strategy, campaign, website, advertisement, and piece of content has one objective: Bringing your business, qualified opportunities that convert into revenue.
+                </p>
+
+                {/* Divider */}
+
+                <div className="my-6 flex items-center gap-3">
+
+                  <div className="h-px w-16 bg-slate-200" />
+
                   <motion.div
                     animate={{
-                      y: [0, -3, 0],
+                      scale: [1, 1.45, 1],
                     }}
                     transition={{
-                      duration: 4,
+                      duration: 2,
                       repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.3,
                     }}
-                    className={`
-                      relative flex h-[105px] items-center gap-5 overflow-hidden
-                      rounded-[48%_48%_42%_42%/32%_32%_68%_68%]
-                      border
-                      px-8
-                      shadow-[0_18px_35px_rgba(0,0,0,0.13)]
-                      ${
-                        item.type === "yellow"
-                          ? "border-yellow-300 bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-500"
-                          : item.type === "light"
-                          ? "border-slate-200 bg-gradient-to-b from-white to-[#f4f0e5]"
-                          : "border-slate-700 bg-gradient-to-b from-[#343434] to-[#111111] text-white"
-                      }
-                    `}
-                  >
-                    {/* shine */}
+                    className="h-1.5 w-1.5 rounded-full bg-yellow-500"
+                  />
 
-                    <div className="pointer-events-none absolute inset-x-10 top-2 h-5 rounded-full bg-white/20 blur-md" />
+                  <div className="h-px w-16 bg-slate-200" />
+                </div>
 
-                    {/* Icon */}
+                <p className="text-sm font-bold text-slate-800 sm:text-base">
+                  Marketing is the process. SQL&apos;s are the results.
+                </p>
 
-                    <div
-                      className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border ${
-                        item.type === "yellow"
-                          ? "border-yellow-700/30 bg-[#171717] text-yellow-400"
-                          : item.type === "light"
-                          ? "border-yellow-400 bg-yellow-50 text-slate-950"
-                          : "border-yellow-400/50 bg-[#111111] text-yellow-400"
-                      }`}
-                    >
-                      <Icon className="h-5 w-5" />
-                    </div>
+                <p className="mt-1.5 text-sm text-slate-500 sm:text-base">
+                  At SQL Centrix the results are our starting point.
+                </p>
+              </div>
 
-                    {/* Text */}
+              {/* CTA */}
 
-                    <div className="relative">
-                      <p
-                        className={`text-xl font-black tracking-tight ${
-                          item.type === "yellow"
-                            ? "text-slate-950"
-                            : item.type === "light"
-                            ? "text-slate-950"
-                            : "text-white"
-                        }`}
-                      >
-                        {item.title}
-                      </p>
+              <div className="mt-9 flex flex-wrap items-center gap-5">
 
-                      <p
-                        className={`text-xs ${
-                          item.type === "yellow"
-                            ? "text-slate-900"
-                            : item.type === "light"
-                            ? "text-slate-500"
-                            : "text-slate-300"
-                        }`}
-                      >
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
+                <motion.a
+                  href="#contact"
+                  whileHover={{
+                    y: -4,
+                    scale: 1.025,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
+                  className="group relative inline-flex items-center gap-4 overflow-hidden rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-bold text-white shadow-[0_22px_50px_rgba(15,23,42,0.16)] sm:px-6"
+                >
 
-            {/* Funnel tip */}
+                  {/* Shine */}
 
-            <motion.div
-              animate={{
-                opacity: [0.7, 1, 0.7],
-                scale: [1, 1.05, 1],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-              }}
-              className="relative z-0 -mt-1 h-24 w-28 overflow-hidden"
-              style={{
-                clipPath: "polygon(25% 0, 75% 0, 55% 100%, 45% 100%)",
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-yellow-400" />
+                  <span className="absolute inset-y-0 -left-full w-1/3 skew-x-[-20deg] bg-white/10 transition-all duration-700 group-hover:left-[120%]" />
+
+                  <span className="relative z-10">
+                    Get Your Free Growth Strategy
+                  </span>
+
+                  <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-xl bg-yellow-400 text-slate-950 transition-transform duration-300 group-hover:rotate-45">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </motion.a>
+
+                {/* Small trust text */}
+
+                <div className="hidden items-center gap-2 sm:flex">
+                  <div className="flex -space-x-2">
+                    <span className="h-7 w-7 rounded-full border-2 border-white bg-slate-200" />
+                    <span className="h-7 w-7 rounded-full border-2 border-white bg-yellow-200" />
+                    <span className="h-7 w-7 rounded-full border-2 border-white bg-slate-300" />
+                  </div>
+
+                  <span className="text-[10px] font-semibold text-slate-400">
+                    Revenue focused
+                  </span>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Glow */}
+            {/* =================================================
+                RIGHT ORBIT SYSTEM
+            ================================================= */}
 
             <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.88,
+                x: 30,
+              }}
               animate={{
-                opacity: [0.35, 0.7, 0.35],
-                scale: [0.9, 1.08, 0.9],
+                opacity: 1,
+                scale: 1,
+                x: 0,
               }}
               transition={{
-                duration: 2.5,
-                repeat: Infinity,
+                duration: 1.1,
+                delay: 0.2,
+                ease: [0.16, 1, 0.3, 1],
               }}
-              className="absolute bottom-[-65px] h-28 w-28 rounded-full bg-yellow-400/50 blur-2xl"
-            />
+              className="relative mx-auto hidden h-[570px] w-full max-w-[560px] lg:block"
+            >
 
-            {/* Platform */}
+              {/* Ambient glow */}
 
-            <div className="relative mt-[-2px] h-16 w-[330px] rounded-[50%] border border-yellow-400/60 bg-gradient-to-b from-[#77736c] to-[#222222] shadow-[0_25px_50px_rgba(0,0,0,0.2)]">
-              <div className="absolute inset-2 rounded-[50%] border border-yellow-400/70 bg-[#30302d]" />
+              <div className="absolute left-1/2 top-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-300/20 blur-[90px]" />
+
+              {/* Outer Orbit */}
 
               <motion.div
                 animate={{
-                  opacity: [0.5, 1, 0.5],
-                  scale: [0.85, 1, 0.85],
+                  rotate: 360,
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 38,
                   repeat: Infinity,
+                  ease: "linear",
                 }}
-                className="absolute left-1/2 top-1/2 h-5 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-300 blur-md"
-              />
-            </div>
+                className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-yellow-300/70"
+              >
+
+                {/* Orbit point */}
+
+                <div className="absolute left-1/2 -top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-yellow-400 shadow-[0_0_25px_rgba(234,179,8,0.65)]" />
+
+                <div className="absolute bottom-[14%] left-[7%] h-2 w-2 rounded-full bg-slate-300" />
+
+                <div className="absolute right-[10%] top-[19%] h-2 w-2 rounded-full bg-yellow-500" />
+              </motion.div>
+
+              {/* Second orbit */}
+
+              <motion.div
+                animate={{
+                  rotate: -360,
+                }}
+                transition={{
+                  duration: 28,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute left-1/2 top-1/2 h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200/90"
+              >
+
+                <div className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-slate-900 shadow-lg" />
+              </motion.div>
+
+              {/* Inner orbit */}
+
+              <div className="absolute left-1/2 top-1/2 h-[285px] w-[285px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-yellow-200/60" />
+
+              {/* =================================================
+                  MAIN GLASS CARD
+              ================================================= */}
+
+              <motion.div
+                animate={{
+                  y: [0, -9, 0],
+                  rotateZ: [0, 0.5, 0],
+                }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute left-1/2 top-1/2 z-20 w-[370px] -translate-x-1/2 -translate-y-1/2 rounded-[2.5rem] border border-white/90 bg-white/85 p-5 shadow-[0_40px_100px_rgba(15,23,42,0.14)] backdrop-blur-2xl"
+              >
+
+                {/* Card top */}
+
+                <div className="flex items-center justify-between px-1">
+
+                  <div>
+                    <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                      Growth System
+                    </p>
+
+                    <p className="mt-1 text-base font-black tracking-tight text-slate-950">
+                      Qualified Pipeline
+                    </p>
+                  </div>
+
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-50 text-yellow-600 ring-1 ring-yellow-200">
+                    <TrendingUp className="h-4 w-4" />
+
+                    <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-emerald-400 ring-2 ring-white" />
+                  </div>
+                </div>
+
+                {/* Visualization */}
+
+                <div className="relative mt-5 h-[205px] overflow-hidden rounded-[1.8rem] bg-slate-950">
+
+                  {/* grid */}
+
+                  <div
+                    className="
+                      absolute inset-0 opacity-[0.13]
+                      bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)]
+                      bg-[size:38px_38px]
+                    "
+                  />
+
+                  {/* Yellow orb */}
+
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.18, 1],
+                      x: [0, 15, 0],
+                      y: [0, 8, 0],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-yellow-400 blur-[1px]"
+                  />
+
+                  {/* Dark overlay */}
+
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-950/20 via-transparent to-black/50" />
+
+                  {/* mini lines */}
+
+                  <div className="absolute bottom-7 left-7 right-7 flex items-end gap-2 opacity-60">
+                    <span className="h-7 w-2 rounded-full bg-white/20" />
+                    <span className="h-11 w-2 rounded-full bg-white/30" />
+                    <span className="h-16 w-2 rounded-full bg-yellow-300/60" />
+                    <span className="h-12 w-2 rounded-full bg-yellow-400/80" />
+                    <span className="h-20 w-2 rounded-full bg-yellow-400" />
+                    <span className="h-24 w-2 rounded-full bg-yellow-300" />
+                  </div>
+
+                  {/* center */}
+
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+
+                    <p className="text-[8px] font-bold uppercase tracking-[0.3em] text-white/50">
+                      Results
+                    </p>
+
+                    <p className="mt-1 text-[4.5rem] font-black leading-none tracking-[-0.09em] text-white">
+                      SQL
+                    </p>
+
+                    <div className="mt-4 h-1 w-16 rounded-full bg-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.5)]" />
+                  </div>
+                </div>
+
+                {/* Stats */}
+
+                <div className="mt-4 grid grid-cols-2 gap-3">
+
+                  <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-3">
+
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+
+                    <p className="mt-3 text-sm font-black text-slate-900">
+                      Qualified
+                    </p>
+
+                    <p className="mt-0.5 text-[8px] text-slate-400">
+                      Opportunities
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-3">
+
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                      <MousePointer2 className="h-4 w-4" />
+                    </div>
+
+                    <p className="mt-3 text-sm font-black text-slate-900">
+                      Revenue
+                    </p>
+
+                    <p className="mt-0.5 text-[8px] text-slate-400">
+                      Focused Growth
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* =================================================
+                  FLOATING QUALITY CARD
+              ================================================= */}
+
+              <motion.div
+                animate={{
+                  y: [0, -12, 0],
+                  rotate: [0, 1.5, 0],
+                }}
+                transition={{
+                  duration: 5.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute left-0 top-[17%] z-30 rounded-2xl border border-yellow-200/80 bg-white/90 p-3 shadow-[0_20px_50px_rgba(15,23,42,0.1)] backdrop-blur-xl"
+              >
+
+                <div className="flex items-center gap-2.5">
+
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-yellow-400 text-slate-950 shadow-sm">
+                    <Sparkles className="h-4 w-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-[9px] font-black text-slate-900">
+                      Lead Quality
+                    </p>
+
+                    <p className="mt-0.5 text-[8px] text-yellow-700">
+                      High intent
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* =================================================
+                  FLOATING TARGET CARD
+              ================================================= */}
+
+              <motion.div
+                animate={{
+                  y: [0, 10, 0],
+                  x: [0, 4, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute right-[-5px] top-[30%] z-30 flex items-center gap-2 rounded-2xl border border-slate-200/80 bg-white/90 px-3 py-2.5 shadow-[0_20px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+              >
+
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-950 text-yellow-400">
+                  <Target className="h-4 w-4" />
+                </div>
+
+                <div>
+                  <p className="text-[9px] font-black text-slate-900">
+                    High Intent
+                  </p>
+
+                  <p className="text-[8px] text-slate-400">
+                    Targeted
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* =================================================
+                  BOTTOM FLOATING CARD
+              ================================================= */}
+
+              <motion.div
+                animate={{
+                  y: [0, 10, 0],
+                }}
+                transition={{
+                  duration: 4.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute bottom-[10%] right-[-4%] z-30 flex items-center gap-2.5 rounded-full border border-slate-200 bg-white/90 px-4 py-2.5 shadow-[0_20px_50px_rgba(15,23,42,0.1)] backdrop-blur-xl"
+              >
+
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-50" />
+                  <span className="relative h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+
+                <span className="text-[9px] font-bold text-slate-600">
+                  Conversion Driven
+                </span>
+              </motion.div>
+
+              {/* =================================================
+                  SMALL DATA CHIP
+              ================================================= */}
+
+              <motion.div
+                animate={{
+                  y: [0, -7, 0],
+                  rotate: [0, -1, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute bottom-[8%] left-[2%] z-30 flex items-center gap-2 rounded-xl border border-yellow-200 bg-yellow-50/90 px-3 py-2 shadow-lg backdrop-blur-xl"
+              >
+
+                <BarChart3 className="h-3.5 w-3.5 text-yellow-600" />
+
+                <span className="text-[8px] font-black uppercase tracking-wider text-yellow-800">
+                  Growth
+                </span>
+              </motion.div>
+            </motion.div>
           </div>
-
-          {/* =================================================
-              SIDE NOTE
-          ================================================= */}
-
-          <motion.div
-            animate={{
-              y: [0, -7, 0],
-              rotate: [-2, 0, 2, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute bottom-[13%] right-[0%] hidden max-w-[160px] lg:block"
-          >
-            <p className="font-serif text-lg italic leading-6 text-slate-700">
-              We focus on
-              <br />
-              what matters
-            </p>
-
-            <div className="mt-1 ml-[-10px] h-12 w-20 rotate-[-15deg] border-b border-slate-700 rounded-[50%]" />
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* =====================================================
-          SCROLL INDICATOR
+          BOTTOM LINE
       ===================================================== */}
 
-      <motion.div
-        animate={{
-          y: [0, 7, 0],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-        }}
-        className="absolute bottom-5 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-3 lg:flex"
-      >
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-slate-900 pt-2">
-          <div className="h-1.5 w-1 rounded-full bg-slate-900" />
-        </div>
+      <div className="pointer-events-none absolute bottom-5 left-1/2 z-20 hidden w-full max-w-[1240px] -translate-x-1/2 px-6 lg:block">
 
-        <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-600">
-          Scroll to explore
-        </span>
-      </motion.div>
+        <div className="flex items-center gap-4">
+
+          <span className="text-[8px] font-bold uppercase tracking-[0.22em] text-slate-300">
+            SQL CENTRIX
+          </span>
+
+          <div className="h-px flex-1 bg-slate-200" />
+
+          <div className="flex items-center gap-1.5">
+
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+
+            <motion.span
+              animate={{
+                width: [18, 38, 18],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="h-1.5 rounded-full bg-yellow-500"
+            />
+
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
+
+
