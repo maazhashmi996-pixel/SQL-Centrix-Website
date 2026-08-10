@@ -3,32 +3,16 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView, useSpring, animate } from "framer-motion";
 import { 
   FiZap, 
-  FiCompass, 
   FiCpu, 
   FiTrendingUp, 
   FiBarChart2, 
   FiArrowUpRight,
-  FiShoppingBag,
-  FiCheckCircle
+  FiShoppingBag
 } from "react-icons/fi";
 
 const processSteps = [
   {
     step: "01",
-    title: "Who We Are & Our Track Record",
-    badge: "Company Overview",
-    type: "overview",
-    icon: FiCompass,
-    stats: [
-      { label: "Combined Years of Experience", value: "10+ Years" },
-      { label: "Industries We Served", value: "25+ From Fintech to Real Estate" },
-      { label: "Marketing Channels Managed", value: "TikTok, Youtube, Meta, Google, LinkedIn, Wikipedia, Snapchat, Reddit, Pinterest, WhatsApp Business" },
-      { label: "Businesses Worked With", value: "50+ Businesses Around Pakistan, UAE, Saudi Arabia, United Kingdom and USA" },
-      { label: "Campaigns Launched", value: "500+ Performance-Driven Campaigns Delivered" },
-    ],
-  },
-  {
-    step: "02",
     title: "Desiro LLC",
     subtitle: "Building an End-to-End Customer Acquisition & Sales System",
     industry: "Digital Marketing & Advertising",
@@ -41,11 +25,11 @@ const processSteps = [
     ],
     services: "Performance Marketing • Creative Strategy • Bitrix24 CRM • WhatsApp Integration • Sales Pipeline Design • Lead Management • Customer Onboarding • Client Servicing",
     icon: FiCpu,
-    badge: "Digital Marketing & Advertising",
+    badge: "10. Case Studies",
     type: "casestudy",
   },
   {
-    step: "03",
+    step: "02",
     title: "Kryalon Store",
     subtitle: "Scaling an E-Commerce Brand Through Performance Marketing",
     industry: "E-Commerce & Beauty",
@@ -58,11 +42,11 @@ const processSteps = [
     ],
     services: "TikTok Advertising • Creative Strategy • Performance Marketing • Conversion Tracking • Campaign Optimization • Analytics",
     icon: FiShoppingBag,
-    badge: "E-Commerce & Beauty",
+    badge: "Case Study",
     type: "casestudy",
   },
   {
-    step: "04",
+    step: "03",
     title: "EVE Beauty",
     subtitle: "Building a Scalable Performance Marketing System",
     industry: "Beauty & Cosmetics",
@@ -73,13 +57,13 @@ const processSteps = [
       { value: "364,999", label: "Website Clicks" },
       { value: "+7M", label: "2-Second Video Views" },
     ],
-    services: "Performance Marketing • Creative Strategy • Media Buying • Campaign Optimization • Audience Research",
+    services: "TikTok Performance Marketing • Creative Strategy • Audience Research • Campaign Architecture • Conversion Tracking • TikTok Pixel Integration • Creative Testing • Campaign Optimization • Performance Analytics",
     icon: FiTrendingUp,
-    badge: "Beauty & Cosmetics",
+    badge: "Case Study",
     type: "casestudy",
   },
   {
-    step: "05",
+    step: "04",
     title: "ZAM UK VODA",
     subtitle: "Driving High-Intent B2B Search Demand Through Google Ads",
     industry: "Telecommunications & Enterprise Connectivity",
@@ -94,16 +78,6 @@ const processSteps = [
     icon: FiBarChart2,
     badge: "11. Conclusion",
     type: "casestudy",
-  },
-  {
-    step: "06",
-    title: "Let's Build a Growth System That Delivers Sales Qualified Leads",
-    subtitle: "Ready to scale your business with predictable customer acquisition systems?",
-    description: "At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing.\n\nThey need predictable systems that generate qualified opportunities, accelerate growth, and drive measurable business results.",
-    services: "CTA • Contact Us",
-    icon: FiZap,
-    badge: "Get Started",
-    type: "cta",
   },
 ];
 
@@ -155,16 +129,16 @@ export default function ProcessSection() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start -0.60", "end 0.74"],
+    offset: ["start -0.20", "end 0.97"],
   });
 
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const pathLength = useTransform(scrollYProgress, [1, 0], [1, 0]);
 
   return (
     <section
       ref={containerRef}
       id="process"
-      className="relative py-24 bg-white border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950"
+      className="relative py-4 bg-white border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950"
     >
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-amber-600/10 blur-[180px] rounded-full pointer-events-none" />
 
@@ -180,26 +154,19 @@ export default function ProcessSection() {
             className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-xs backdrop-blur-md"
           >
             <FiZap className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-            <span>10. Case Studies & Track Record</span>
+            <span className="text-2xl">10. Case Studies</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
-            Stop Chasing Marketing Strategies. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-serif italic font-normal tracking-normal">
-              Start Building a Marketing System.
-            </span>
+            Case Studies           
           </h2>
-
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-            At SQL Centrix, we don't believe businesses need more marketing for the sake of marketing. Across 500+ campaigns globally, we engineer predictable systems that generate qualified opportunities. Explore our <a href="/blogs" className="text-amber-600 font-bold underline hover:text-amber-800 transition-colors">blogs</a> for expert insights.
-          </p>
         </div>
 
         <div className="relative max-w-6xl mx-auto py-8">
           
           <svg
-            className="absolute bottom-0 left-0 w-full h-full pointer-events-none hidden md:block"
-            viewBox="0 0 1000 1850"
+            className="absolute top-11 left-0 w-full h-[4099px] pointer-events-none hidden md:block"
+            viewBox="0 0 1000 1400"
             fill="none"
             preserveAspectRatio="none"
           >
@@ -207,9 +174,7 @@ export default function ProcessSection() {
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
-                 C 600 960, 400 960, 400 1140
-                 C 400 1320, 600 1320, 600 1500
-                 C 600 1680, 400 1680, 400 1750"
+                 C 600 960, 400 960, 400 1140"
               stroke="#fde68a"
               strokeWidth="5"
               strokeLinecap="round"
@@ -219,9 +184,7 @@ export default function ProcessSection() {
               d="M 600 120 
                  C 600 240, 400 240, 400 420 
                  C 400 600, 600 600, 600 780 
-                 C 600 960, 400 960, 400 1140
-                 C 400 1320, 600 1320, 600 1500
-                 C 600 1680, 400 1680, 400 1750"
+                 C 600 960, 400 960, 400 1140"
               stroke="url(#amberGradientAdvanced)"
               strokeWidth="5"
               strokeLinecap="round"
@@ -324,25 +287,8 @@ function ProcessCard({
       <div className="space-y-2.5">
         <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight flex items-center justify-between">
           <span>{step.title}</span>
-          {step.type !== "cta" && step.type !== "overview" && (
-            <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
-          )}
+          <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
         </h3>
-
-        {step.type === "overview" && step.stats && (
-          <div className="space-y-4 pt-2">
-            {step.stats.map((stat: any, sIdx: number) => (
-              <div key={sIdx} className="space-y-0.5 border-b border-slate-100 pb-2.5 last:border-0 last:pb-0">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-                  {stat.label}:
-                </span>
-                <span className="text-sm font-semibold text-slate-800 block">
-                  {stat.value}
-                </span>
-              </div>
-            ))}
-          </div>
-        )}
 
         {step.subtitle && (
           <h4 className="text-sm font-semibold text-amber-800 tracking-tight">
@@ -380,7 +326,7 @@ function ProcessCard({
           </div>
         )}
 
-        {step.services && step.type !== "cta" && (
+        {step.services && (
           <div className="space-y-1.5 pt-2">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Services Delivered</div>
             <p className="text-xs text-slate-700 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-200/60">
@@ -390,29 +336,15 @@ function ProcessCard({
         )}
       </div>
 
-      {step.type === "casestudy" && (
-        <div className="pt-2">
-          <a 
-            href="#contact" 
-            className="inline-flex items-center gap-2 text-xs font-bold text-amber-600 hover:text-amber-800 uppercase tracking-wider group/link transition-colors cursor-pointer"
-          >
-            <span>View Full Case Study</span>
-            <FiArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-          </a>
-        </div>
-      )}
-
-      {step.type === "cta" && (
-        <div className="pt-4">
-          <a 
-            href="#contact" 
-            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-slate-950 font-bold text-sm tracking-wide shadow-lg shadow-amber-500/20 hover:opacity-95 transition-all cursor-pointer"
-          >
-            <span>Contact Us</span>
-            <FiArrowUpRight className="w-4 h-4" />
-          </a>
-        </div>
-      )}
+      <div className="pt-2">
+        <a 
+          href="#contact" 
+          className="inline-flex items-center gap-2 text-xs font-bold text-amber-600 hover:text-amber-800 uppercase tracking-wider group/link transition-colors cursor-pointer"
+        >
+          <span>View Full Case Study</span>
+          <FiArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+        </a>
+      </div>
 
     </motion.div>
   );

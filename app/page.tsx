@@ -6,6 +6,8 @@ import FAQ from "@/src/data/Components/FAQ";
 import CaseStudies from "@/src/data/Components/CaseStudies";
 import Footer from "@/src/data/Components/Footer";
 import Navbar from "@/src/data/Components/Navbar";
+import Details from "@/src/data/Components/Details";
+import Marketing from "@/src/data/Components/Marketing"
 
 export default function Home() {
   return (
@@ -16,7 +18,9 @@ export default function Home() {
       <Solution />
       <Process />
       <CaseStudies />
+      <Details/>
       <FAQ />
+      <Marketing/>
       <Footer/>
     </main>
   );

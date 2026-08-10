@@ -89,25 +89,8 @@ export default function Problem() {
               ease: [0.16, 1, 0.3, 1],
             }}
           >
-            {/* Section number */}
 
-            <div className="mb-7 flex items-center gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-yellow-200 bg-yellow-50">
-                <span className="text-xs font-black text-yellow-600">
-                  02
-                </span>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
-
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
-                    2. The Problem
-                  </span>
-                </div>
-              </div>
-            </div>
+           
 
             {/* Heading */}
 
@@ -120,31 +103,7 @@ export default function Problem() {
               </span>
             </h2>
 
-            {/* Description decoration */}
-
-            <div className="mt-10 flex max-w-md items-start gap-4">
-              <div className="mt-1 h-12 w-[2px] rounded-full bg-yellow-400" />
-
-              <p className="text-sm font-medium leading-6 text-slate-500">
-                Every marketing activity can look impressive.
-                The real question is what it actually produces.
-              </p>
-            </div>
-
-            {/* Small status */}
-
-            <div className="mt-10 inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2.5 shadow-[0_8px_25px_rgba(15,23,42,0.05)]">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute h-full w-full animate-ping rounded-full bg-yellow-400 opacity-60" />
-                <span className="relative h-2 w-2 rounded-full bg-yellow-500" />
-              </span>
-
-              <Activity className="h-3.5 w-3.5 text-yellow-600" />
-
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600">
-                Common Business Problems
-              </span>
-            </div>
+           
           </motion.div>
 
           {/* =================================================
@@ -357,67 +316,144 @@ export default function Problem() {
             FINAL MESSAGE
         =================================================== */}
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 35,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-          }}
-          className="relative mt-20 overflow-hidden rounded-[30px] bg-slate-950 p-7 shadow-[0_30px_80px_rgba(15,23,42,0.14)] md:mt-24 md:p-10"
-        >
-          {/* Yellow glow */}
+     <motion.div
+  initial={{
+    opacity: 0,
+    y: 35,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: true,
+  }}
+  transition={{
+    duration: 0.8,
+    delay: 0.2,
+  }}
+  className="
+    relative
+    mt-20
+    overflow-hidden
+    rounded-[30px]
+    border
+    border-yellow-500/40
+    p-27
+    shadow-[0_30px_80px_rgba(15,23,42,0.18)]
+    md:mt-24
+    md:p-10
+  "
+>
+  {/* =========================================
+      BUSINESS MEETING BACKGROUND IMAGE
+  ========================================= */}
 
-          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-yellow-400/15 blur-[90px]" />
+  <img
+    src="6.webp"
+    alt="Business meeting"
+    className="
+      absolute
+      inset-0
+      h-full
+      w-full
+      object-cover
+    "
+  />
 
-          <div className="pointer-events-none absolute -bottom-32 left-1/4 h-60 w-60 rounded-full bg-yellow-400/10 blur-[80px]" />
+  {/* =========================================
+      BLACK + YELLOW GRADIENT OVERLAY
+  ========================================= */}
 
-          {/* Content */}
+  <div
+    className="
+      absolute
+      inset-0
+    bg-[linear-gradient(135deg,rgba(0,0,0,0.82)_0%,rgba(0,0,0,0.68)_50%,rgba(0,0,0,0.78)_100%)]
+    "
+  />
 
-          <div className="relative z-10 flex flex-col items-center justify-between gap-7 sm:flex-row">
-            
-            <div className="flex items-center gap-5">
-              <motion.div
-                animate={{
-                  y: [0, -5, 0],
-                  rotate: [0, -4, 0, 4, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border border-yellow-400/20 bg-yellow-400/10"
-              >
-                <AlertTriangle className="h-6 w-6 text-yellow-400" />
-              </motion.div>
+  {/* =========================================
+      SOFT YELLOW GLOW
+  ========================================= */}
 
-              <span className="max-w-2xl text-base font-black leading-7 tracking-tight text-white md:text-xl">
-                But none of them matter if they don't generate business.
-              </span>
-            </div>
+  <motion.div
+    animate={{
+      opacity: [0.15, 0.3, 0.15],
+      scale: [1, 1.08, 1],
+    }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="
+      pointer-events-none
+      absolute
+      -right-20
+      -top-20
+      h-64
+      w-64
+      rounded-full
+      bg-yellow-400
+      blur-[100px]
+    "
+  />
 
-            {/* Arrow */}
+  {/* =========================================
+      CONTENT
+  ========================================= */}
 
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-yellow-400/30 bg-yellow-400 text-slate-950">
-              <ArrowUpRight className="h-5 w-5" />
-            </div>
-          </div>
+  <div className="relative z-10 flex items-center justify-center">
+    <span
+      className="
+        max-w-2xl
+        text-center
+        text-base
+        font-black
+        leading-7
+        text-white
+        drop-shadow-[0_3px_12px_rgba(0,0,0,0.8)]
+        md:text-xl
+      "
+    >
+      But none of them matter if they don't generate business.
+    </span>
+  </div>
 
-          {/* Bottom line */}
+  {/* =========================================
+      BOTTOM ACCENT
+  ========================================= */}
 
-          <div className="absolute bottom-0 left-1/2 h-[3px] w-24 -translate-x-1/2 rounded-t-full bg-yellow-400" />
-        </motion.div>
-      </div>
+  <motion.div
+    initial={{
+      width: 0,
+    }}
+    whileInView={{
+      width: "100%",
+    }}
+    viewport={{
+      once: true,
+    }}
+    transition={{
+      duration: 1,
+      delay: 0.5,
+      ease: "easeOut",
+    }}
+    className="
+      absolute
+      bottom-0
+      left-0
+      h-[3px]
+      bg-gradient-to-r
+      from-transparent
+      via-yellow-500
+      to-transparent
+    "
+  />
+</motion.div>
+       
+             </div>
     </section>
   );
 }
