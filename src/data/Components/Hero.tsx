@@ -25,7 +25,7 @@ export default function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source
-          src="/istockphoto-1036823698-640_adpp_is.mp4"
+          src="video.webm"
           type="video/mp4"
         />
       </video>
@@ -33,13 +33,12 @@ export default function Hero() {
       {/* =========================================
           CINEMATIC BLACK GRADIENT
       ========================================= */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.82)_0%,rgba(0,0,0,0.58)_38%,rgba(0,0,0,0.72)_70%,rgba(0,0,0,0.94)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(150deg,rgba(0,0,0,0.22)_0%,rgba(0,0,0,0.28)_98%,rgba(0,0,0,0.12)_70%,rgba(0,0,0,0)_100%)]" />
 
       {/* =========================================
           SOFTER SIDE GRADIENT
       ========================================= */}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.38)_0%,transparent_45%,rgba(0,0,0,0.38)_100%)]" />
-
+     <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.22)_0%,transparent_45%,rgba(0,0,0,0.22)_100%)]" />
       {/* =========================================
           YELLOW CINEMATIC GLOW
       ========================================= */}

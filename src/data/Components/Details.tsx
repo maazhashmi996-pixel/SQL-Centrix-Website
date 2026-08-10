@@ -14,7 +14,6 @@ import {
 /* =====================================================
    COUNTER
 ===================================================== */
-
 interface CountUpProps {
   value: string | number;
 }
@@ -25,47 +24,33 @@ function CountUp({ value }: CountUpProps) {
   useEffect(() => {
     const end = Number(value);
     const duration = 1800;
-    const pause = 1200;
 
     let animationFrame: number;
-    let pauseTimeout: ReturnType<typeof setTimeout>;
+    const startTime = performance.now();
 
-    const animate = () => {
-      const startTime = performance.now();
+    const updateCounter = (currentTime: number) => {
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
 
-      const updateCounter = (currentTime: number) => {
-        const progress = Math.min(
-          (currentTime - startTime) / duration,
-          1
-        );
+      // Smooth ease-out
+      const eased = 1 - Math.pow(1 - progress, 3);
 
-        const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(end * eased));
 
-        setCount(Math.floor(end * eased));
-
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(updateCounter);
-        } else {
-          setCount(end);
-
-          pauseTimeout = setTimeout(() => {
-            setCount(0);
-
-            pauseTimeout = setTimeout(() => {
-              animate();
-            }, 250);
-          }, pause);
-        }
-      };
-
-      animationFrame = requestAnimationFrame(updateCounter);
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(updateCounter);
+      } else {
+        // Final value — stop permanently
+        setCount(end);
+      }
     };
 
-    animate();
+    animationFrame = requestAnimationFrame(updateCounter);
 
     return () => {
       cancelAnimationFrame(animationFrame);
-      clearTimeout(pauseTimeout);
     };
   }, [value]);
 
@@ -114,15 +99,7 @@ export default function Details() {
   ];
 
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        bg-slate-950
-        py-24
-        sm:py-28
-      "
-    >
+    <section className="relative overflow-hidden bg-slate-950 py-24 sm:py-28 lg:py-32">
       {/* =====================================================
           BACKGROUND IMAGE
       ===================================================== */}
@@ -461,9 +438,7 @@ export default function Details() {
                   hover:shadow-[0_25px_70px_rgba(234,179,8,0.20)]
                 "
               >
-                {/* =================================================
-                    CARD INNER SHINE
-                ================================================= */}
+                {/* CARD INNER SHINE */}
 
                 <div
                   className="
@@ -481,9 +456,7 @@ export default function Details() {
                   "
                 />
 
-                {/* =================================================
-                    CARD GLOW
-                ================================================= */}
+                {/* CARD GLOW */}
 
                 <div
                   className="
@@ -503,7 +476,7 @@ export default function Details() {
                   "
                 />
 
-                {/* Number */}
+                {/* NUMBER */}
 
                 <span
                   className="
@@ -521,9 +494,7 @@ export default function Details() {
                   0{index + 1}
                 </span>
 
-                {/* =================================================
-                    ICON
-                ================================================= */}
+                {/* ICON */}
 
                 <div
                   className="
@@ -551,12 +522,10 @@ export default function Details() {
                   <Icon className="h-5 w-5" />
                 </div>
 
-                {/* =================================================
-                    CONTENT
-                ================================================= */}
+                {/* CONTENT */}
 
                 <div className="relative mt-7">
-                  {/* Label */}
+                  {/* LABEL */}
 
                   <p
                     className="
@@ -570,7 +539,7 @@ export default function Details() {
                     {item.label}
                   </p>
 
-                  {/* Counter */}
+                  {/* COUNTER */}
 
                   <div className="mt-3 flex items-end">
                     <motion.span
@@ -589,7 +558,7 @@ export default function Details() {
                     </motion.span>
                   </div>
 
-                  {/* Description */}
+                  {/* DESCRIPTION */}
 
                   <p
                     className="
@@ -604,9 +573,7 @@ export default function Details() {
                   </p>
                 </div>
 
-                {/* =================================================
-                    ARROW
-                ================================================= */}
+                {/* ARROW */}
 
                 <div
                   className="
@@ -637,9 +604,7 @@ export default function Details() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </div>
 
-                {/* =================================================
-                    BOTTOM YELLOW ACCENT
-                ================================================= */}
+                {/* BOTTOM YELLOW ACCENT */}
 
                 <div
                   className="
