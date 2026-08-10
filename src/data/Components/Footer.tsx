@@ -1,170 +1,1180 @@
 "use client";
+
 import React, { useRef, useState } from "react";
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { HiOutlineSparkles, HiOutlinePhone, HiOutlineLocationMarker, HiOutlineOfficeBuilding, HiOutlineCheckCircle, HiOutlinePaperAirplane } from "react-icons/hi";
-import { FaInstagram, FaLinkedinIn, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+
+import {
+  HiOutlineSparkles,
+  HiOutlinePhone,
+  HiOutlineLocationMarker,
+  HiOutlineOfficeBuilding,
+  HiOutlineCheckCircle,
+  HiOutlinePaperAirplane,
+} from "react-icons/hi";
+
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaFacebookF,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function Footer() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  const isInView = useInView(containerRef, {
+    once: true,
+    margin: "-100px",
+  });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseXSpring = useSpring(x, { stiffness: 200, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 200, damping: 20 });
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["1.5deg", "-1.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-1.5deg", "1.5deg"]);
+  /* =====================================================
+     3D FORM MOTION
+  ===================================================== */
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springX = useSpring(mouseX, {
+    stiffness: 180,
+    damping: 25,
+  });
+
+  const springY = useSpring(mouseY, {
+    stiffness: 180,
+    damping: 25,
+  });
+
+  const rotateX = useTransform(
+    springY,
+    [-0.5, 0.5],
+    ["1deg", "-1deg"]
+  );
+
+  const rotateY = useTransform(
+    springX,
+    [-0.5, 0.5],
+    ["-1deg", "1deg"]
+  );
+
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
+
+    mouseX.set(
+      (e.clientX - rect.left) / rect.width - 0.5
+    );
+
+    mouseY.set(
+      (e.clientY - rect.top) / rect.height - 0.5
+    );
   };
 
   const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
+    mouseX.set(0);
+    mouseY.set(0);
   };
+
+  /* =====================================================
+     FORM SUBMIT
+  ===================================================== */
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
   };
 
+  /* =====================================================
+     SOCIAL LINKS
+  ===================================================== */
+
+  const socials = [
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/",
+      icon: FaInstagram,
+    },
+    {
+      name: "Linkedin",
+      href: "https://www.linkedin.com/",
+      icon: FaLinkedinIn,
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/",
+      icon: FaFacebookF,
+    },
+    {
+      name: "Tiktok",
+      href: "https://www.tiktok.com/",
+      icon: FaTiktok,
+    },
+    {
+      name: "Youtube",
+      href: "https://www.youtube.com/",
+      icon: FaYoutube,
+    },
+  ];
+
   return (
-    <footer 
+    <footer
       ref={containerRef}
-      id="contact" 
-      className="relative pt-32 pb-20 px-6 lg:px-20 bg-white overflow-hidden text-slate-900 border-t border-amber-500/20 selection:bg-amber-500 selection:text-slate-950"
+      id="contact"
+      className="
+        relative
+        overflow-hidden
+        bg-[#fffdf8]
+        px-6
+        pt-28
+        pb-8
+        text-slate-900
+        lg:px-20
+      "
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[700px] bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(245,158,11,0.12),rgba(255,255,255,0))] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pb-20 border-b border-slate-200/80">
-          
-          <motion.div 
-            initial={{ opacity: 0, x: -80 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-8"
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_50%_0%,rgba(250,204,21,0.09),transparent_38%)]
+        "
+      />
+
+      <motion.div
+        animate={{
+          x: [0, 30, 0],
+          y: [0, -20, 0],
+          scale: [1, 1.08, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          top-20
+          h-[360px]
+          w-[360px]
+          rounded-full
+          bg-yellow-300/10
+          blur-[120px]
+        "
+      />
+
+      <motion.div
+        animate={{
+          x: [0, -35, 0],
+          y: [0, 25, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          bottom-0
+          h-[400px]
+          w-[400px]
+          rounded-full
+          bg-amber-200/10
+          blur-[130px]
+        "
+      />
+
+      {/* subtle grid */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          opacity-30
+          [background-image:linear-gradient(rgba(234,179,8,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(234,179,8,0.035)_1px,transparent_1px)]
+          [background-size:60px_60px]
+          [mask-image:linear-gradient(to_bottom,black,transparent_85%)]
+        "
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* =====================================================
+            MAIN GRID
+        ===================================================== */}
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-14
+            border-b
+            border-slate-200/80
+            pb-20
+            lg:grid-cols-12
+            lg:items-center
+            lg:gap-20
+          "
+        >
+
+          {/* =====================================================
+              LEFT SIDE
+          ===================================================== */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -60,
+            }}
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    x: 0,
+                  }
+                : {}
+            }
+            transition={{
+              duration: 0.9,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="lg:col-span-5"
           >
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-wider shadow-xs backdrop-blur-md">
-                <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-                <span>SEND US A MESSAGE</span>
-              </div>
 
-              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
-                Contact
-              </h2>
+            <div className="space-y-8">
 
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-                Fill out the form below, and our team will get in touch with you shortly to discuss your requirements and the best way to help your business grow.
-              </p>
-            </div>
+              {/* Badge */}
 
-            <div className="space-y-4">
-              {[
-                { icon: HiOutlineOfficeBuilding, title: "Company Entity", value: "SQL Centrix Pvt. Ltd.", isAddress: false },
-                { icon: HiOutlinePhone, title: "Direct Phone", value: "+92 320 6495098", isAddress: false },
-                { icon: HiOutlineLocationMarker, title: "Office Headquarters", value: "House# 4, Ittehad Colony Allama Iqbal Town, Lahore, 54000", isAddress: true }
-              ].map((item, idx) => (
-                <div key={idx} className={`flex ${item.isAddress ? 'items-start' : 'items-center'} gap-4.5 p-5 rounded-2xl bg-white border border-amber-500/20 shadow-sm backdrop-blur-xl`}>
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <item.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{item.title}</div>
-                    <div className="text-slate-900 font-bold text-sm sm:text-base mt-0.5">{item.value}</div>
-                  </div>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 15,
+                }}
+                animate={
+                  isInView
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 0.6,
+                  delay: 0.15,
+                }}
+                className="
+                  relative
+                  inline-flex
+                  items-center
+                  gap-2.5
+                  overflow-hidden
+                  rounded-full
+                  border
+                  border-yellow-300/60
+                  bg-white/80
+                  px-4
+                  py-2
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-yellow-800
+                  shadow-[0_8px_30px_rgba(234,179,8,0.08)]
+                  backdrop-blur-xl
+                "
+              >
+
+                <motion.span
+                  animate={{
+                    x: ["-120%", "220%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatDelay: 2,
+                  }}
+                  className="
+                    absolute
+                    inset-y-0
+                    w-12
+                    rotate-12
+                    bg-white/50
+                    blur-md
+                  "
+                />
+
+                <span
+                  className="
+                    relative
+                    flex
+                    h-6
+                    w-6
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-yellow-400/15
+                  "
+                >
+                  <HiOutlineSparkles className="h-3.5 w-3.5 text-yellow-600" />
+                </span>
+
+                <span className="relative">
+                  SEND US A MESSAGE
+                </span>
+              </motion.div>
+
+              {/* Heading */}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={
+                  isInView
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 0.7,
+                  delay: 0.25,
+                }}
+              >
+
+                <h2
+                  className="
+                    text-5xl
+                    font-black
+                    leading-[0.95]
+                    tracking-[-0.055em]
+                    text-slate-950
+                    sm:text-6xl
+                    lg:text-[68px]
+                  "
+                >
+                  Contact
+                </h2>
+
+                <div className="mt-6 flex items-center gap-3">
+
+                  <motion.span
+                    initial={{ width: 0 }}
+                    animate={
+                      isInView
+                        ? { width: 52 }
+                        : {}
+                    }
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.55,
+                    }}
+                    className="
+                      block
+                      h-[4px]
+                      rounded-full
+                      bg-yellow-400
+                    "
+                  />
+
+                  <span className="h-[4px] w-3 rounded-full bg-yellow-200" />
+                  <span className="h-[4px] w-1.5 rounded-full bg-yellow-100" />
+
                 </div>
-              ))}
-            </div>
 
-            <div className="space-y-3 pt-2">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Social Links</div>
-              <div className="flex flex-wrap items-center gap-3">
+                <p
+                  className="
+                    mt-6
+                    max-w-xl
+                    text-[15px]
+                    leading-7
+                    text-slate-600
+                    sm:text-base
+                  "
+                >
+                  Fill out the form below, and our team will get in touch with
+                  you shortly to discuss your requirements and the best way to
+                  help your business grow.
+                </p>
+
+              </motion.div>
+
+              {/* Contact Info */}
+
+              <div className="space-y-3">
+
                 {[
-                  { name: "Instagram", icon: FaInstagram },
-                  { name: "Linkedin", icon: FaLinkedinIn },
-                  { name: "Facebook", icon: FaFacebookF },
-                  { name: "Tiktok", icon: FaTiktok },
-                  { name: "Youtube", icon: FaYoutube }
-                ].map((social, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold shadow-sm"
+                  {
+                    icon: HiOutlineOfficeBuilding,
+                    title: "Company Entity",
+                    value: "SQL Centrix Pvt. Ltd.",
+                  },
+                  {
+                    icon: HiOutlinePhone,
+                    title: "Direct Phone",
+                    value: "+92 320 6495098",
+                  },
+                  {
+                    icon: HiOutlineLocationMarker,
+                    title: "Office Headquarters",
+                    value:
+                      "House# 4, Ittehad Colony Allama Iqbal Town, Lahore, 54000",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{
+                      opacity: 0,
+                      x: -25,
+                    }}
+                    animate={
+                      isInView
+                        ? {
+                            opacity: 1,
+                            x: 0,
+                          }
+                        : {}
+                    }
+                    transition={{
+                      duration: 0.55,
+                      delay: 0.35 + index * 0.1,
+                    }}
+                    whileHover={{
+                      x: 5,
+                    }}
+                    className="
+                      group
+                      relative
+                      flex
+                      items-start
+                      gap-4
+                      overflow-hidden
+                      rounded-2xl
+                      border
+                      border-slate-200/80
+                      bg-white/70
+                      p-4
+                      backdrop-blur-xl
+                      transition-all
+                      duration-300
+                      hover:border-yellow-300/70
+                      hover:bg-white
+                      hover:shadow-[0_15px_40px_rgba(234,179,8,0.10)]
+                    "
                   >
-                    <social.icon className="w-4 h-4 text-amber-600" />
-                    <span>{social.name}</span>
-                  </div>
+
+                    {/* hover glow */}
+
+                    <div
+                      className="
+                        absolute
+                        -right-10
+                        -top-10
+                        h-24
+                        w-24
+                        rounded-full
+                        bg-yellow-300/10
+                        blur-2xl
+                        opacity-0
+                        transition-opacity
+                        duration-300
+                        group-hover:opacity-100
+                      "
+                    />
+
+                    <motion.div
+                      whileHover={{
+                        rotate: 6,
+                        scale: 1.08,
+                      }}
+                      className="
+                        relative
+                        z-10
+                        flex
+                        h-11
+                        w-11
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-xl
+                        border
+                        border-yellow-200
+                        bg-yellow-50
+                        text-yellow-600
+                        shadow-sm
+                      "
+                    >
+                      <item.icon className="h-5 w-5" />
+                    </motion.div>
+
+                    <div className="relative z-10 pt-0.5">
+
+                      <div
+                        className="
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.2em]
+                          text-slate-400
+                        "
+                      >
+                        {item.title}
+                      </div>
+
+                      <div
+                        className="
+                          mt-1
+                          text-sm
+                          font-bold
+                          leading-6
+                          text-slate-900
+                        "
+                      >
+                        {item.value}
+                      </div>
+
+                    </div>
+
+                  </motion.div>
                 ))}
+
               </div>
+
+              {/* Social */}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={
+                  isInView
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 0.6,
+                  delay: 0.8,
+                }}
+              >
+
+                <div
+                  className="
+                    mb-3
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.2em]
+                    text-slate-400
+                  "
+                >
+                  Social Links
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+
+                  {socials.map((social, index) => {
+                    const Icon = social.icon;
+
+                    return (
+                      <motion.a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        initial={{
+                          opacity: 0,
+                          scale: 0.85,
+                        }}
+                        animate={
+                          isInView
+                            ? {
+                                opacity: 1,
+                                scale: 1,
+                              }
+                            : {}
+                        }
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.85 + index * 0.06,
+                        }}
+                        whileHover={{
+                          y: -4,
+                          scale: 1.04,
+                        }}
+                        whileTap={{
+                          scale: 0.95,
+                        }}
+                        className="
+                          group
+                          inline-flex
+                          items-center
+                          gap-2
+                          rounded-xl
+                          border
+                          border-slate-200
+                          bg-white
+                          px-3.5
+                          py-2.5
+                          text-[11px]
+                          font-bold
+                          text-slate-600
+                          shadow-[0_5px_18px_rgba(15,23,42,0.04)]
+                          transition-all
+                          duration-300
+                          hover:border-yellow-300
+                          hover:bg-yellow-400
+                          hover:text-slate-950
+                          hover:shadow-[0_12px_25px_rgba(234,179,8,0.20)]
+                        "
+                      >
+
+                        <Icon
+                          className="
+                            h-3.5
+                            w-3.5
+                            text-yellow-600
+                            transition-all
+                            duration-300
+                            group-hover:rotate-6
+                            group-hover:text-slate-950
+                          "
+                        />
+
+                        <span>{social.name}</span>
+
+                      </motion.a>
+                    );
+                  })}
+
+                </div>
+
+              </motion.div>
+
             </div>
           </motion.div>
 
-          <motion.div 
+          {/* =====================================================
+              FORM
+          ===================================================== */}
+
+          <motion.div
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }}
+            initial={{
+              opacity: 0,
+              x: 60,
+            }}
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    x: 0,
+                  }
+                : {}
+            }
+            transition={{
+              duration: 0.9,
+              delay: 0.15,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="lg:col-span-7"
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 sm:p-12 rounded-[2.5rem] border border-amber-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.06)] space-y-6 relative">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600" />
-              
-              <h3 className="text-2xl font-black text-slate-900">Form</h3>
 
-              {isSubmitted && (
-                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-sm font-semibold flex items-center gap-3">
-                  <HiOutlineCheckCircle className="w-5 h-5 text-amber-600 animate-bounce" />
-                  <span>Thank you! Your message has been received.</span>
+            <form
+              onSubmit={handleSubmit}
+              className="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                border
+                border-slate-200/80
+                bg-white/90
+                p-7
+                shadow-[0_30px_80px_rgba(15,23,42,0.08)]
+                backdrop-blur-2xl
+                sm:p-10
+                lg:p-11
+              "
+            >
+
+              {/* animated gold line */}
+
+              <motion.div
+                animate={{
+                  backgroundPosition: [
+                    "0% 50%",
+                    "100% 50%",
+                    "0% 50%",
+                  ],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="
+                  absolute
+                  left-0
+                  right-0
+                  top-0
+                  h-[3px]
+                  bg-[linear-gradient(90deg,#f59e0b,#facc15,#eab308,#f59e0b)]
+                  bg-[length:200%_100%]
+                "
+              />
+
+              {/* inner glow */}
+
+              <motion.div
+                animate={{
+                  scale: [1, 1.12, 1],
+                  opacity: [0.15, 0.3, 0.15],
+                }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-32
+                  -top-32
+                  h-72
+                  w-72
+                  rounded-full
+                  bg-yellow-300/20
+                  blur-[90px]
+                "
+              />
+
+              <div className="relative z-10">
+
+                {/* form header */}
+
+                <div className="mb-8">
+
+                  <div
+                    className="
+                      mb-2
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.22em]
+                      text-yellow-600
+                    "
+                  >
+                    Get In Touch
+                  </div>
+
+                  <h3
+                    className="
+                      text-3xl
+                      font-black
+                      tracking-[-0.03em]
+                      text-slate-950
+                    "
+                  >
+                    Form
+                  </h3>
+
                 </div>
-              )}
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">First Name*</label>
-                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Last Name*</label>
-                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Email Address*</label>
-                <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Phone Number*</label>
-                <input type="tel" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Organization</label>
-                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Purpose*</label>
-                <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all shadow-xs" required />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700 uppercase tracking-widest">Message</label>
-                <textarea rows={3} className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm text-slate-900 focus:border-amber-500 outline-none transition-all resize-none shadow-xs"></textarea>
-              </div>
+                {/* success */}
 
-              <button type="submit" className="w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold py-4.5 rounded-2xl shadow-md flex items-center justify-center gap-3 transition-all duration-300 border border-amber-300/30 cursor-pointer">
-                <span>Submit</span>
-                <HiOutlinePaperAirplane className="w-4 h-4 -rotate-45" />
-              </button>
+                {isSubmitted && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                      scale: 0.98,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                    }}
+                    className="
+                      mb-6
+                      flex
+                      items-center
+                      gap-3
+                      rounded-xl
+                      border
+                      border-yellow-200
+                      bg-yellow-50
+                      p-4
+                      text-sm
+                      font-semibold
+                      text-yellow-900
+                    "
+                  >
+                    <HiOutlineCheckCircle className="h-5 w-5 text-yellow-600" />
+
+                    <span>
+                      Thank you! Your message has been received.
+                    </span>
+                  </motion.div>
+                )}
+
+                {/* Inputs */}
+
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+                  {[
+                    {
+                      label: "First Name*",
+                      type: "text",
+                      required: true,
+                    },
+                    {
+                      label: "Last Name*",
+                      type: "text",
+                      required: true,
+                    },
+                    {
+                      label: "Email Address*",
+                      type: "email",
+                      required: true,
+                    },
+                    {
+                      label: "Phone Number*",
+                      type: "tel",
+                      required: true,
+                    },
+                    {
+                      label: "Organization",
+                      type: "text",
+                      required: false,
+                    },
+                    {
+                      label: "Purpose*",
+                      type: "text",
+                      required: true,
+                    },
+                  ].map((field, index) => (
+                    <motion.div
+                      key={field.label}
+                      initial={{
+                        opacity: 0,
+                        y: 15,
+                      }}
+                      animate={
+                        isInView
+                          ? {
+                              opacity: 1,
+                              y: 0,
+                            }
+                          : {}
+                      }
+                      transition={{
+                        duration: 0.45,
+                        delay: 0.3 + index * 0.06,
+                      }}
+                      className="space-y-2"
+                    >
+
+                      <label
+                        className="
+                          block
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.18em]
+                          text-slate-600
+                        "
+                      >
+                        {field.label}
+                      </label>
+
+                      <input
+                        type={field.type}
+                        required={field.required}
+                        className="
+                          w-full
+                          rounded-xl
+                          border
+                          border-slate-200
+                          bg-slate-50/60
+                          px-4
+                          py-3.5
+                          text-sm
+                          font-medium
+                          text-slate-900
+                          outline-none
+                          transition-all
+                          duration-300
+                          hover:border-slate-300
+                          focus:border-yellow-400
+                          focus:bg-white
+                          focus:ring-4
+                          focus:ring-yellow-400/10
+                          focus:shadow-[0_8px_25px_rgba(234,179,8,0.07)]
+                        "
+                      />
+
+                    </motion.div>
+                  ))}
+
+                </div>
+
+                {/* Message */}
+
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 15,
+                  }}
+                  animate={
+                    isInView
+                      ? {
+                          opacity: 1,
+                          y: 0,
+                        }
+                      : {}
+                  }
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.7,
+                  }}
+                  className="mt-5 space-y-2"
+                >
+
+                  <label
+                    className="
+                      block
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.18em]
+                      text-slate-600
+                    "
+                  >
+                    Message
+                  </label>
+
+                  <textarea
+                    rows={4}
+                    className="
+                      w-full
+                      resize-none
+                      rounded-xl
+                      border
+                      border-slate-200
+                      bg-slate-50/60
+                      px-4
+                      py-3.5
+                      text-sm
+                      font-medium
+                      text-slate-900
+                      outline-none
+                      transition-all
+                      duration-300
+                      hover:border-slate-300
+                      focus:border-yellow-400
+                      focus:bg-white
+                      focus:ring-4
+                      focus:ring-yellow-400/10
+                      focus:shadow-[0_8px_25px_rgba(234,179,8,0.07)]
+                    "
+                  />
+
+                </motion.div>
+
+                {/* Submit */}
+
+                <motion.button
+                  type="submit"
+                  whileHover={{
+                    y: -2,
+                  }}
+                  whileTap={{
+                    scale: 0.985,
+                  }}
+                  className="
+                    group
+                    relative
+                    mt-6
+                    flex
+                    w-full
+                    items-center
+                    justify-center
+                    gap-3
+                    overflow-hidden
+                    rounded-xl
+                    border
+                    border-yellow-300
+                    bg-gradient-to-r
+                    from-amber-400
+                    via-yellow-400
+                    to-amber-500
+                    py-4
+                    font-bold
+                    text-slate-950
+                    shadow-[0_10px_30px_rgba(234,179,8,0.18)]
+                    transition-shadow
+                    duration-300
+                    hover:shadow-[0_18px_40px_rgba(234,179,8,0.28)]
+                  "
+                >
+
+                  {/* shine */}
+
+                  <motion.span
+                    animate={{
+                      x: ["-130%", "220%"],
+                    }}
+                    transition={{
+                      duration: 2.8,
+                      repeat: Infinity,
+                      repeatDelay: 2.5,
+                    }}
+                    className="
+                      absolute
+                      inset-y-0
+                      w-16
+                      rotate-12
+                      bg-white/30
+                      blur-md
+                    "
+                  />
+
+                  <span className="relative z-10">
+                    Submit
+                  </span>
+
+                  <motion.span
+                    whileHover={{
+                      x: 4,
+                      y: -3,
+                    }}
+                    className="relative z-10"
+                  >
+                    <HiOutlinePaperAirplane
+                      className="
+                        h-4
+                        w-4
+                        -rotate-45
+                      "
+                    />
+                  </motion.span>
+
+                </motion.button>
+
+              </div>
             </form>
           </motion.div>
+
         </div>
+
+        {/* =====================================================
+            BOTTOM
+        ===================================================== */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.7,
+            delay: 1,
+          }}
+          className="
+            flex
+            flex-col
+            items-center
+            justify-between
+            gap-4
+            pt-7
+            text-center
+            sm:flex-row
+            sm:text-left
+          "
+        >
+
+          <p className="text-xs font-medium text-slate-400">
+            © {new Date().getFullYear()} SQL Centrix Pvt. Ltd. All rights reserved.
+          </p>
+
+          <div
+            className="
+              flex
+              items-center
+              gap-2
+              text-[10px]
+              font-bold
+              uppercase
+              tracking-[0.16em]
+              text-slate-400
+            "
+          >
+            <motion.span
+              animate={{
+                scale: [1, 1.4, 1],
+                opacity: [0.5, 1, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+              }}
+              className="
+                h-1.5
+                w-1.5
+                rounded-full
+                bg-yellow-400
+              "
+            />
+
+            Premium Digital Solutions
+          </div>
+
+        </motion.div>
+
       </div>
     </footer>
   );

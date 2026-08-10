@@ -155,7 +155,7 @@ export default function ProcessSection() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.3", "end 0.75"],
+    offset: ["start -0.60", "end 0.74"],
   });
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -211,7 +211,7 @@ export default function ProcessSection() {
                  C 400 1320, 600 1320, 600 1500
                  C 600 1680, 400 1680, 400 1750"
               stroke="#fde68a"
-              strokeWidth="4"
+              strokeWidth="5"
               strokeLinecap="round"
               fill="none"
             />
