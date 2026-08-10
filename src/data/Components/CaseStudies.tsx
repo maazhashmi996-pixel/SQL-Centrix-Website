@@ -9,52 +9,52 @@ import {
   HiOutlineChevronDown
 } from "react-icons/hi";
 
-const caseStudiesData = [
-  {
-    title: "Building an End-to-End Customer Acquisition & Sales System",
-    industry: "Digital Marketing & Advertising",
-    description: "Desiro partnered with SQL Centrix to build more than a lead generation campaign. We designed a complete customer acquisition system that connected performance marketing with sales operations and customer success. From Meta advertising and WhatsApp lead generation to Bitrix24 CRM implementation, sales pipeline automation, and onboarding workflows, every stage was built to help the business convert more enquiries into long-term clients.",
-    metrics: [
-      { value: "+7,914", label: "WhatsApp Conversations" },
-      { value: "+435K", label: "People Reached" },
-      { value: "+1.7M", label: "Impressions Delivered" },
-      { value: "0.66", label: "Lowest Cost per Conversation (AED)" },
-    ],
-  },
-  {
-    title: "Scaling an E-Commerce Brand Through Performance Marketing",
-    industry: "E-Commerce & Beauty",
-    description: "Kryalon Store partnered with SQL Centrix to build a scalable performance marketing system focused on profitable customer acquisition. Rather than simply launching advertisements, we developed a structured framework for creative testing, audience targeting, campaign optimization, and conversion tracking. By continuously analyzing performance data and refining campaigns, we helped the brand scale online sales while maintaining efficient advertising costs through a data-driven optimization process.",
-    metrics: [
-      { value: "+856", label: "Purchases" },
-      { value: "+5.8M", label: "Impressions Delivered" },
-      { value: "+73K", label: "Website Clicks" },
-      { value: "0.76", label: "Average CPM (AED)" },
-    ],
-  },
-  {
-    title: "Building a Scalable Performance Marketing System",
-    industry: "Beauty & Cosmetics",
-    description: "EVE Beauty partnered with SQL Centrix to build a scalable customer acquisition system across multiple beauty brands. Rather than simply managing paid advertisements, we developed a structured performance marketing framework that combined creative strategy, audience research, campaign architecture, and continuous optimization. Through ongoing creative testing, media buying, and data-driven decision making, every campaign was designed to improve customer acquisition efficiency while supporting long-term e-commerce growth.",
-    metrics: [
-      { value: "$3,000", label: "Advertising Spend" },
-      { value: "+19.5M", label: "Paid Impressions" },
-      { value: "364,999", label: "Website Clicks" },
-      { value: "+7M", label: "2-Second Video Views" },
-    ],
-  },
-  {
-    title: "Driving High-Intent B2B Search Demand Through Google Ads",
-    industry: "Telecommunications & Enterprise Connectivity",
-    description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions, ensuring advertising spend generated qualified opportunities instead of low-quality traffic.",
-    metrics: [
-      { value: "+3.48K", label: "Clicks" },
-      { value: "+125K", label: "Impressions" },
-      { value: "$17.2K", label: "Ad Investment Managed" },
-      { value: "$4.94", label: "Average Cost Per Click" },
-    ],
-  },
-];
+// const caseStudiesData = [
+//   {
+//     title: "Building an End-to-End Customer Acquisition & Sales System",
+//     industry: "Digital Marketing & Advertising",
+//     description: "Desiro partnered with SQL Centrix to build more than a lead generation campaign. We designed a complete customer acquisition system that connected performance marketing with sales operations and customer success. From Meta advertising and WhatsApp lead generation to Bitrix24 CRM implementation, sales pipeline automation, and onboarding workflows, every stage was built to help the business convert more enquiries into long-term clients.",
+//     metrics: [
+//       { value: "+7,914", label: "WhatsApp Conversations" },
+//       { value: "+435K", label: "People Reached" },
+//       { value: "+1.7M", label: "Impressions Delivered" },
+//       { value: "0.66", label: "Lowest Cost per Conversation (AED)" },
+//     ],
+//   },
+//   {
+//     title: "Scaling an E-Commerce Brand Through Performance Marketing",
+//     industry: "E-Commerce & Beauty",
+//     description: "Kryalon Store partnered with SQL Centrix to build a scalable performance marketing system focused on profitable customer acquisition. Rather than simply launching advertisements, we developed a structured framework for creative testing, audience targeting, campaign optimization, and conversion tracking. By continuously analyzing performance data and refining campaigns, we helped the brand scale online sales while maintaining efficient advertising costs through a data-driven optimization process.",
+//     metrics: [
+//       { value: "+856", label: "Purchases" },
+//       { value: "+5.8M", label: "Impressions Delivered" },
+//       { value: "+73K", label: "Website Clicks" },
+//       { value: "0.76", label: "Average CPM (AED)" },
+//     ],
+//   },
+//   {
+//     title: "Building a Scalable Performance Marketing System",
+//     industry: "Beauty & Cosmetics",
+//     description: "EVE Beauty partnered with SQL Centrix to build a scalable customer acquisition system across multiple beauty brands. Rather than simply managing paid advertisements, we developed a structured performance marketing framework that combined creative strategy, audience research, campaign architecture, and continuous optimization. Through ongoing creative testing, media buying, and data-driven decision making, every campaign was designed to improve customer acquisition efficiency while supporting long-term e-commerce growth.",
+//     metrics: [
+//       { value: "$3,000", label: "Advertising Spend" },
+//       { value: "+19.5M", label: "Paid Impressions" },
+//       { value: "364,999", label: "Website Clicks" },
+//       { value: "+7M", label: "2-Second Video Views" },
+//     ],
+//   },
+//   {
+//     title: "Driving High-Intent B2B Search Demand Through Google Ads",
+//     industry: "Telecommunications & Enterprise Connectivity",
+//     description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions, ensuring advertising spend generated qualified opportunities instead of low-quality traffic.",
+//     metrics: [
+//       { value: "+3.48K", label: "Clicks" },
+//       { value: "+125K", label: "Impressions" },
+//       { value: "$17.2K", label: "Ad Investment Managed" },
+//       { value: "$4.94", label: "Average Cost Per Click" },
+//     ],
+//   },
+// ];
 
 const diagramSteps = [
   { title: "Brand Strategy" },
@@ -185,27 +185,17 @@ function FaqItem({ faq, idx }: { faq: any; idx: number }) {
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="py-32 px-6 lg:px-20 bg-white text-slate-900 relative overflow-hidden border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950">
+    <section id="case-studies" className="py-30 px-6 lg:px-20 bg-white text-slate-900 relative overflow-hidden border-b border-amber-500/20 selection:bg-amber-500 selection:text-slate-950">
       
       <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-gradient-to-tr from-amber-500/10 via-yellow-500/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-amber-400/10 via-yellow-400/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
 
       <div className="absolute inset-0 bg-[radial-gradient(#f59e0b12_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10 space-y-32">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudiesData.map((cs, idx) => (
-              <CaseStudyCard key={idx} cs={cs} idx={idx} />
-            ))}
-          </div>
-
-        </div>
+      <div className="max-w-7xl mx-auto relative z-10 space-y-28">
 
         {/* 6. How Everything Works Together (Diagram) */}
-        <div className="pt-16 border-t border-slate-200/80 space-y-12">
+        <div className="pt-6 border-t border-slate-200/80 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">
               <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
@@ -307,7 +297,7 @@ export default function CaseStudies() {
             <div className="pt-8 border-t border-slate-100 text-center space-y-6 max-w-xl mx-auto">
               <div className="space-y-2">
                 <p className="text-xl font-bold text-slate-800 tracking-tight">
-                  Curious how this works for your business?
+                 Let's discuss your growth goals. 
                 </p>
               </div>
 
@@ -316,7 +306,7 @@ export default function CaseStudies() {
                   href="#contact"
                   className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold text-base shadow-md transition-all group/btn border border-amber-300/30 cursor-pointer"
                 >
-                  <span>Let's Talk Strategy</span>
+                  <span>Speak With Our Team </span>
                   <HiOutlineArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                 </a>
               </div>

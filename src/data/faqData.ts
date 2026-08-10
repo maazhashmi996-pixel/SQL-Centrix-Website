@@ -37,3 +37,17 @@ export const faqList: FAQItem[] = [
     answer: "We work primarily with B2B companies, high-ticket service providers, technology platforms, and growth-stage enterprises where lead quality matters significantly more than volume.",
   },
 ];
+
+
+
+
+
+
+
+
+
+    // <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+    //         {caseStudiesData.map((cs, idx) => (
+    //           <CaseStudyCard key={idx} cs={cs} idx={idx} />
+    //         ))}
+    //       </div> */}
