@@ -25,7 +25,7 @@ export default function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source
-          src="video.webm"
+          src="mixkit-brainstorming-over-the-meeting-table-46680-hd-ready.mp4"
           type="video/mp4"
         />
       </video>
