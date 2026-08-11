@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   BriefcaseBusiness,
   Building2,
@@ -11,6 +11,10 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
+/* =====================================================
+   COUNTER
+===================================================== */
+
 interface CountUpProps {
   value: string | number;
 }
@@ -18,7 +22,17 @@ interface CountUpProps {
 function CountUp({ value }: CountUpProps) {
   const [count, setCount] = useState(0);
 
+  // Counter starts only when it enters the viewport
+  // once: true = animation runs only one time
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.5,
+  });
+
   useEffect(() => {
+    if (!isInView) return;
+
     const end = Number(value);
     const duration = 1800;
 
@@ -47,11 +61,14 @@ function CountUp({ value }: CountUpProps) {
     return () => {
       cancelAnimationFrame(animationFrame);
     };
-  }, [value]);
+  }, [isInView, value]);
 
-  return <>{count}+</>;
+  return <span ref={ref}>{count}+</span>;
 }
 
+/* =====================================================
+   DETAILS
+===================================================== */
 
 export default function Details() {
   const stats = [
@@ -93,6 +110,7 @@ export default function Details() {
   return (
     <section className="relative overflow-hidden bg-slate-950 py-24 sm:py-28 lg:py-32">
 
+      {/* BACKGROUND */}
       <div
         className="
           pointer-events-none
@@ -104,7 +122,6 @@ export default function Details() {
           bg-no-repeat
         "
       />
-
 
       <div
         className="
@@ -118,7 +135,6 @@ export default function Details() {
         "
       />
 
-
       <div
         className="
           pointer-events-none
@@ -130,7 +146,6 @@ export default function Details() {
           to-black/50
         "
       />
-
 
       <div
         className="
@@ -146,7 +161,7 @@ export default function Details() {
         "
       />
 
-
+      {/* GLOW */}
       <motion.div
         animate={{
           x: [0, 50, -25, 0],
@@ -194,7 +209,7 @@ export default function Details() {
         "
       />
 
-
+      {/* GRID */}
       <div
         className="
           pointer-events-none
@@ -205,7 +220,6 @@ export default function Details() {
           [background-size:5rem_5rem]
         "
       />
-
 
       <div
         className="
@@ -218,6 +232,7 @@ export default function Details() {
         "
       >
 
+        {/* HEADER */}
         <motion.div
           initial={{
             opacity: 0,
@@ -277,7 +292,6 @@ export default function Details() {
             />
           </div>
 
-
           <h2
             className="
               text-4xl
@@ -290,8 +304,6 @@ export default function Details() {
           >
             Who We Are
           </h2>
-
-          {/* Description */}
 
           <p
             className="
@@ -306,7 +318,6 @@ export default function Details() {
             Experience, reach and performance that help
             businesses turn marketing into measurable growth.
           </p>
-
 
           <div
             className="
@@ -345,7 +356,7 @@ export default function Details() {
           </div>
         </motion.div>
 
-
+        {/* STATS */}
         <div
           className="
             grid
@@ -417,7 +428,6 @@ export default function Details() {
                   "
                 />
 
-
                 <div
                   className="
                     pointer-events-none
@@ -436,7 +446,6 @@ export default function Details() {
                   "
                 />
 
-
                 <span
                   className="
                     absolute
@@ -452,7 +461,6 @@ export default function Details() {
                 >
                   0{index + 1}
                 </span>
-
 
                 <div
                   className="
@@ -480,7 +488,6 @@ export default function Details() {
                   <Icon className="h-5 w-5" />
                 </div>
 
-
                 <div className="relative mt-7">
 
                   <p
@@ -494,7 +501,6 @@ export default function Details() {
                   >
                     {item.label}
                   </p>
-
 
                   <div className="mt-3 flex items-end">
                     <motion.span
@@ -513,7 +519,6 @@ export default function Details() {
                     </motion.span>
                   </div>
 
-
                   <p
                     className="
                       mt-3
@@ -526,7 +531,6 @@ export default function Details() {
                     {item.description}
                   </p>
                 </div>
-
 
                 <div
                   className="
@@ -556,7 +560,6 @@ export default function Details() {
                 >
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </div>
-
 
                 <div
                   className="
