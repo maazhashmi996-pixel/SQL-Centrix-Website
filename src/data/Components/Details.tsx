@@ -11,10 +11,6 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-/* =====================================================
-   COUNTER
-===================================================== */
-
 interface CountUpProps {
   value: string | number;
 }
@@ -25,56 +21,37 @@ function CountUp({ value }: CountUpProps) {
   useEffect(() => {
     const end = Number(value);
     const duration = 1800;
-    const pause = 1200;
 
     let animationFrame: number;
-    let pauseTimeout: ReturnType<typeof setTimeout>;
+    const startTime = performance.now();
 
-    const animate = () => {
-      const startTime = performance.now();
+    const updateCounter = (currentTime: number) => {
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
 
-      const updateCounter = (currentTime: number) => {
-        const progress = Math.min(
-          (currentTime - startTime) / duration,
-          1
-        );
+      const eased = 1 - Math.pow(1 - progress, 3);
 
-        const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(end * eased));
 
-        setCount(Math.floor(end * eased));
-
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(updateCounter);
-        } else {
-          setCount(end);
-
-          pauseTimeout = setTimeout(() => {
-            setCount(0);
-
-            pauseTimeout = setTimeout(() => {
-              animate();
-            }, 250);
-          }, pause);
-        }
-      };
-
-      animationFrame = requestAnimationFrame(updateCounter);
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(updateCounter);
+      } else {
+        setCount(end);
+      }
     };
 
-    animate();
+    animationFrame = requestAnimationFrame(updateCounter);
 
     return () => {
       cancelAnimationFrame(animationFrame);
-      clearTimeout(pauseTimeout);
     };
   }, [value]);
 
   return <>{count}+</>;
 }
 
-/* =====================================================
-   DETAILS
-===================================================== */
 
 export default function Details() {
   const stats = [
@@ -114,18 +91,7 @@ export default function Details() {
   ];
 
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        bg-slate-950
-        py-24
-        sm:py-28
-      "
-    >
-      {/* =====================================================
-          BACKGROUND IMAGE
-      ===================================================== */}
+    <section className="relative overflow-hidden bg-slate-950 py-24 sm:py-28 lg:py-32">
 
       <div
         className="
@@ -139,9 +105,6 @@ export default function Details() {
         "
       />
 
-      {/* =====================================================
-          BLACK PREMIUM GRADIENT
-      ===================================================== */}
 
       <div
         className="
@@ -155,9 +118,6 @@ export default function Details() {
         "
       />
 
-      {/* =====================================================
-          SECOND BLACK DEPTH
-      ===================================================== */}
 
       <div
         className="
@@ -171,9 +131,6 @@ export default function Details() {
         "
       />
 
-      {/* =====================================================
-          YELLOW BOTTOM GLOW
-      ===================================================== */}
 
       <div
         className="
@@ -189,9 +146,6 @@ export default function Details() {
         "
       />
 
-      {/* =====================================================
-          AMBIENT YELLOW LIGHT
-      ===================================================== */}
 
       <motion.div
         animate={{
@@ -240,9 +194,6 @@ export default function Details() {
         "
       />
 
-      {/* =====================================================
-          SUBTLE GRID
-      ===================================================== */}
 
       <div
         className="
@@ -255,9 +206,6 @@ export default function Details() {
         "
       />
 
-      {/* =====================================================
-          MAIN
-      ===================================================== */}
 
       <div
         className="
@@ -269,9 +217,6 @@ export default function Details() {
           lg:px-8
         "
       >
-        {/* =====================================================
-            HEADER
-        ===================================================== */}
 
         <motion.div
           initial={{
@@ -298,7 +243,6 @@ export default function Details() {
             text-center
           "
         >
-          {/* Label */}
 
           <div className="mb-5 flex items-center gap-3">
             <span
@@ -333,7 +277,6 @@ export default function Details() {
             />
           </div>
 
-          {/* Heading */}
 
           <h2
             className="
@@ -364,7 +307,6 @@ export default function Details() {
             businesses turn marketing into measurable growth.
           </p>
 
-          {/* Animated Line */}
 
           <div
             className="
@@ -403,9 +345,6 @@ export default function Details() {
           </div>
         </motion.div>
 
-        {/* =====================================================
-            COUNTERS
-        ===================================================== */}
 
         <div
           className="
@@ -461,9 +400,6 @@ export default function Details() {
                   hover:shadow-[0_25px_70px_rgba(234,179,8,0.20)]
                 "
               >
-                {/* =================================================
-                    CARD INNER SHINE
-                ================================================= */}
 
                 <div
                   className="
@@ -481,9 +417,6 @@ export default function Details() {
                   "
                 />
 
-                {/* =================================================
-                    CARD GLOW
-                ================================================= */}
 
                 <div
                   className="
@@ -503,7 +436,6 @@ export default function Details() {
                   "
                 />
 
-                {/* Number */}
 
                 <span
                   className="
@@ -521,9 +453,6 @@ export default function Details() {
                   0{index + 1}
                 </span>
 
-                {/* =================================================
-                    ICON
-                ================================================= */}
 
                 <div
                   className="
@@ -551,12 +480,8 @@ export default function Details() {
                   <Icon className="h-5 w-5" />
                 </div>
 
-                {/* =================================================
-                    CONTENT
-                ================================================= */}
 
                 <div className="relative mt-7">
-                  {/* Label */}
 
                   <p
                     className="
@@ -570,7 +495,6 @@ export default function Details() {
                     {item.label}
                   </p>
 
-                  {/* Counter */}
 
                   <div className="mt-3 flex items-end">
                     <motion.span
@@ -589,7 +513,6 @@ export default function Details() {
                     </motion.span>
                   </div>
 
-                  {/* Description */}
 
                   <p
                     className="
@@ -604,9 +527,6 @@ export default function Details() {
                   </p>
                 </div>
 
-                {/* =================================================
-                    ARROW
-                ================================================= */}
 
                 <div
                   className="
@@ -637,9 +557,6 @@ export default function Details() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </div>
 
-                {/* =================================================
-                    BOTTOM YELLOW ACCENT
-                ================================================= */}
 
                 <div
                   className="

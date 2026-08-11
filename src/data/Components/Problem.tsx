@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import React, { useState } from "react";
@@ -29,12 +26,8 @@ export default function Problem() {
       id="problem"
       className="relative min-h-screen overflow-hidden bg-white py-24 md:py-32"
     >
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
 
       <div className="pointer-events-none absolute inset-0">
-        {/* Soft yellow glow */}
         <motion.div
           animate={{
             scale: [1, 1.12, 1],
@@ -49,10 +42,8 @@ export default function Problem() {
           className="absolute left-[45%] top-[15%] h-[600px] w-[600px] rounded-full bg-yellow-200/20 blur-[150px]"
         />
 
-        {/* Side glow */}
         <div className="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-amber-100/40 blur-[130px]" />
 
-        {/* Subtle grid */}
         <div
           className="
             absolute
@@ -64,21 +55,12 @@ export default function Problem() {
         />
       </div>
 
-      {/* =====================================================
-          MAIN
-      ====================================================== */}
 
       <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 sm:px-6 lg:px-0">
 
-        {/* ===================================================
-            TOP
-        =================================================== */}
 
         <div className="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
 
-          {/* =================================================
-              LEFT CONTENT
-          ================================================= */}
 
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -92,7 +74,6 @@ export default function Problem() {
 
            
 
-            {/* Heading */}
 
             <h2 className="max-w-xl text-5xl font-black leading-[0.92] tracking-[-0.06em] text-slate-950 sm:text-6xl md:text-7xl">
 
@@ -106,9 +87,6 @@ export default function Problem() {
            
           </motion.div>
 
-          {/* =================================================
-              RIGHT VISUAL
-          ================================================= */}
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
@@ -121,7 +99,6 @@ export default function Problem() {
             }}
             className="relative mx-auto flex aspect-square w-full max-w-[560px] items-center justify-center"
           >
-            {/* Outer circle */}
 
             <motion.div
               animate={{ rotate: 360 }}
@@ -133,7 +110,6 @@ export default function Problem() {
               className="absolute inset-[7%] rounded-full border border-dashed border-yellow-300/60"
             />
 
-            {/* Second circle */}
 
             <motion.div
               animate={{ rotate: -360 }}
@@ -145,7 +121,6 @@ export default function Problem() {
               className="absolute inset-[18%] rounded-full border border-slate-200"
             />
 
-            {/* Yellow orbit dots */}
 
             <motion.div
               animate={{ rotate: 360 }}
@@ -159,7 +134,6 @@ export default function Problem() {
               <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.8)]" />
             </motion.div>
 
-            {/* Center */}
 
             <motion.div
               animate={{
@@ -207,7 +181,6 @@ export default function Problem() {
               <div className="mt-3 h-1 w-8 rounded-full bg-yellow-400" />
             </motion.div>
 
-            {/* Problem Nodes */}
 
             {problems.map((item, idx) => {
               const positions = [
@@ -312,9 +285,6 @@ export default function Problem() {
           </motion.div>
         </div>
 
-        {/* ===================================================
-            FINAL MESSAGE
-        =================================================== */}
 
      <motion.div
   initial={{
@@ -345,9 +315,6 @@ export default function Problem() {
     md:p-10
   "
 >
-  {/* =========================================
-      BUSINESS MEETING BACKGROUND IMAGE
-  ========================================= */}
 
   <img
     src="6.webp"
@@ -361,9 +328,6 @@ export default function Problem() {
     "
   />
 
-  {/* =========================================
-      BLACK + YELLOW GRADIENT OVERLAY
-  ========================================= */}
 
   <div
     className="
@@ -373,9 +337,6 @@ export default function Problem() {
     "
   />
 
-  {/* =========================================
-      SOFT YELLOW GLOW
-  ========================================= */}
 
   <motion.div
     animate={{
@@ -400,9 +361,6 @@ export default function Problem() {
     "
   />
 
-  {/* =========================================
-      CONTENT
-  ========================================= */}
 
   <div className="relative z-10 flex items-center justify-center">
     <span
@@ -421,9 +379,6 @@ export default function Problem() {
     </span>
   </div>
 
-  {/* =========================================
-      BOTTOM ACCENT
-  ========================================= */}
 
   <motion.div
     initial={{

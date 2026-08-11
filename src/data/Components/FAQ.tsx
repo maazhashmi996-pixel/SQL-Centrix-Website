@@ -25,7 +25,7 @@ const processSteps = [
     ],
     services: "Performance Marketing • Creative Strategy • Bitrix24 CRM • WhatsApp Integration • Sales Pipeline Design • Lead Management • Customer Onboarding • Client Servicing",
     icon: FiCpu,
-    badge: "10. Case Studies",
+    badge: " Case Studies",
     type: "casestudy",
   },
   {
@@ -76,7 +76,7 @@ const processSteps = [
     ],
     services: "Google Ads Strategy • Search Campaign Management • Keyword Research • Ad Copywriting • Bid Optimization • Performance Monitoring • Search Intent Targeting • Campaign Reporting",
     icon: FiBarChart2,
-    badge: "11. Conclusion",
+    badge: "Conclusion",
     type: "casestudy",
   },
 ];
@@ -146,16 +146,8 @@ export default function ProcessSection() {
 
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-12 relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-24 space-y-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold uppercase tracking-widest shadow-xs backdrop-blur-md"
-          >
-            <FiZap className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-            <span className="text-2xl">10. Case Studies</span>
-          </motion.div>
+        <div className="text-center max-w-3xl mx-auto pt-10 mb-24 space-y-4">
+        
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
             Case Studies           

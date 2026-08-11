@@ -36,9 +36,6 @@ export default function Footer() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  /* =====================================================
-     3D FORM MOTION
-  ===================================================== */
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -84,9 +81,6 @@ export default function Footer() {
     mouseY.set(0);
   };
 
-  /* =====================================================
-     FORM SUBMIT
-  ===================================================== */
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,9 +92,6 @@ export default function Footer() {
     }, 5000);
   };
 
-  /* =====================================================
-     SOCIAL LINKS
-  ===================================================== */
 
   const socials = [
     {
@@ -146,9 +137,6 @@ export default function Footer() {
       "
     >
 
-      {/* =====================================================
-          BACKGROUND
-      ===================================================== */}
 
       <div
         className="
@@ -207,7 +195,6 @@ export default function Footer() {
         "
       />
 
-      {/* subtle grid */}
 
       <div
         className="
@@ -223,9 +210,6 @@ export default function Footer() {
 
       <div className="relative z-10 mx-auto max-w-7xl">
 
-        {/* =====================================================
-            MAIN GRID
-        ===================================================== */}
 
         <div
           className="
@@ -241,9 +225,6 @@ export default function Footer() {
           "
         >
 
-          {/* =====================================================
-              LEFT SIDE
-          ===================================================== */}
 
           <motion.div
             initial={{
@@ -267,7 +248,6 @@ export default function Footer() {
 
             <div className="space-y-8">
 
-              {/* Badge */}
 
               <motion.div
                 initial={{
@@ -347,7 +327,6 @@ export default function Footer() {
                 </span>
               </motion.div>
 
-              {/* Heading */}
 
               <motion.div
                 initial={{
@@ -425,7 +404,6 @@ export default function Footer() {
 
               </motion.div>
 
-              {/* Contact Info */}
 
               <div className="space-y-3">
 
@@ -489,7 +467,6 @@ export default function Footer() {
                     "
                   >
 
-                    {/* hover glow */}
 
                     <div
                       className="
@@ -566,7 +543,6 @@ export default function Footer() {
 
               </div>
 
-              {/* Social */}
 
               <motion.div
                 initial={{
@@ -684,9 +660,6 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* =====================================================
-              FORM
-          ===================================================== */}
 
           <motion.div
             onMouseMove={handleMouseMove}
@@ -733,7 +706,6 @@ export default function Footer() {
               "
             >
 
-              {/* animated gold line */}
 
               <motion.div
                 animate={{
@@ -759,7 +731,6 @@ export default function Footer() {
                 "
               />
 
-              {/* inner glow */}
 
               <motion.div
                 animate={{
@@ -786,7 +757,6 @@ export default function Footer() {
 
               <div className="relative z-10">
 
-                {/* form header */}
 
                 <div className="mb-8">
 
@@ -816,7 +786,6 @@ export default function Footer() {
 
                 </div>
 
-                {/* success */}
 
                 {isSubmitted && (
                   <motion.div
@@ -853,7 +822,6 @@ export default function Footer() {
                   </motion.div>
                 )}
 
-                {/* Inputs */}
 
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
 
@@ -954,7 +922,6 @@ export default function Footer() {
 
                 </div>
 
-                {/* Message */}
 
                 <motion.div
                   initial={{
@@ -1017,7 +984,6 @@ export default function Footer() {
 
                 </motion.div>
 
-                {/* Submit */}
 
                 <motion.button
                   type="submit"
@@ -1054,7 +1020,6 @@ export default function Footer() {
                   "
                 >
 
-                  {/* shine */}
 
                   <motion.span
                     animate={{
@@ -1103,9 +1068,6 @@ export default function Footer() {
 
         </div>
 
-        {/* =====================================================
-            BOTTOM
-        ===================================================== */}
 
         <motion.div
           initial={{
