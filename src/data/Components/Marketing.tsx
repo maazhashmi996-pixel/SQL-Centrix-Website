@@ -426,9 +426,7 @@ export default function Conclusion() {
               }}
               className="mt-9"
             >
-              <p className="mb-4 text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
-                CTA
-              </p>
+              
 
               <motion.a
                 href="#contact"
@@ -459,6 +457,7 @@ export default function Conclusion() {
                   transition-all
                   duration-300
                   hover:bg-yellow-400
+                  hover:text-white
                   hover:shadow-[0_20px_50px_rgba(234,179,8,0.25)]
                 "
               >

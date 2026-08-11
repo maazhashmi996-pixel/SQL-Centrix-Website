@@ -36,7 +36,6 @@ export default function Footer() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -62,9 +61,7 @@ export default function Footer() {
     ["-1deg", "1deg"]
   );
 
-  const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
     mouseX.set(
@@ -81,7 +78,6 @@ export default function Footer() {
     mouseY.set(0);
   };
 
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -91,7 +87,6 @@ export default function Footer() {
       setIsSubmitted(false);
     }, 5000);
   };
-
 
   const socials = [
     {
@@ -136,8 +131,6 @@ export default function Footer() {
         lg:px-20
       "
     >
-
-
       <div
         className="
           pointer-events-none
@@ -195,7 +188,6 @@ export default function Footer() {
         "
       />
 
-
       <div
         className="
           pointer-events-none
@@ -209,8 +201,6 @@ export default function Footer() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-
-
         <div
           className="
             grid
@@ -225,7 +215,393 @@ export default function Footer() {
           "
         >
 
+          {/* FORM — MOVED TO LEFT */}
+          <motion.div
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }}
+            initial={{
+              opacity: 0,
+              x: 60,
+            }}
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    x: 0,
+                  }
+                : {}
+            }
+            transition={{
+              duration: 0.9,
+              delay: 0.15,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="lg:col-span-7 lg:order-1"
+          >
+            <form
+              onSubmit={handleSubmit}
+              className="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                border
+                border-slate-200/80
+                bg-white/90
+                p-7
+                shadow-[0_30px_80px_rgba(15,23,42,0.08)]
+                backdrop-blur-2xl
+                sm:p-10
+                lg:p-11
+              "
+            >
+              <motion.div
+                animate={{
+                  backgroundPosition: [
+                    "0% 50%",
+                    "100% 50%",
+                    "0% 50%",
+                  ],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="
+                  absolute
+                  left-0
+                  right-0
+                  top-0
+                  h-[3px]
+                  bg-[linear-gradient(90deg,#f59e0b,#facc15,#eab308,#f59e0b)]
+                  bg-[length:200%_100%]
+                "
+              />
 
+              <motion.div
+                animate={{
+                  scale: [1, 1.12, 1],
+                  opacity: [0.15, 0.3, 0.15],
+                }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-32
+                  -top-32
+                  h-72
+                  w-72
+                  rounded-full
+                  bg-yellow-300/20
+                  blur-[90px]
+                "
+              />
+
+              <div className="relative z-10">
+                <div className="mb-8">
+                  <div
+                    className="
+                      mb-2
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.22em]
+                      text-yellow-600
+                    "
+                  >
+                    Get In Touch
+                  </div>
+
+                  <h3
+                    className="
+                      text-3xl
+                      font-black
+                      tracking-[-0.03em]
+                      text-slate-950
+                    "
+                  >
+                    Form
+                  </h3>
+                </div>
+
+                {isSubmitted && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                      scale: 0.98,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                    }}
+                    className="
+                      mb-6
+                      flex
+                      items-center
+                      gap-3
+                      rounded-xl
+                      border
+                      border-yellow-200
+                      bg-yellow-50
+                      p-4
+                      text-sm
+                      font-semibold
+                      text-yellow-900
+                    "
+                  >
+                    <HiOutlineCheckCircle className="h-5 w-5 text-yellow-600" />
+
+                    <span>
+                      Thank you! Your message has been received.
+                    </span>
+                  </motion.div>
+                )}
+
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  {[
+                    {
+                      label: "First Name*",
+                      type: "text",
+                      required: true,
+                    },
+                    {
+                      label: "Last Name*",
+                      type: "text",
+                      required: true,
+                    },
+                    {
+                      label: "Email Address*",
+                      type: "email",
+                      required: true,
+                    },
+                    {
+                      label: "Phone Number*",
+                      type: "tel",
+                      required: true,
+                    },
+                    {
+                      label: "Organization",
+                      type: "text",
+                      required: false,
+                    },
+                    {
+                      label: "Purpose*",
+                      type: "text",
+                      required: true,
+                    },
+                  ].map((field, index) => (
+                    <motion.div
+                      key={field.label}
+                      initial={{
+                        opacity: 0,
+                        y: 15,
+                      }}
+                      animate={
+                        isInView
+                          ? {
+                              opacity: 1,
+                              y: 0,
+                            }
+                          : {}
+                      }
+                      transition={{
+                        duration: 0.45,
+                        delay: 0.3 + index * 0.06,
+                      }}
+                      className="space-y-2"
+                    >
+                      <label
+                        className="
+                          block
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.18em]
+                          text-slate-600
+                        "
+                      >
+                        {field.label}
+                      </label>
+
+                      <input
+                        type={field.type}
+                        required={field.required}
+                        className="
+                          w-full
+                          rounded-xl
+                          border
+                          border-slate-200
+                          bg-slate-50/60
+                          px-4
+                          py-3.5
+                          text-sm
+                          font-medium
+                          text-slate-900
+                          outline-none
+                          transition-all
+                          duration-300
+                          hover:border-slate-300
+                          focus:border-yellow-400
+                          focus:bg-white
+                          focus:ring-4
+                          focus:ring-yellow-400/10
+                          focus:shadow-[0_8px_25px_rgba(234,179,8,0.07)]
+                        "
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 15,
+                  }}
+                  animate={
+                    isInView
+                      ? {
+                          opacity: 1,
+                          y: 0,
+                        }
+                      : {}
+                  }
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.7,
+                  }}
+                  className="mt-5 space-y-2"
+                >
+                  <label
+                    className="
+                      block
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.18em]
+                      text-slate-600
+                    "
+                  >
+                    Message
+                  </label>
+
+                  <textarea
+                    rows={4}
+                    className="
+                      w-full
+                      resize-none
+                      rounded-xl
+                      border
+                      border-slate-200
+                      bg-slate-50/60
+                      px-4
+                      py-3.5
+                      text-sm
+                      font-medium
+                      text-slate-900
+                      outline-none
+                      transition-all
+                      duration-300
+                      hover:border-slate-300
+                      focus:border-yellow-400
+                      focus:bg-white
+                      focus:ring-4
+                      focus:ring-yellow-400/10
+                      focus:shadow-[0_8px_25px_rgba(234,179,8,0.07)]
+                    "
+                  />
+                </motion.div>
+
+                {/* Submit */}
+                <motion.button
+                  type="submit"
+                  whileHover={{
+                    y: -2,
+                  }}
+                  whileTap={{
+                    scale: 0.985,
+                  }}
+                  className="
+                    group
+                    relative
+                    mt-6
+                    flex
+                    w-full
+                    items-center
+                    justify-center
+                    gap-3
+                    overflow-hidden
+                    rounded-xl
+                    border
+                    border-yellow-300
+                    bg-gradient-to-r
+                    from-amber-400
+                    via-yellow-400
+                    to-amber-500
+                    py-4
+                    font-bold
+                    text-slate-950
+                    shadow-[0_10px_30px_rgba(234,179,8,0.18)]
+                    transition-shadow
+                    duration-300
+                    hover:shadow-[0_18px_40px_rgba(234,179,8,0.28)]
+                  "
+                >
+                  {/* shine */}
+                  <motion.span
+                    animate={{
+                      x: ["-130%", "220%"],
+                    }}
+                    transition={{
+                      duration: 2.8,
+                      repeat: Infinity,
+                      repeatDelay: 2.5,
+                    }}
+                    className="
+                      absolute
+                      inset-y-0
+                      w-16
+                      rotate-12
+                      bg-white/30
+                      blur-md
+                    "
+                  />
+
+                  <span className="relative z-10">
+                    Submit
+                  </span>
+
+                  <motion.span
+                    whileHover={{
+                      x: 4,
+                      y: -3,
+                    }}
+                    className="relative z-10"
+                  >
+                    <HiOutlinePaperAirplane
+                      className="
+                        h-4
+                        w-4
+                        -rotate-45
+                      "
+                    />
+                  </motion.span>
+                </motion.button>
+              </div>
+            </form>
+          </motion.div>
+
+          {/* CONTACT INFO — MOVED TO RIGHT */}
           <motion.div
             initial={{
               opacity: 0,
@@ -243,11 +619,9 @@ export default function Footer() {
               duration: 0.9,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 lg:order-2"
           >
-
             <div className="space-y-8">
-
 
               <motion.div
                 initial={{
@@ -287,7 +661,6 @@ export default function Footer() {
                   backdrop-blur-xl
                 "
               >
-
                 <motion.span
                   animate={{
                     x: ["-120%", "220%"],
@@ -327,7 +700,6 @@ export default function Footer() {
                 </span>
               </motion.div>
 
-
               <motion.div
                 initial={{
                   opacity: 0,
@@ -346,7 +718,6 @@ export default function Footer() {
                   delay: 0.25,
                 }}
               >
-
                 <h2
                   className="
                     text-5xl
@@ -362,7 +733,6 @@ export default function Footer() {
                 </h2>
 
                 <div className="mt-6 flex items-center gap-3">
-
                   <motion.span
                     initial={{ width: 0 }}
                     animate={
@@ -384,7 +754,6 @@ export default function Footer() {
 
                   <span className="h-[4px] w-3 rounded-full bg-yellow-200" />
                   <span className="h-[4px] w-1.5 rounded-full bg-yellow-100" />
-
                 </div>
 
                 <p
@@ -401,12 +770,9 @@ export default function Footer() {
                   you shortly to discuss your requirements and the best way to
                   help your business grow.
                 </p>
-
               </motion.div>
 
-
               <div className="space-y-3">
-
                 {[
                   {
                     icon: HiOutlineOfficeBuilding,
@@ -466,8 +832,6 @@ export default function Footer() {
                       hover:shadow-[0_15px_40px_rgba(234,179,8,0.10)]
                     "
                   >
-
-
                     <div
                       className="
                         absolute
@@ -511,7 +875,6 @@ export default function Footer() {
                     </motion.div>
 
                     <div className="relative z-10 pt-0.5">
-
                       <div
                         className="
                           text-[9px]
@@ -535,14 +898,10 @@ export default function Footer() {
                       >
                         {item.value}
                       </div>
-
                     </div>
-
                   </motion.div>
                 ))}
-
               </div>
-
 
               <motion.div
                 initial={{
@@ -562,7 +921,6 @@ export default function Footer() {
                   delay: 0.8,
                 }}
               >
-
                 <div
                   className="
                     mb-3
@@ -577,7 +935,6 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-
                   {socials.map((social, index) => {
                     const Icon = social.icon;
 
@@ -634,7 +991,6 @@ export default function Footer() {
                           hover:shadow-[0_12px_25px_rgba(234,179,8,0.20)]
                         "
                       >
-
                         <Icon
                           className="
                             h-3.5
@@ -648,426 +1004,20 @@ export default function Footer() {
                         />
 
                         <span>{social.name}</span>
-
                       </motion.a>
                     );
                   })}
-
                 </div>
-
               </motion.div>
 
             </div>
           </motion.div>
 
-
-          <motion.div
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-            }}
-            initial={{
-              opacity: 0,
-              x: 60,
-            }}
-            animate={
-              isInView
-                ? {
-                    opacity: 1,
-                    x: 0,
-                  }
-                : {}
-            }
-            transition={{
-              duration: 0.9,
-              delay: 0.15,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="lg:col-span-7"
-          >
-
-            <form
-              onSubmit={handleSubmit}
-              className="
-                relative
-                overflow-hidden
-                rounded-[2rem]
-                border
-                border-slate-200/80
-                bg-white/90
-                p-7
-                shadow-[0_30px_80px_rgba(15,23,42,0.08)]
-                backdrop-blur-2xl
-                sm:p-10
-                lg:p-11
-              "
-            >
-
-
-              <motion.div
-                animate={{
-                  backgroundPosition: [
-                    "0% 50%",
-                    "100% 50%",
-                    "0% 50%",
-                  ],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="
-                  absolute
-                  left-0
-                  right-0
-                  top-0
-                  h-[3px]
-                  bg-[linear-gradient(90deg,#f59e0b,#facc15,#eab308,#f59e0b)]
-                  bg-[length:200%_100%]
-                "
-              />
-
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.12, 1],
-                  opacity: [0.15, 0.3, 0.15],
-                }}
-                transition={{
-                  duration: 7,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="
-                  pointer-events-none
-                  absolute
-                  -right-32
-                  -top-32
-                  h-72
-                  w-72
-                  rounded-full
-                  bg-yellow-300/20
-                  blur-[90px]
-                "
-              />
-
-              <div className="relative z-10">
-
-
-                <div className="mb-8">
-
-                  <div
-                    className="
-                      mb-2
-                      text-[9px]
-                      font-bold
-                      uppercase
-                      tracking-[0.22em]
-                      text-yellow-600
-                    "
-                  >
-                    Get In Touch
-                  </div>
-
-                  <h3
-                    className="
-                      text-3xl
-                      font-black
-                      tracking-[-0.03em]
-                      text-slate-950
-                    "
-                  >
-                    Form
-                  </h3>
-
-                </div>
-
-
-                {isSubmitted && (
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      y: -10,
-                      scale: 0.98,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                    }}
-                    className="
-                      mb-6
-                      flex
-                      items-center
-                      gap-3
-                      rounded-xl
-                      border
-                      border-yellow-200
-                      bg-yellow-50
-                      p-4
-                      text-sm
-                      font-semibold
-                      text-yellow-900
-                    "
-                  >
-                    <HiOutlineCheckCircle className="h-5 w-5 text-yellow-600" />
-
-                    <span>
-                      Thank you! Your message has been received.
-                    </span>
-                  </motion.div>
-                )}
-
-
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-
-                  {[
-                    {
-                      label: "First Name*",
-                      type: "text",
-                      required: true,
-                    },
-                    {
-                      label: "Last Name*",
-                      type: "text",
-                      required: true,
-                    },
-                    {
-                      label: "Email Address*",
-                      type: "email",
-                      required: true,
-                    },
-                    {
-                      label: "Phone Number*",
-                      type: "tel",
-                      required: true,
-                    },
-                    {
-                      label: "Organization",
-                      type: "text",
-                      required: false,
-                    },
-                    {
-                      label: "Purpose*",
-                      type: "text",
-                      required: true,
-                    },
-                  ].map((field, index) => (
-                    <motion.div
-                      key={field.label}
-                      initial={{
-                        opacity: 0,
-                        y: 15,
-                      }}
-                      animate={
-                        isInView
-                          ? {
-                              opacity: 1,
-                              y: 0,
-                            }
-                          : {}
-                      }
-                      transition={{
-                        duration: 0.45,
-                        delay: 0.3 + index * 0.06,
-                      }}
-                      className="space-y-2"
-                    >
-
-                      <label
-                        className="
-                          block
-                          text-[9px]
-                          font-bold
-                          uppercase
-                          tracking-[0.18em]
-                          text-slate-600
-                        "
-                      >
-                        {field.label}
-                      </label>
-
-                      <input
-                        type={field.type}
-                        required={field.required}
-                        className="
-                          w-full
-                          rounded-xl
-                          border
-                          border-slate-200
-                          bg-slate-50/60
-                          px-4
-                          py-3.5
-                          text-sm
-                          font-medium
-                          text-slate-900
-                          outline-none
-                          transition-all
-                          duration-300
-                          hover:border-slate-300
-                          focus:border-yellow-400
-                          focus:bg-white
-                          focus:ring-4
-                          focus:ring-yellow-400/10
-                          focus:shadow-[0_8px_25px_rgba(234,179,8,0.07)]
-                        "
-                      />
-
-                    </motion.div>
-                  ))}
-
-                </div>
-
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 15,
-                  }}
-                  animate={
-                    isInView
-                      ? {
-                          opacity: 1,
-                          y: 0,
-                        }
-                      : {}
-                  }
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.7,
-                  }}
-                  className="mt-5 space-y-2"
-                >
-
-                  <label
-                    className="
-                      block
-                      text-[9px]
-                      font-bold
-                      uppercase
-                      tracking-[0.18em]
-                      text-slate-600
-                    "
-                  >
-                    Message
-                  </label>
-
-                  <textarea
-                    rows={4}
-                    className="
-                      w-full
-                      resize-none
-                      rounded-xl
-                      border
-                      border-slate-200
-                      bg-slate-50/60
-                      px-4
-                      py-3.5
-                      text-sm
-                      font-medium
-                      text-slate-900
-                      outline-none
-                      transition-all
-                      duration-300
-                      hover:border-slate-300
-                      focus:border-yellow-400
-                      focus:bg-white
-                      focus:ring-4
-                      focus:ring-yellow-400/10
-                      focus:shadow-[0_8px_25px_rgba(234,179,8,0.07)]
-                    "
-                  />
-
-                </motion.div>
-
-
-                <motion.button
-                  type="submit"
-                  whileHover={{
-                    y: -2,
-                  }}
-                  whileTap={{
-                    scale: 0.985,
-                  }}
-                  className="
-                    group
-                    relative
-                    mt-6
-                    flex
-                    w-full
-                    items-center
-                    justify-center
-                    gap-3
-                    overflow-hidden
-                    rounded-xl
-                    border
-                    border-yellow-300
-                    bg-gradient-to-r
-                    from-amber-400
-                    via-yellow-400
-                    to-amber-500
-                    py-4
-                    font-bold
-                    text-slate-950
-                    shadow-[0_10px_30px_rgba(234,179,8,0.18)]
-                    transition-shadow
-                    duration-300
-                    hover:shadow-[0_18px_40px_rgba(234,179,8,0.28)]
-                  "
-                >
-
-
-                  <motion.span
-                    animate={{
-                      x: ["-130%", "220%"],
-                    }}
-                    transition={{
-                      duration: 2.8,
-                      repeat: Infinity,
-                      repeatDelay: 2.5,
-                    }}
-                    className="
-                      absolute
-                      inset-y-0
-                      w-16
-                      rotate-12
-                      bg-white/30
-                      blur-md
-                    "
-                  />
-
-                  <span className="relative z-10">
-                    Submit
-                  </span>
-
-                  <motion.span
-                    whileHover={{
-                      x: 4,
-                      y: -3,
-                    }}
-                    className="relative z-10"
-                  >
-                    <HiOutlinePaperAirplane
-                      className="
-                        h-4
-                        w-4
-                        -rotate-45
-                      "
-                    />
-                  </motion.span>
-
-                </motion.button>
-
-              </div>
-            </form>
-          </motion.div>
-
         </div>
 
+        {/* =====================================================
+            BOTTOM
+        ===================================================== */}
 
         <motion.div
           initial={{
@@ -1098,7 +1048,6 @@ export default function Footer() {
             sm:text-left
           "
         >
-
           <p className="text-xs font-medium text-slate-400">
             © {new Date().getFullYear()} SQL Centrix Pvt. Ltd. All rights reserved.
           </p>
@@ -1134,7 +1083,6 @@ export default function Footer() {
 
             Premium Digital Solutions
           </div>
-
         </motion.div>
 
       </div>

@@ -67,18 +67,7 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-              ease: "easeOut",
-            }}
-            className="mt-8 text-lg font-bold tracking-tight text-white sm:text-xl md:text-2xl"
-          >
-            Sub Heading
-          </motion.h2>
+       
 
           <motion.p
             initial={{ opacity: 0, y: 25 }}
@@ -96,7 +85,7 @@ export default function Hero() {
             </span>
             , every strategy, campaign, website, advertisement, and piece of
             content has one objective: Bringing your business,
-            <span className="font-semibold text-yellow-300">
+            <span className="font-semibold text-white">
               {" "}qualified opportunities that convert into revenue.
             </span>
           </motion.p>
@@ -111,7 +100,7 @@ export default function Hero() {
             }}
             className="mt-9 space-y-3"
           >
-            <p className="text-lg font-medium tracking-tight text-white sm:text-xl md:text-2xl">
+            <p className="text-lg font-medium tracking-tight text-yellow-300 sm:text-xl md:text-2xl">
               Marketing is the process. SQL’s are the results.
             </p>
 

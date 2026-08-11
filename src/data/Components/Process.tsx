@@ -405,7 +405,7 @@ export default function Process() {
                   sm:text-6xl
                 "
               >
-                The Process (Applying The Philosophy)
+                The Process 
               </h2>
 
               <h3 className="mt-6 text-2xl font-bold tracking-tight text-yellow-700 sm:text-3xl">

@@ -149,12 +149,9 @@ export default function CaseStudies() {
 
         <div className="pt-6 border-t border-slate-200/80 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">
-              <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-              Complete Growth Systems
-            </div>
+            
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-               How Everything Works Together <span className="text-amber-600">(Diagram)</span>
+               How Everything Works Together <span className="text-amber-600"></span>
             </h3>
             <p className="text-slate-600 text-base md:text-lg leading-relaxed">
               Instead of selling individual services we build complete growth systems.
@@ -209,10 +206,7 @@ export default function CaseStudies() {
 
         <div className="pt-16 border-t border-slate-200/85 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">
-              <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-              Strategic Advantage
-            </div>
+          
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
                Why Businesses Choose SQL Centrix
             </h3>
