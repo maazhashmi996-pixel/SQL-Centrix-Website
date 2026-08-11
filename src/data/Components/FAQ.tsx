@@ -76,7 +76,7 @@ const processSteps = [
     ],
     services: "Google Ads Strategy • Search Campaign Management • Keyword Research • Ad Copywriting • Bid Optimization • Performance Monitoring • Search Intent Targeting • Campaign Reporting",
     icon: FiBarChart2,
-    badge: "Conclusion",
+    badge: "11. Conclusion",
     type: "casestudy",
   },
 ];
