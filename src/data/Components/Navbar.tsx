@@ -8,11 +8,13 @@ import {
   ArrowRight,
   Sparkles,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,41 +30,63 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "#" },
-    { name: "Services", href: "#process" },
     { name: "About", href: "#problem" },
     { name: "Blogs", href: "#case-studies" },
   ];
 
-  return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-500 bg-white  `}
-    >
-      <div className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+  const serviceLinks = [
+    {
+      name: "Digital Authority",
+      href: "/services/digital-authority",
+      desc: "Build trust before the lead",
+    },
+    {
+      name: "Customer Acquisition",
+      href: "/services/customer-acquisition",
+      desc: "Reach the people most likely to buy",
+    },
+    {
+      name: "Conversion Systems",
+      href: "/services/conversion-systems",
+      desc: "Turn interest into sales opportunities",
+    },
+    {
+      name: "Revenue Operations",
+      href: "/services/revenue-operations",
+      desc: "Turn qualified opportunities into revenue",
+    },
+    {
+      name: "Customer Success & Retention",
+      href: "/services/customer-success",
+      desc: "Turn customers into long-term revenue",
+    },
+  ];
 
-      
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-white transition-all duration-500">
+      <div className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
 
       <div
         className={`relative mx-auto flex w-full max-w-[1180px] items-center justify-between transition-all duration-500 ${
           scrolled ? "h-[72px]" : "h-[88px]"
         }`}
       >
-
+        {/* LOGO */}
         <motion.a
           href="#"
           whileHover={{ y: -1 }}
           className="group flex items-center gap-3.5"
         >
-        <div className="flex h-[72px] w-[158px] items-center justify-center overflow-hidden bg-white">
-  <img
-    src="/logo2.jpg"
-    alt="SQL Centrix Logo"
-    className="h-29 w-[167px] mr-9 bg-transparent "
-  />
-</div>
-
+          <div className="flex h-[72px] w-[158px] items-center justify-center overflow-hidden bg-white">
+            <img
+              src="/logo2.jpg"
+              alt="SQL Centrix Logo"
+              className="h-29 w-[167px] mr-9 bg-transparent"
+            />
+          </div>
         </motion.a>
 
-
+        {/* DESKTOP NAV */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
           {navLinks.map((item) => (
             <motion.a
@@ -76,9 +100,81 @@ export default function Navbar() {
               <span className="absolute bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-yellow-400 transition-all duration-300 group-hover:w-5" />
             </motion.a>
           ))}
+
+          {/* SERVICES */}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesDropdownOpen(true)}
+            onMouseLeave={() => setServicesDropdownOpen(false)}
+          >
+            <motion.button
+              whileHover={{ y: -1 }}
+              onClick={() =>
+                setServicesDropdownOpen((prev) => !prev)
+              }
+              className="group relative flex items-center gap-1 rounded-xl px-4 py-2.5 text-[13px] font-semibold text-slate-600 transition-all duration-300 hover:bg-yellow-50 hover:text-slate-950"
+            >
+              <span>Services</span>
+
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                  servicesDropdownOpen
+                    ? "rotate-180 text-slate-950"
+                    : "text-slate-400"
+                }`}
+              />
+
+              <span className="absolute bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-yellow-400 transition-all duration-300 group-hover:w-5" />
+            </motion.button>
+
+            <AnimatePresence>
+              {servicesDropdownOpen && (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 10,
+                    scale: 0.98,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 8,
+                    scale: 0.98,
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-1/2 top-full mt-2 w-80 -translate-x-1/2 rounded-2xl border border-yellow-200 bg-white p-2 shadow-[0_15px_35px_rgba(15,23,42,0.08)]"
+                >
+                  <div className="flex flex-col gap-1">
+                    {serviceLinks.map((service) => (
+                      <a
+                        key={service.name}
+                        href={service.href}
+                        onClick={() =>
+                          setServicesDropdownOpen(false)
+                        }
+                        className="group flex flex-col rounded-xl px-3.5 py-2.5 transition-all hover:bg-yellow-50"
+                      >
+                        <span className="text-xs font-bold text-slate-800 transition-colors group-hover:text-slate-950">
+                          {service.name}
+                        </span>
+
+                        <span className="text-[10px] text-slate-500">
+                          {service.desc}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
 
-
+        {/* DESKTOP GET STARTED */}
         <div className="hidden md:block">
           <motion.a
             href="#contact"
@@ -117,7 +213,7 @@ export default function Navbar() {
           </motion.a>
         </div>
 
-
+        {/* MOBILE MENU BUTTON */}
         <div className="flex items-center md:hidden">
           <motion.button
             whileTap={{ scale: 0.92 }}
@@ -151,7 +247,7 @@ export default function Navbar() {
         </div>
       </div>
 
-
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -174,7 +270,7 @@ export default function Navbar() {
             className="overflow-hidden border-t border-yellow-100 bg-white md:hidden"
           >
             <div className="mx-auto w-full max-w-[1180px] px-5 py-5">
-
+              {/* MOBILE HEADER */}
               <div className="mb-4 flex items-center justify-between rounded-2xl border border-yellow-100 bg-yellow-50/70 px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-400 text-slate-950">
@@ -197,8 +293,8 @@ export default function Navbar() {
                 </span>
               </div>
 
-
               <nav className="flex flex-col gap-1">
+                {/* NORMAL LINKS */}
                 {navLinks.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -224,9 +320,29 @@ export default function Navbar() {
                     </span>
                   </motion.a>
                 ))}
+
+                {/* MOBILE SERVICES */}
+                <div className="py-2">
+                  <p className="mb-1 px-4 text-[10px] font-black uppercase tracking-wider text-slate-400">
+                    Services
+                  </p>
+
+                  {serviceLinks.map((service) => (
+                    <a
+                      key={service.name}
+                      href={service.href}
+                      onClick={() => setIsOpen(false)}
+                      className="group flex items-center justify-between rounded-xl px-4 py-3 text-xs font-semibold text-slate-700 transition-all hover:bg-yellow-50 hover:text-slate-950"
+                    >
+                      <span>{service.name}</span>
+
+                      <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-slate-950" />
+                    </a>
+                  ))}
+                </div>
               </nav>
 
-
+              {/* MOBILE GET STARTED */}
               <motion.a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
@@ -246,3 +362,18 @@ export default function Navbar() {
     </header>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
