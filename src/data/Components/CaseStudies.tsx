@@ -267,10 +267,7 @@ export default function CaseStudies() {
 
         <div className="pt-16 border-t border-slate-200/85 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">
-              <HiOutlineSparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-              Got Questions?
-            </div>
+           
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
                Frequently Asked Questions
             </h3>
