@@ -11,12 +11,8 @@ import {
 export default function Conclusion() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-24 text-slate-950 sm:px-8 lg:px-12">
-      {/* =====================================================
-          BACKGROUND
-      ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Yellow glow */}
         <motion.div
           animate={{
             x: [0, 40, -20, 0],
@@ -40,7 +36,6 @@ export default function Conclusion() {
           "
         />
 
-        {/* Left glow */}
         <motion.div
           animate={{
             x: [0, -30, 20, 0],
@@ -63,7 +58,6 @@ export default function Conclusion() {
           "
         />
 
-        {/* Center soft light */}
         <div
           className="
             absolute
@@ -79,7 +73,6 @@ export default function Conclusion() {
           "
         />
 
-        {/* Subtle grid */}
         <div
           className="
             absolute
@@ -91,15 +84,9 @@ export default function Conclusion() {
         />
       </div>
 
-      {/* =====================================================
-          MAIN CONTAINER
-      ===================================================== */}
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
-        {/* =====================================================
-            HEADER
-        ===================================================== */}
 
         <motion.div
           initial={{
@@ -120,7 +107,6 @@ export default function Conclusion() {
           }}
           className="mb-16"
         >
-          {/* Label */}
 
           <div className="mb-6 flex items-center gap-3">
             <motion.span
@@ -139,7 +125,6 @@ export default function Conclusion() {
             </span>
           </div>
 
-          {/* Main heading */}
 
           <h2
             className="
@@ -157,7 +142,6 @@ export default function Conclusion() {
             <span className="relative inline-block text-yellow-500">
               Marketing
               
-              {/* Animated underline */}
               <motion.span
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
@@ -182,9 +166,6 @@ export default function Conclusion() {
           </h2>
         </motion.div>
 
-        {/* =====================================================
-            MAIN CARD
-        ===================================================== */}
 
         <motion.div
           initial={{
@@ -223,9 +204,6 @@ export default function Conclusion() {
             lg:p-14
           "
         >
-          {/* =================================================
-              CARD BACKGROUND EFFECT
-          ================================================= */}
 
           <div
             className="
@@ -258,7 +236,6 @@ export default function Conclusion() {
             "
           />
 
-          {/* Top accent */}
 
           <div
             className="
@@ -274,13 +251,9 @@ export default function Conclusion() {
             "
           />
 
-          {/* =================================================
-              CONTENT
-          ================================================= */}
 
           <div className="relative z-10 max-w-4xl">
 
-            {/* Heading */}
 
             <motion.div
               initial={{
@@ -332,7 +305,6 @@ export default function Conclusion() {
               </h3>
             </motion.div>
 
-            {/* Paragraph 1 */}
 
             <p
               className="
@@ -348,7 +320,6 @@ export default function Conclusion() {
               for the sake of marketing.
             </p>
 
-            {/* Paragraph 2 */}
 
             <p
               className="
@@ -366,9 +337,6 @@ export default function Conclusion() {
               results.
             </p>
 
-            {/* =================================================
-                HIGHLIGHT STATEMENT
-            ================================================= */}
 
             <motion.div
               initial={{
@@ -402,7 +370,6 @@ export default function Conclusion() {
                 sm:p-6
               "
             >
-              {/* Left accent */}
 
               <div
                 className="
@@ -440,9 +407,6 @@ export default function Conclusion() {
               </div>
             </motion.div>
 
-            {/* =================================================
-                CTA
-            ================================================= */}
 
             <motion.div
               initial={{
@@ -498,7 +462,6 @@ export default function Conclusion() {
                   hover:shadow-[0_20px_50px_rgba(234,179,8,0.25)]
                 "
               >
-                {/* Shine */}
 
                 <span
                   className="
@@ -542,9 +505,6 @@ export default function Conclusion() {
           </div>
         </motion.div>
 
-        {/* =====================================================
-            BOTTOM LINE
-        ===================================================== */}
 
         <motion.div
           initial={{

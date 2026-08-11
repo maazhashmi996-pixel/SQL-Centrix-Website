@@ -9,53 +9,6 @@ import {
   HiOutlineChevronDown
 } from "react-icons/hi";
 
-// const caseStudiesData = [
-//   {
-//     title: "Building an End-to-End Customer Acquisition & Sales System",
-//     industry: "Digital Marketing & Advertising",
-//     description: "Desiro partnered with SQL Centrix to build more than a lead generation campaign. We designed a complete customer acquisition system that connected performance marketing with sales operations and customer success. From Meta advertising and WhatsApp lead generation to Bitrix24 CRM implementation, sales pipeline automation, and onboarding workflows, every stage was built to help the business convert more enquiries into long-term clients.",
-//     metrics: [
-//       { value: "+7,914", label: "WhatsApp Conversations" },
-//       { value: "+435K", label: "People Reached" },
-//       { value: "+1.7M", label: "Impressions Delivered" },
-//       { value: "0.66", label: "Lowest Cost per Conversation (AED)" },
-//     ],
-//   },
-//   {
-//     title: "Scaling an E-Commerce Brand Through Performance Marketing",
-//     industry: "E-Commerce & Beauty",
-//     description: "Kryalon Store partnered with SQL Centrix to build a scalable performance marketing system focused on profitable customer acquisition. Rather than simply launching advertisements, we developed a structured framework for creative testing, audience targeting, campaign optimization, and conversion tracking. By continuously analyzing performance data and refining campaigns, we helped the brand scale online sales while maintaining efficient advertising costs through a data-driven optimization process.",
-//     metrics: [
-//       { value: "+856", label: "Purchases" },
-//       { value: "+5.8M", label: "Impressions Delivered" },
-//       { value: "+73K", label: "Website Clicks" },
-//       { value: "0.76", label: "Average CPM (AED)" },
-//     ],
-//   },
-//   {
-//     title: "Building a Scalable Performance Marketing System",
-//     industry: "Beauty & Cosmetics",
-//     description: "EVE Beauty partnered with SQL Centrix to build a scalable customer acquisition system across multiple beauty brands. Rather than simply managing paid advertisements, we developed a structured performance marketing framework that combined creative strategy, audience research, campaign architecture, and continuous optimization. Through ongoing creative testing, media buying, and data-driven decision making, every campaign was designed to improve customer acquisition efficiency while supporting long-term e-commerce growth.",
-//     metrics: [
-//       { value: "$3,000", label: "Advertising Spend" },
-//       { value: "+19.5M", label: "Paid Impressions" },
-//       { value: "364,999", label: "Website Clicks" },
-//       { value: "+7M", label: "2-Second Video Views" },
-//     ],
-//   },
-//   {
-//     title: "Driving High-Intent B2B Search Demand Through Google Ads",
-//     industry: "Telecommunications & Enterprise Connectivity",
-//     description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions, ensuring advertising spend generated qualified opportunities instead of low-quality traffic.",
-//     metrics: [
-//       { value: "+3.48K", label: "Clicks" },
-//       { value: "+125K", label: "Impressions" },
-//       { value: "$17.2K", label: "Ad Investment Managed" },
-//       { value: "$4.94", label: "Average Cost Per Click" },
-//     ],
-//   },
-// ];
-
 const diagramSteps = [
   { title: "Brand Strategy" },
   { title: "Website" },
@@ -194,7 +147,6 @@ export default function CaseStudies() {
 
       <div className="max-w-7xl mx-auto relative z-10 space-y-28">
 
-        {/* 6. How Everything Works Together (Diagram) */}
         <div className="pt-6 border-t border-slate-200/80 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">
@@ -255,7 +207,6 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* 7. Why Businesses Choose SQL Centrix */}
         <div className="pt-16 border-t border-slate-200/85 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">
@@ -314,7 +265,6 @@ export default function CaseStudies() {
           </div>
         </div>
 
-        {/* 8. Frequently Asked Questions */}
         <div className="pt-16 border-t border-slate-200/85 space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider">

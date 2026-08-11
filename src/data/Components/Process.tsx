@@ -44,24 +44,28 @@ const services = [
     title: "Social Media & Community Growth",
     desc: "We create social media experiences that strengthen your reputation and keep your business visible where your audience spends their time.",
     icon: HiOutlineShare,
+  }, {
+    title: " Authority Building ",
+    desc: "Strengthening your digital authority through strategic content, digital PR, guest posting, and Wikipedia consulting will help your business become a trusted name online.",
+    icon: HiOutlineShare,
   },
 ];
 
 const brands = [
   {
-    logo: "a44ec75e56d03d0babbf2ee1162a7719.jpg.jpeg", // OLEVS Logo
+    logo: "a44ec75e56d03d0babbf2ee1162a7719.jpg.jpeg", 
+    },
+  {
+    logo: "download.png", 
   },
   {
-    logo: "download.png", // Desiro Logo
+    logo: "images (1).jfif.jpeg", 
   },
   {
-    logo: "images (1).jfif.jpeg", // SKETOLAN Logo
+    logo: "images.jfif.jpeg", 
   },
   {
-    logo: "images.jfif.jpeg", // <-- Yahan apni file ka exact naam likhein agar yeh alag hai
-  },
-  {
-    logo: "images.png", // Al-Noor Orchard Logo
+    logo: "images.png", 
   },
 
 ];
@@ -107,11 +111,8 @@ export default function Process() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden bg-[#fafaf8] py-21 sm:py-32 lg:py-0"
+      className="relative overflow-hidden bg-[#fafaf8] py-19 sm:py-30 lg:py-0"
     >
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
 
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -193,16 +194,10 @@ export default function Process() {
         />
       </div>
 
-      {/* =====================================================
-          MAIN
-      ====================================================== */}
 
       <div className="relative z-10 mx-auto max-w-[1180px] px-5 sm:px-6">
         <div className="space-y-32 lg:space-y-44">
 
-          {/* =================================================
-              SECTION 4
-          ================================================== */}
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -228,11 +223,9 @@ export default function Process() {
               shadow-[0_35px_100px_rgba(15,23,42,0.07)]
             "
           >
-            {/* Top yellow beam */}
 
             <div className="absolute left-1/2 top-0 h-[3px] w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
 
-            {/* Decorative circles */}
 
             <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full border border-yellow-200/50" />
 
@@ -263,7 +256,6 @@ export default function Process() {
                 </h2>
               </motion.div>
 
-              {/* Philosophy statement */}
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -286,11 +278,9 @@ export default function Process() {
                 </div>
               </motion.div>
 
-              {/* Comparison */}
 
               <div className="mx-auto mt-14 grid max-w-4xl gap-5 md:grid-cols-2">
 
-                {/* Left */}
 
                 <motion.div
                   whileHover={{
@@ -332,7 +322,6 @@ export default function Process() {
                   </div>
                 </motion.div>
 
-                {/* Right */}
 
                 <motion.div
                   whileHover={{
@@ -379,7 +368,6 @@ export default function Process() {
                 </motion.div>
               </div>
 
-              {/* Bottom statement */}
 
               <motion.div
                 initial={{ opacity: 0 }}
@@ -397,9 +385,6 @@ export default function Process() {
             </div>
           </motion.div>
 
-          {/* =================================================
-              SECTION 5 HEADER
-          ================================================== */}
 
           <div>
             <motion.div
@@ -434,9 +419,6 @@ export default function Process() {
               </p>
             </motion.div>
 
-            {/* =================================================
-                SERVICES
-            ================================================== */}
 
             <div className="mt-20 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {services.map((item, idx) => {
@@ -494,7 +476,6 @@ export default function Process() {
                       }
                     `}
                   >
-                    {/* Mouse spotlight */}
 
                     {isActive && (
                       <motion.div
@@ -509,7 +490,6 @@ export default function Process() {
                       />
                     )}
 
-                    {/* Yellow corner */}
 
                     <motion.div
                       animate={{
@@ -529,7 +509,6 @@ export default function Process() {
                       "
                     />
 
-                    {/* Top line */}
 
                     <div
                       className={`
@@ -556,7 +535,6 @@ export default function Process() {
 
                     <div className="relative flex h-full flex-col justify-between">
 
-                      {/* Card top */}
 
                       <div>
                         <div className="flex items-center justify-between">
@@ -628,7 +606,6 @@ export default function Process() {
                         </div>
                       </div>
 
-                      {/* Card footer */}
 
                       <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-5">
                         <span
@@ -679,9 +656,6 @@ export default function Process() {
             </div>
           </div>
 
-          {/* =================================================
-              TRUSTED BY
-          ================================================== */}
 
           <motion.div
             initial={{
@@ -738,7 +712,7 @@ export default function Process() {
                     x: ["0%", "-50%"],
                   }}
                   transition={{
-                    duration: 28,
+                    duration: 7,
                     repeat: Infinity,
                     ease: "linear",
                   }}
@@ -753,7 +727,7 @@ export default function Process() {
                       <div className="flex items-center gap-2">
                         <img
                           src={`/${brand.logo}`}
-                          className="h-20 rounded-2xl w-auto object-contain"
+                          className="h-18 rounded-2xl w-auto object-contain"
                         />
                       </div>
                     </div>

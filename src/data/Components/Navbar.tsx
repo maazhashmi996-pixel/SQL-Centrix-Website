@@ -52,7 +52,6 @@ export default function Navbar() {
           whileHover={{ y: -1 }}
           className="group flex items-center gap-3.5"
         >
-          {/* Logo Box */}
         <div className="flex h-[72px] w-[158px] items-center justify-center overflow-hidden bg-white">
   <img
     src="/logo2.jpg"
@@ -61,15 +60,6 @@ export default function Navbar() {
   />
 </div>
 
-          {/* Brand */}
-          {/* <div className="hidden flex-col sm:flex">
-            <div className="flex items-center gap-1 text-[17px] font-black  text-yellow-300">
-              <span  className="text-2xl">SQL</span>
-              <span className="text-black text-xl">Centrix</span>
-            </div>
-
-           
-          </div> */}
         </motion.a>
 
 
@@ -88,9 +78,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* ===================================================
-            YELLOW CTA BUTTON
-        =================================================== */}
 
         <div className="hidden md:block">
           <motion.a
@@ -118,7 +105,6 @@ export default function Navbar() {
             }}
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-300 bg-white px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.12em] text-slate-950 transition-colors duration-300 hover:bg-yellow-400 hover:text-white"
           >
-            {/* Shine */}
             <span className="absolute inset-y-0 -left-[80%] w-1/2 -skew-x-[20deg] bg-white/30 transition-all duration-700 group-hover:left-[130%]" />
 
             <span className="relative z-10">
@@ -131,9 +117,6 @@ export default function Navbar() {
           </motion.a>
         </div>
 
-        {/* ===================================================
-            MOBILE MENU BUTTON
-        =================================================== */}
 
         <div className="flex items-center md:hidden">
           <motion.button
@@ -168,9 +151,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* =====================================================
-          MOBILE MENU
-      ====================================================== */}
 
       <AnimatePresence>
         {isOpen && (
@@ -194,7 +174,6 @@ export default function Navbar() {
             className="overflow-hidden border-t border-yellow-100 bg-white md:hidden"
           >
             <div className="mx-auto w-full max-w-[1180px] px-5 py-5">
-              {/* Mobile Header */}
 
               <div className="mb-4 flex items-center justify-between rounded-2xl border border-yellow-100 bg-yellow-50/70 px-4 py-3">
                 <div className="flex items-center gap-2">
@@ -218,7 +197,6 @@ export default function Navbar() {
                 </span>
               </div>
 
-              {/* Mobile Links */}
 
               <nav className="flex flex-col gap-1">
                 {navLinks.map((item, index) => (
@@ -248,7 +226,6 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              {/* Mobile Yellow CTA */}
 
               <motion.a
                 href="#contact"

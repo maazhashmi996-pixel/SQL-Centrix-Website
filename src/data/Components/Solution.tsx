@@ -32,9 +32,6 @@ export default function Solution() {
   const [isBgMuted, setIsBgMuted] = useState(true);
   const [videoError, setVideoError] = useState(false);
 
-  /* =====================================================
-     MOUSE 3D
-  ====================================================== */
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -61,9 +58,6 @@ export default function Solution() {
     ["-1.5deg", "1.5deg"]
   );
 
-  /* =====================================================
-     SPOTLIGHT
-  ====================================================== */
 
   const spotlightX = useMotionValue(0);
   const spotlightY = useMotionValue(0);
@@ -78,9 +72,6 @@ export default function Solution() {
       )`
   );
 
-  /* =====================================================
-     VIDEO
-  ====================================================== */
 
   useEffect(() => {
     if (!bgVideoRef.current) return;
@@ -114,9 +105,6 @@ export default function Solution() {
     setIsBgMuted(nextMuted);
   };
 
-  /* =====================================================
-     MOUSE MOVE
-  ====================================================== */
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement>
@@ -151,9 +139,6 @@ export default function Solution() {
         lg:py-28
       "
     >
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
 
       {!videoError && (
         <video
@@ -177,7 +162,6 @@ export default function Solution() {
         />
       )}
 
-      {/* Yellow ambient glow */}
 
       <motion.div
         animate={{
@@ -226,7 +210,6 @@ export default function Solution() {
         "
       />
 
-      {/* subtle grid */}
 
       <div
         className="
@@ -239,9 +222,6 @@ export default function Solution() {
         "
       />
 
-      {/* =====================================================
-          VIDEO CONTROL
-      ====================================================== */}
 
       {!videoError && (
         <div
@@ -318,9 +298,6 @@ export default function Solution() {
         </div>
       )}
 
-      {/* =====================================================
-          MAIN CONTAINER
-      ====================================================== */}
 
       <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 sm:px-6 lg:px-0">
         <motion.div
@@ -362,9 +339,6 @@ export default function Solution() {
             backdrop-blur-2xl
           "
         >
-          {/* =================================================
-              MOUSE SPOTLIGHT
-          ================================================== */}
 
           <motion.div
             className="
@@ -382,24 +356,15 @@ export default function Solution() {
             }}
           />
 
-          {/* =================================================
-              TOP ACCENT
-          ================================================== */}
 
           <div className="absolute left-0 right-0 top-0 h-[3px] bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500" />
 
-          {/* =================================================
-              DECORATIVE CORNERS
-          ================================================== */}
 
           <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full border border-yellow-200/40" />
           <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full border border-yellow-200/30" />
 
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full border border-yellow-200/30" />
 
-          {/* =================================================
-              CONTENT
-          ================================================== */}
 
           <div className="relative z-10 px-6 py-12 sm:px-10 sm:py-16 lg:px-20 lg:py-[72px]">
       
@@ -437,9 +402,6 @@ export default function Solution() {
               At SQL Centrix, every campaign is designed around one objective
             </motion.p>
 
-            {/* =================================================
-                CORE STATEMENT
-            ================================================== */}
 
             <motion.div
               initial={{
@@ -514,7 +476,6 @@ export default function Solution() {
     backgroundRepeat: "no-repeat",
   }}
 >
-  {/* Dark Overlay */}
   <span
     className="
       absolute
@@ -523,7 +484,6 @@ export default function Solution() {
     "
   />
 
-  {/* Premium Gradient Overlay */}
   <span
     className="
       absolute
@@ -535,7 +495,6 @@ export default function Solution() {
     "
   />
 
-  {/* Subtle Yellow Glow */}
   <span
     className="
       absolute
@@ -547,7 +506,6 @@ export default function Solution() {
     "
   />
 
-  {/* Content */}
   <span
     className="
       relative
@@ -575,7 +533,6 @@ export default function Solution() {
     Generate Qualified Leads that help your business grow
   </span>
 
-  {/* Premium Accent Line */}
   <motion.span
     initial={{ scaleX: 0, opacity: 0 }}
     whileInView={{ scaleX: 1, opacity: 1 }}
@@ -601,7 +558,6 @@ export default function Solution() {
     "
   />
 
-  {/* Accent Dot */}
   <motion.span
     initial={{ scale: 0, opacity: 0 }}
     whileInView={{ scale: 1, opacity: 1 }}
@@ -625,9 +581,6 @@ export default function Solution() {
 </motion.span>
             </motion.div>
 
-            {/* =================================================
-                LOWER AREA
-            ================================================== */}
 
             <motion.div
               initial={{
@@ -656,7 +609,6 @@ export default function Solution() {
               "
             >
               <div className="grid gap-9 md:grid-cols-[1fr_auto] md:items-end">
-                {/* Headline */}
 
                 <div className="text-center md:text-left">
                   <span
@@ -683,7 +635,6 @@ export default function Solution() {
                   </p>
                 </div>
 
-                {/* CTA */}
 
                 <div className="text-center md:text-right">
                 
@@ -724,7 +675,6 @@ export default function Solution() {
     sm:w-auto
   "
 >
-  {/* Shine Effect */}
   <span
     className="
       pointer-events-none
@@ -744,7 +694,6 @@ export default function Solution() {
     "
   />
 
-  {/* Button Content */}
   <span className="relative z-10">
     Book a Free Strategy Call
   </span>
@@ -784,9 +733,6 @@ export default function Solution() {
             </motion.div>
           </div>
 
-          {/* =================================================
-              BOTTOM ACCENT
-          ================================================== */}
 
           <div className="absolute bottom-0 left-1/2 h-[3px] w-16 -translate-x-1/2 rounded-t-full bg-yellow-400" />
         </motion.div>
