@@ -242,59 +242,7 @@ export default function Solution() {
             backdrop-blur-xl
           "
         >
-          <span className="hidden px-2 text-[9px] font-black uppercase tracking-[0.16em] text-slate-400 sm:block">
-            BG VIDEO
-          </span>
-
-          <button
-            onClick={toggleBgMute}
-            className="
-              flex
-              h-8
-              w-8
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-yellow-200
-              bg-yellow-50
-              text-yellow-700
-              transition-all
-              hover:bg-yellow-100
-            "
-            aria-label="Toggle Background Video Mute"
-          >
-            {isBgMuted ? (
-              <VolumeX className="h-3.5 w-3.5" />
-            ) : (
-              <Volume2 className="h-3.5 w-3.5" />
-            )}
-          </button>
-
-          <button
-            onClick={toggleBgPlay}
-            className="
-              flex
-              h-8
-              w-8
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-yellow-200
-              bg-yellow-50
-              text-yellow-700
-              transition-all
-              hover:bg-yellow-100
-            "
-            aria-label="Toggle Background Video Play"
-          >
-            {isBgPlaying ? (
-              <Pause className="h-3.5 w-3.5" />
-            ) : (
-              <Play className="ml-0.5 h-3.5 w-3.5" />
-            )}
-          </button>
+          
         </div>
       )}
 
@@ -611,24 +559,7 @@ export default function Solution() {
               <div className="grid gap-9 md:grid-cols-[1fr_auto] md:items-end">
 
                 <div className="text-center md:text-left">
-                  <span
-                    className="
-                      inline-flex
-                      rounded-lg
-                      border
-                      border-yellow-200
-                      bg-yellow-50
-                      px-3
-                      py-1.5
-                      text-[10px]
-                      font-black
-                      uppercase
-                      tracking-[0.16em]
-                      text-yellow-800
-                    "
-                  >
-                    Headline
-                  </span>
+                
 
                   <p className="mt-4 text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
                     Ready to build a marketing system focused
@@ -671,6 +602,7 @@ export default function Solution() {
     border border-yellow-400
     hover:border-yellow-400
     hover:bg-yellow-400
+    hover:text-white
     hover:shadow-[0_18px_42px_rgba(234,179,8,0.28)]
     sm:w-auto
   "
