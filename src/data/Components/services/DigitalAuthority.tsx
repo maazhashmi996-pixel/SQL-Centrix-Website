@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -195,41 +196,51 @@ export default function DigitalAuthority() {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-slate-900 selection:bg-yellow-300 selection:text-slate-950">
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-      {/* <section className="relative overflow-hidden border-b border-yellow-100 bg-white">
+      {/* HERO SECTION */}
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden border-b border-yellow-100 bg-slate-950">
+        
+        {/* Background Image with lighter linear gradient overlay */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80')`
+            }}
+          />
+          {/* Lighter linear gradient for higher clarity and less darkness */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/50 to-slate-950/80" />
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 z-0"
         >
-          <div className="absolute left-1/2 top-[-100px] h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-yellow-200/25 blur-[120px]" />
-          <div className="absolute right-[-100px] top-40 h-[300px] w-[300px] rounded-full bg-yellow-100/40 blur-[100px]" />
-          <div className="absolute left-[-100px] top-64 h-[280px] w-[280px] rounded-full bg-yellow-100/30 blur-[100px]" />
+          <div className="absolute left-1/2 top-[-100px] h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-yellow-400/15 blur-[130px]" />
+          <div className="absolute right-[-100px] top-40 h-[300px] w-[300px] rounded-full bg-yellow-500/10 blur-[110px]" />
+          <div className="absolute left-[-100px] top-64 h-[280px] w-[280px] rounded-full bg-yellow-300/10 blur-[110px]" />
         </motion.div>
 
-        <div className="relative mx-auto max-w-[1180px] px-6 py-24 text-center lg:py-32">
+        <div className="relative z-10 mx-auto max-w-[1180px] px-6 py-24 text-center lg:py-32">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeUp}
           >
-            <motion.h2
+            <motion.div
               whileHover={{ scale: 1.05 }}
-              className="mb-7 inline-flex cursor-default items-center gap-3 rounded-full border border-yellow-200 bg-yellow-50 px-5 py-2 text-sm font-black tracking-tight text-yellow-400 shadow-[0_8px_25px_rgba(234,179,8,0.12)]"
+              className="mb-7 inline-flex cursor-default items-center gap-3 rounded-full border border-yellow-300/30 bg-yellow-500/10 px-5 py-2 text-sm font-black tracking-tight text-yellow-300 shadow-[0_8px_25px_rgba(234,179,8,0.15)] backdrop-blur-md"
             >
               <Sparkles className="h-5 w-5 text-yellow-300" />
               Digital Authority
-            </motion.h2>
+            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mx-auto max-w-5xl text-4xl font-black leading-[1.05] tracking-tight text-slate-950 sm:text-5xl lg:text-7xl"
+              className="mx-auto max-w-5xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl"
             >
               Become the Business Customers{" "}
               <span className="relative text-yellow-300">
@@ -247,7 +258,7 @@ export default function DigitalAuthority() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-600"
+              className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-200"
             >
               Before a customer becomes a lead, they make a judgement about
               your business.
@@ -257,7 +268,7 @@ export default function DigitalAuthority() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="mx-auto mt-6 max-w-2xl space-y-2 text-sm font-medium text-slate-500"
+              className="mx-auto mt-6 max-w-2xl space-y-2 text-sm font-medium text-slate-300"
             >
               {[
                 "They search for you.",
@@ -276,11 +287,11 @@ export default function DigitalAuthority() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-slate-800"
+              className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-white"
             >
               Every one of those interactions contributes to one decision:
               <br />
-              <span className="text-yellow-400">
+              <span className="text-yellow-300">
                 Can I trust this business enough to consider buying from them?
               </span>
             </motion.p>
@@ -289,7 +300,7 @@ export default function DigitalAuthority() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.45 }}
-              className="mx-auto mt-6 max-w-3xl leading-7 text-slate-600"
+              className="mx-auto mt-6 max-w-3xl leading-7 text-slate-200"
             >
               Digital Authority is how we build that trust before your sales
               team ever enters the conversation.
@@ -299,13 +310,13 @@ export default function DigitalAuthority() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="mx-auto mt-5 max-w-4xl leading-7 text-slate-600"
+              className="mx-auto mt-5 max-w-4xl leading-7 text-slate-200"
             >
               SQL Centrix connects brand positioning, search visibility, AI
               search, content, entities, PR, and reputation into one
               authority-building system designed to make your business more
               visible,{" "}
-              <span className="font-bold text-yellow-400">
+              <span className="font-bold text-yellow-300">
                 credible, and commercially relevant.
               </span>
             </motion.p>
@@ -319,9 +330,9 @@ export default function DigitalAuthority() {
                 href="#assessment"
                 whileHover={{ y: -4, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative mt-10 inline-flex items-center hover:text-white gap-3 overflow-hidden rounded-xl bg-white border border-yellow-300 low px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_12px_30px_rgba(234,179,8,0.25)] transition-all hover:bg-yellow-500 hover:shadow-[0_18px_45px_rgba(234,179,8,0.32)]"
+                className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-300/50 bg-white px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_12px_30px_rgba(234,179,8,0.25)] transition-all hover:bg-yellow-500 hover:text-white hover:shadow-[0_18px_45px_rgba(234,179,8,0.4)]"
               >
-                <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-yellow-200 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
+                <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/40 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
 
                 <span className="relative z-10">
                   Build My Digital Authority
@@ -332,174 +343,7 @@ export default function DigitalAuthority() {
             </motion.div>
           </motion.div>
         </div>
-      </section> */}
-
-
-
-
-
-
-
-
-<section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden border-b border-yellow-100 bg-slate-950">
-      
-      {/* Background Image with lighter linear gradient overlay */}
-      <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80')`
-          }}
-        />
-        {/* Lighter linear gradient for higher clarity and less darkness */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/50 to-slate-950/80" />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="pointer-events-none absolute inset-0 z-0"
-      >
-        <div className="absolute left-1/2 top-[-100px] h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-yellow-400/15 blur-[130px]" />
-        <div className="absolute right-[-100px] top-40 h-[300px] w-[300px] rounded-full bg-yellow-500/10 blur-[110px]" />
-        <div className="absolute left-[-100px] top-64 h-[280px] w-[280px] rounded-full bg-yellow-300/10 blur-[110px]" />
-      </motion.div>
-
-      <div className="relative z-10 mx-auto max-w-[1180px] px-6 py-24 text-center lg:py-32">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="mb-7 inline-flex cursor-default items-center gap-3 rounded-full border border-yellow-300/30 bg-yellow-500/10 px-5 py-2 text-sm font-black tracking-tight text-yellow-300 shadow-[0_8px_25px_rgba(234,179,8,0.15)] backdrop-blur-md"
-          >
-            <Sparkles className="h-5 w-5 text-yellow-300" />
-            Digital Authority
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mx-auto max-w-5xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl"
-          >
-            Become the Business Customers{" "}
-            <span className="relative text-yellow-300">
-              Find, Trust & Choose
-              <motion.span
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.7 }}
-                className="absolute -bottom-2 left-0 h-1 w-full origin-left rounded-full bg-yellow-400"
-              />
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-200"
-          >
-            Before a customer becomes a lead, they make a judgement about
-            your business.
-          </motion.p>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto mt-6 max-w-2xl space-y-2 text-sm font-medium text-slate-300"
-          >
-            {[
-              "They search for you.",
-              "They compare you.",
-              "They look at your website.",
-              "They read what others say about you.",
-              "They ask AI about your industry.",
-            ].map((text, i) => (
-              <motion.p key={i} variants={fadeUp}>
-                {text}
-              </motion.p>
-            ))}
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-white"
-          >
-            Every one of those interactions contributes to one decision:
-            <br />
-            <span className="text-yellow-300">
-              Can I trust this business enough to consider buying from them?
-            </span>
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
-            className="mx-auto mt-6 max-w-3xl leading-7 text-slate-200"
-          >
-            Digital Authority is how we build that trust before your sales
-            team ever enters the conversation.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mx-auto mt-5 max-w-4xl leading-7 text-slate-200"
-          >
-            SQL Centrix connects brand positioning, search visibility, AI
-            search, content, entities, PR, and reputation into one
-            authority-building system designed to make your business more
-            visible,{" "}
-            <span className="font-bold text-yellow-300">
-              credible, and commercially relevant.
-            </span>
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
-          >
-            <motion.a
-              href="#assessment"
-              whileHover={{ y: -4, scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-300/50 bg-white hover:text-white px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_12px_30px_rgba(234,179,8,0.25)] transition-all hover:bg-yellow-500 hover:shadow-[0_18px_45px_rgba(234,179,8,0.4)]"
-            >
-              <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/40 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
-
-              <span className="relative z-10">
-                Build My Digital Authority
-              </span>
-
-              <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-      
+      </section>
 
       {/* =====================================================
           DIGITAL AUTHORITY STARTS
@@ -805,41 +649,38 @@ export default function DigitalAuthority() {
 
             <div className="group relative mt-10 overflow-hidden rounded-3xl border border-yellow-300/80 bg-white p-7 md:p-8 shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_20px_50px_rgba(234,179,8,0.20)]">
 
-  {/* Soft yellow glow */}
-  <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-yellow-200/30 blur-3xl transition-all duration-500 group-hover:bg-yellow-300/40" />
+              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-yellow-200/30 blur-3xl transition-all duration-500 group-hover:bg-yellow-300/40" />
 
-  {/* Left accent */}
-  <div className="absolute left-0 top-7 bottom-7 w-1 rounded-r-full bg-yellow-400 transition-all duration-500 group-hover:w-1.5" />
+              <div className="absolute left-0 top-7 bottom-7 w-1 rounded-r-full bg-yellow-400 transition-all duration-500 group-hover:w-1.5" />
 
-  <div className="relative pl-4">
+              <div className="relative pl-4">
 
-    {/* Small label */}
-    <div className="mb-5 flex items-center gap-2">
-      <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(234,179,8,0.55)]" />
-      <span className="text-[11px] font-black uppercase tracking-[0.18em] text-yellow-600">
-        The Growth Infrastructure
-      </span>
-    </div>
+                <div className="mb-5 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(234,179,8,0.55)]" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.18em] text-yellow-600">
+                    The Growth Infrastructure
+                  </span>
+                </div>
 
-    <p className="text-base md:text-lg leading-8 font-semibold text-slate-700">
-      Together, these aren't separate marketing services. They're
-      <span className="text-slate-950"> the infrastructure </span>
-      that determines how your business is
-      <span className="text-yellow-600"> discovered, understood, and trusted.</span>
-    </p>
+                <p className="text-base md:text-lg leading-8 font-semibold text-slate-700">
+                  Together, these aren't separate marketing services. They're
+                  <span className="text-slate-950"> the infrastructure </span>
+                  that determines how your business is
+                  <span className="text-yellow-600"> discovered, understood, and trusted.</span>
+                </p>
 
-    <div className="my-6 h-px w-full bg-gradient-to-r from-yellow-300 via-yellow-100 to-transparent" />
+                <div className="my-6 h-px w-full bg-gradient-to-r from-yellow-300 via-yellow-100 to-transparent" />
 
-    <p className="text-base md:text-lg leading-8 text-slate-600">
-      And once customers can find you, understand you, and trust
-      you—the next question is
-      <span className="font-bold text-slate-900">
-        {" "}getting the right ones through the door.
-      </span>
-    </p>
+                <p className="text-base md:text-lg leading-8 text-slate-600">
+                  And once customers can find you, understand you, and trust
+                  you—the next question is
+                  <span className="font-bold text-slate-900">
+                    {" "}getting the right ones through the door.
+                  </span>
+                </p>
 
-  </div>
-</div>
+              </div>
+            </div>
             </div>
           </motion.div>
         </div>
@@ -889,29 +730,28 @@ export default function DigitalAuthority() {
           </p>
 
           <motion.div
-  whileHover={{
-    scale: 1.03,
-    y: -2,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
-  className="group mt-9 inline-block"
->
-  <a
-    href="#contact"
-    className="relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-400 bg-white px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_12px_30px_rgba(234,179,8,0.18)] transition-all duration-500 hover:bg-yellow-500 hover:text-white hover:shadow-[0_18px_45px_rgba(234,179,8,0.35)]"
-  >
-    {/* Shine */}
-    <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
+            whileHover={{
+              scale: 1.03,
+              y: -2,
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
+            className="group mt-9 inline-block"
+          >
+            <a
+              href="#contact"
+              className="relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-400 bg-white px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_12px_30px_rgba(234,179,8,0.18)] transition-all duration-500 hover:bg-yellow-500 hover:text-white hover:shadow-[0_18px_45px_rgba(234,179,8,0.35)]"
+            >
+              <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
 
-    <span className="relative z-10 transition-colors duration-300">
-      Book Your Digital Authority Strategy Session
-    </span>
+              <span className="relative z-10 transition-colors duration-300" >
+                Book Your Digital Authority Strategy Session
+              </span>
 
-    <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-  </a>
-</motion.div>
+              <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </motion.div>
         </div>
       </section>
     </main>
