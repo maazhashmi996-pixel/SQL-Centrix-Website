@@ -32,18 +32,12 @@ export default function Navbar() {
     };
   }, []);
 
-  // =====================================================
-  // NAV LINKS
-  // =====================================================
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Blogs", href: "#Process" },
   ];
 
-  // =====================================================
-  // SERVICES
-  // =====================================================
 
   const serviceCategories = [
     {
@@ -106,9 +100,6 @@ export default function Navbar() {
           scrolled ? "h-[72px]" : "h-[88px]"
         }`}
       >
-        {/* =====================================================
-            LOGO
-        ===================================================== */}
 
         <motion.a
           href="/"
@@ -124,14 +115,9 @@ export default function Navbar() {
           </div>
         </motion.a>
 
-        {/* =====================================================
-            DESKTOP NAV
-            Home → Blogs → Services → Contact
-        ===================================================== */}
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
 
-          {/* HOME + BLOGS */}
 
           {navLinks.map((item) => (
             <motion.a
@@ -146,9 +132,6 @@ export default function Navbar() {
             </motion.a>
           ))}
 
-          {/* =====================================================
-              SERVICES DROPDOWN
-          ===================================================== */}
 
           <div
             className="relative"
@@ -244,9 +227,6 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* =====================================================
-              CONTACT
-          ===================================================== */}
 
           <motion.a
             href="/contact"
@@ -259,9 +239,6 @@ export default function Navbar() {
           </motion.a>
         </nav>
 
-        {/* =====================================================
-            DESKTOP GET STARTED
-        ===================================================== */}
 
         <div className="hidden md:block">
           <motion.a
@@ -301,9 +278,6 @@ export default function Navbar() {
           </motion.a>
         </div>
 
-        {/* =====================================================
-            MOBILE MENU BUTTON
-        ===================================================== */}
 
         <div className="flex items-center md:hidden">
           <motion.button
@@ -338,9 +312,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* =====================================================
-          MOBILE MENU
-      ===================================================== */}
 
       <AnimatePresence>
         {isOpen && (
@@ -365,7 +336,6 @@ export default function Navbar() {
           >
             <div className="mx-auto w-full max-w-[1180px] px-5 py-5">
 
-              {/* MOBILE HEADER */}
 
               <div className="mb-4 flex items-center justify-between rounded-2xl border border-yellow-100 bg-yellow-50/70 px-4 py-3">
                 <div className="flex items-center gap-2">
@@ -391,7 +361,6 @@ export default function Navbar() {
 
               <nav className="flex flex-col gap-1">
 
-                {/* NORMAL LINKS */}
 
                 {navLinks.map((item, index) => (
                   <motion.a
@@ -419,7 +388,6 @@ export default function Navbar() {
                   </motion.a>
                 ))}
 
-                {/* MOBILE SERVICES */}
 
                 <div className="py-2">
                   <p className="mb-1 px-4 text-[10px] font-black uppercase tracking-wider text-slate-400">
@@ -442,9 +410,6 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                {/* =====================================================
-                    MOBILE CONTACT
-                ===================================================== */}
 
                 <motion.a
                   href="/contact"
@@ -459,7 +424,6 @@ export default function Navbar() {
                 </motion.a>
               </nav>
 
-              {/* MOBILE GET STARTED */}
 
               <motion.a
                 href="/contact"

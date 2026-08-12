@@ -41,7 +41,7 @@ const services = [
     intro:
       "The transition from sales to service can make or break the customer's first impression. Information needs to move with the customer. Responsibilities need to be clear. Expectations need to be established. The customer needs to know what happens next.",
     extra:
-      "We create structured onboarding workflows  that connect the sale to service delivery.",
+      "We create structured onboarding workflows that connect the sale to service delivery.",
     build: [
       "Customer Onboarding Workflows",
       "Sales-to-Service Handoffs",
@@ -307,26 +307,25 @@ export default function CustomerSuccess() {
               growing the relationship creates revenue repeatedly.
             </p>
 
-          <motion.a
-  href="#contact"
-  whileHover={{
-    y: -4,
-    scale: 1.03,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
-  className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl bg-white  border border-amber-400 hover:text-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(234,179,8,0.25)] transition-all duration-300 hover:bg-yellow-500 hover:shadow-[0_18px_45px_rgba(234,179,8,0.32)]"
->
-  {/* Gray Shine */}
-  <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
+            <motion.a
+              href="#contact"
+              whileHover={{
+                y: -4,
+                scale: 1.03,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+              className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-amber-400 bg-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(234,179,8,0.25)] transition-all duration-300 hover:bg-yellow-500 hover:text-white hover:shadow-[0_18px_45px_rgba(234,179,8,0.32)]"
+            >
+              <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
 
-  <span className="relative z-10">
-    Build My Customer Success System
-  </span>
+              <span className="relative z-10">
+                Build My Customer Success System
+              </span>
 
-  <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</motion.a>
+              <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </motion.a>
           </motion.div>
         </div>
       </section>
@@ -349,7 +348,8 @@ export default function CustomerSuccess() {
               </span>
 
               <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-                Customer Success Starts  <span className="text-yellow-400">After The Sale</span>
+                Customer Success Starts{" "}
+                <span className="text-yellow-400">After The Sale</span>
               </h2>
 
               <p className="mb-7 mt-6 leading-relaxed text-slate-600">
@@ -454,7 +454,8 @@ export default function CustomerSuccess() {
             className="mx-auto mb-14 max-w-3xl text-center"
           >
             <h2 className="text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              The Customer <span className="text-yellow-400">Success System</span>
+              The Customer{" "}
+              <span className="text-yellow-400">Success System</span>
             </h2>
 
             <p className="mt-6 leading-relaxed text-slate-600">
@@ -512,7 +513,10 @@ export default function CustomerSuccess() {
 
           <p className="mx-auto mt-10 max-w-3xl text-center leading-relaxed text-slate-600">
             The objective isn't simply to keep customers happy. It's to build
-            relationships <span className="text-yellow-400"> that remain commercially valuable over time.</span>
+            relationships{" "}
+            <span className="text-yellow-400">
+              that remain commercially valuable over time.
+            </span>
           </p>
 
           <div className="mt-8 text-center">
@@ -692,7 +696,8 @@ export default function CustomerSuccess() {
             </motion.div>
 
             <h2 className="mb-6 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              From Customer To <span className="text-yellow-300"> Long-Term Revenue</span>
+              From Customer To{" "}
+              <span className="text-yellow-300">Long-Term Revenue</span>
             </h2>
 
             <p className="leading-relaxed text-slate-600">
@@ -738,7 +743,8 @@ export default function CustomerSuccess() {
           </div>
 
           <p className="mt-10 text-center text-lg font-extrabold text-slate-900 md:text-xl">
-            That's the complete SQL <span className="text-yellow-400"> Centrix growth system.</span>
+            That's the complete SQL{" "}
+            <span className="text-yellow-400">Centrix growth system.</span>
           </p>
         </div>
       </section>
@@ -762,13 +768,18 @@ export default function CustomerSuccess() {
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              One Customer System. <span className="text-yellow-300"> One Long-Term Objective.</span>
+              One Customer System.{" "}
+              <span className="text-yellow-300">
+                One Long-Term Objective.
+              </span>
             </h2>
 
             <p className="mb-4 mt-8 leading-relaxed text-slate-600">
               Customer onboarding is not separate from servicing. Servicing is
-              not separate from retention. <span className="text-yellow-300"> Retention is not separate from
-              repeat business.</span>
+              not separate from retention.{" "}
+              <span className="text-yellow-300">
+                Retention is not separate from repeat business.
+              </span>
             </p>
 
             <p className="mb-8 font-medium leading-relaxed text-slate-700">
@@ -891,26 +902,25 @@ export default function CustomerSuccess() {
                 long-term value.
               </p>
 
-             <motion.a
-  href="#"
-  whileHover={{
-    y: -4,
-    scale: 1.03,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
-  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-white hover:text-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(250,204,21,0.25)] transition-all duration-300 hover:bg-yellow-500 hover:shadow-[0_18px_45px_rgba(250,204,21,0.35)]"
->
-  {/* Gray Shine */}
-  <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
+              <motion.a
+                href="#"
+                whileHover={{
+                  y: -4,
+                  scale: 1.03,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
+                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(250,204,21,0.25)] transition-all duration-300 hover:bg-yellow-500 hover:text-white hover:shadow-[0_18px_45px_rgba(250,204,21,0.35)]"
+              >
+                <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
 
-  <span className="relative z-10">
-    Book Your Customer Success Strategy Session
-  </span>
+                <span className="relative z-10">
+                  Book Your Customer Success Strategy Session
+                </span>
 
-  <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</motion.a>
+                <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.a>
             </div>
           </motion.div>
         </div>

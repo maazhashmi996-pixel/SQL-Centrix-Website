@@ -40,68 +40,102 @@ const services = [
       "Customer Personas",
       "Buying Behaviour Analysis",
       "Competitor Analysis",
+      "Audience Intent Mapping",
     ],
   },
   {
     icon: Target,
-    title: "Offer & Messaging: Give A Reason To Respond",
+    title: "Offer & Messaging: Give The Right Customer A Reason To Respond",
     description:
-      "We develop acquisition messaging around the problems your customers want solved, the outcomes they want, and the reasons they should choose your business, adapted to each stage of the buying journey.",
+      "Even the right audience can ignore your campaign if the offer doesn't matter to them. We develop acquisition messaging around the problems your customers want solved, the outcomes they want, and the reasons they should choose your business.",
     items: [
       "Offer Strategy",
       "Value Propositions",
       "Campaign Messaging",
-      "Ad Copy & Hooks",
+      "Audience-Specific Messaging",
+      "Ad Copy",
+      "Hooks & Angles",
       "Calls To Action",
     ],
   },
   {
     icon: Megaphone,
-    title: "Creative Strategy: Turn Offer Into Notice",
+    title: "Creative Strategy: Turn Your Offer Into Something People Notice",
     description:
-      "Your audience sees hundreds of messages daily. We develop creative systems around different problems, motivations, formats, and testing frameworks to find what resonates.",
+      "Your audience sees hundreds of marketing messages every day. Creative has to earn attention before your message gets a chance to work. We develop creative systems around different customer problems, motivations, objections, offers, formats, and messaging angles.",
     items: [
       "Creative Concepts",
-      "Static & Video Ads",
+      "Static Ads",
+      "Video Ads",
+      "Short-Form Creative",
       "UGC-Style Creative",
       "Hooks & Angles",
+      "Ad Copy",
       "Creative Testing",
     ],
   },
   {
     icon: Award,
-    title: "Performance Marketing: Put Budget Behind Scale",
+    title: "Performance Marketing: Put Budget Behind What Can Actually Scale",
     description:
-      "Paid media gives you control over who sees your business. We manage paid acquisition around audience quality, campaign objectives, creative performance, and commercial outcomes.",
+      "Paid media gives you control over who sees your business, where they see it, and how quickly you can reach the market. We manage paid acquisition around audience quality, campaign objectives, creative performance, conversion data, and commercial outcomes.",
     items: [
-      "Meta & Google Ads",
-      "TikTok & LinkedIn Ads",
+      "Meta Ads",
+      "Google Ads",
+      "TikTok Ads",
+      "LinkedIn Ads",
       "YouTube Ads",
-      "Retargeting & Architecture",
+      "Campaign Architecture",
+      "Audience Targeting",
+      "Retargeting",
+      "Performance Optimization",
     ],
   },
   {
     icon: Share2,
-    title: "Social Media: Build Demand Before Search",
+    title: "Social Media: Build Demand Before The Customer Searches",
     description:
-      "Stay present while prospects discover problems and form preferences. We use social content to build familiarity, demonstrate expertise, and support wider acquisition campaigns.",
+      "Not every customer is ready to buy today. Social media allows your business to stay present while prospects are discovering problems, learning about solutions, and forming preferences.",
     items: [
-      "Social Strategy",
+      "Social Media Strategy",
       "Content Planning",
       "Platform Management",
       "Short-Form Content",
+      "Community Growth",
+      "Organic Campaigns",
+      "Paid & Organic Integration",
+    ],
+  },
+  {
+    icon: Users,
+    title: "Influencer Marketing: Borrow Attention From Communities That Already Exist",
+    description:
+      "People often trust people before they trust brands. The right creator can introduce your business to an audience that already has an established relationship with their voice.",
+    items: [
+      "Creator Research",
+      "Influencer Selection",
+      "Campaign Strategy",
+      "Creator Briefs",
+      "Creative Direction",
+      "UGC Campaigns",
+      "Campaign Management",
+      "Performance Tracking",
     ],
   },
   {
     icon: FileText,
-    title: "Content-Led Acquisition: Reach Early",
+    title: "Content-Led Acquisition: Reach Customers Before They're Ready To Buy",
     description:
-      "Strategic content allows your business to enter the customer journey earlier by answering questions, educating prospects, and creating familiarity before buying decisions.",
+      "A customer doesn't suddenly become interested at the moment they see your sales offer. Strategic content allows your business to enter that journey earlier by answering questions, educating prospects, demonstrating expertise, and creating familiarity before the buying decision.",
     items: [
       "Educational Content",
       "Thought Leadership",
-      "Lead Magnets & Resources",
+      "Social Content",
+      "Video Content",
+      "Lead Magnets",
+      "Industry Resources",
       "Comparison Content",
+      "Campaign Content",
     ],
   },
 ];
@@ -134,14 +168,6 @@ export default function CustomerAcquisition() {
             animate="visible"
             variants={fadeUp}
           >
-            {/* <motion.span
-              whileHover={{ y: -2, scale: 1.03 }}
-              className="inline-flex cursor-default items-center gap-2 rounded-full border border-yellow-200 bg-white px-5 py-2.5 text-xs font-black uppercase tracking-[0.16em] text-yellow-300 shadow-[0_8px_30px_rgba(234,179,8,0.12)]"
-            >
-              <Sparkles className="h-4 w-4 text-yellow-300" />
-              Service Page 2: Customer Acquisition
-            </motion.span> */}
-
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
@@ -174,10 +200,20 @@ export default function CustomerAcquisition() {
               className="mx-auto mt-5 max-w-3xl text-base font-medium leading-8 text-slate-700 md:text-lg"
             >
               Customer Acquisition is where we turn your market position into
-              active demand by putting your business in front of the people
-              most likely to become customers. We don't chase reach for the
-              sake of reach; we build acquisition around the people you
-              actually want to sell to.
+              active demand. SQL Centrix combines audience research, offers,
+              creative strategy, paid media, social media, influencer
+              marketing, and content distribution to put your business in
+              front of the people most likely to become customers.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="mx-auto mt-5 max-w-3xl text-base font-medium leading-8 text-slate-700 md:text-lg"
+            >
+              We don't chase reach for the sake of reach. We build acquisition
+              around the people you actually want to sell to.
             </motion.p>
 
             <motion.a
@@ -187,7 +223,7 @@ export default function CustomerAcquisition() {
               whileHover={{ y: -4, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               href="#contact"
-              className="group relative mt-10 inline-flex items-center hover:text-white gap-3 overflow-hidden rounded-xl border border-yellow-400 bg-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_14px_35px_rgba(234,179,8,0.24)] transition-all duration-300 hover:bg-yellow-300 hover:shadow-[0_20px_45px_rgba(234,179,8,0.32)]"
+              className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-400 bg-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_14px_35px_rgba(234,179,8,0.24)] transition-all duration-300 hover:bg-yellow-300 hover:text-white hover:shadow-[0_20px_45px_rgba(234,179,8,0.32)]"
             >
               <span className="absolute inset-y-0 -left-[80%] w-1/2 -skew-x-12 bg-yellow-100/70 blur-sm transition-all duration-700 group-hover:left-[130%]" />
 
@@ -214,24 +250,50 @@ export default function CustomerAcquisition() {
             variants={fadeUp}
           >
             <span className="text-xs font-black uppercase tracking-[0.18em] text-yellow-300">
-              Acquisition Starts With  The Right Customer
+              Acquisition Starts With The Right Customer
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
-              Acquisition Starts<span className="text-yellow-300">  With The Right Customer </span>  
+              Acquisition Starts
+              <span className="text-yellow-300">
+                {" "}With The Right Customer
+              </span>
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
               The biggest acquisition mistake is starting with the channel.
-              Businesses ask: "Should we run Meta Ads?", "Should we use
-              Google?", "Should we do TikTok?"
+              Businesses ask:
+            </p>
+
+            <div className="mt-5 space-y-3">
+              {[
+                '"Should we run Meta Ads?"',
+                '"Should we use Google?"',
+                '"Should we do TikTok?"',
+              ].map((item) => (
+                <p
+                  key={item}
+                  className="font-semibold leading-8 text-slate-800"
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+
+            <p className="mt-5 font-semibold leading-8 text-slate-800">
+              We start somewhere else:
+              <span className="text-yellow-500"> Who are we trying to acquire?</span>
+            </p>
+
+            <p className="mt-4 leading-8 text-slate-600">
+              We identify the audience, understand their needs and buying
+              behaviour, determine where they spend attention, and then choose
+              the channels and messages capable of reaching them.
             </p>
 
             <p className="mt-4 font-semibold leading-8 text-slate-800">
-              We start somewhere else: Who are we trying to acquire? We
-              identify the audience, understand their needs and buying
-              behaviour, determine where they spend attention, and then choose
-              the channels and messages capable of reaching them.
+              Because the objective isn't to generate the most attention.
+              It's to generate the right attention.
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -239,7 +301,11 @@ export default function CustomerAcquisition() {
                 "Audience Intelligence",
                 "Offer & Messaging",
                 "Creative Strategy",
-                "Performance Marketing",
+                "Channel Strategy",
+                "Campaign Distribution",
+                "Demand Generation",
+                "Lead Generation",
+                "Sales Opportunities",
               ].map((item, i) => (
                 <motion.div
                   key={item}
@@ -285,29 +351,23 @@ export default function CustomerAcquisition() {
               </div>
 
               <ul className="space-y-5 text-sm leading-7 text-slate-700">
-                <li className="flex items-start gap-3">
-                  <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-yellow-300" />
-                  <span>
-                    <strong>Audience Intelligence:</strong> Understand who
-                    you're trying to reach.
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-yellow-300" />
-                  <span>
-                    <strong>Offer & Messaging:</strong> Give them a reason to
-                    care.
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-yellow-300" />
-                  <span>
-                    <strong>Creative & Channel:</strong> Turn messages into
-                    notices and scale through distribution.
-                  </span>
-                </li>
+                {[
+                  ["Audience Intelligence", "Understand who you're trying to reach."],
+                  ["Offer & Messaging", "Give them a reason to care."],
+                  ["Creative Strategy", "Turn the message into something they notice."],
+                  ["Channel Strategy", "Put it where your audience already spends attention."],
+                  ["Campaign Distribution", "Reach the market at scale."],
+                  ["Demand Generation", "Move people from awareness to interest."],
+                  ["Lead Generation", "Give interested prospects a path to engage."],
+                  ["Sales Opportunities", "Turn the right responses into opportunities for your sales team."],
+                ].map(([title, text]) => (
+                  <li key={title} className="flex items-start gap-3">
+                    <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-yellow-300" />
+                    <span>
+                      <strong>{title}:</strong> {text}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
@@ -398,11 +458,165 @@ export default function CustomerAcquisition() {
                         </motion.div>
                       ))}
                     </div>
+
+                    <div className="mt-6 rounded-xl bg-yellow-50/60 p-4">
+                      <p className="text-xs font-black uppercase tracking-[0.15em] text-yellow-500">
+                        The Result
+                      </p>
+
+                      <p className="mt-2 text-xs leading-6 text-slate-600">
+                        {index === 0 &&
+                          "Less wasted reach and a clearer understanding of who your acquisition system needs to attract."}
+
+                        {index === 1 &&
+                          "A clearer reason for your target customer to stop, understand, and take the next step."}
+
+                        {index === 2 &&
+                          "A repeatable creative engine that helps identify what makes your audience respond."}
+
+                        {index === 3 &&
+                          "A paid acquisition system designed to turn media spend into measurable business opportunities."}
+
+                        {index === 4 &&
+                          "A social presence that contributes to demand generation instead of simply filling a content calendar."}
+
+                        {index === 5 &&
+                          "Relevant exposure, stronger social proof, and content that can extend beyond the original creator campaign."}
+
+                        {index === 6 &&
+                          "More opportunities to become part of the customer's decision-making process before competitors do."}
+                      </p>
+                    </div>
                   </div>
                 </motion.article>
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          FROM ATTENTION TO OPPORTUNITY
+      ===================================================== */}
+      <section className="relative mx-auto max-w-[1180px] px-6 py-20 lg:py-28">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-4xl text-center"
+        >
+          <span className="text-xs font-black uppercase tracking-[0.18em] text-yellow-300">
+            From Attention To Opportunity
+          </span>
+
+          <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
+            From Attention To{" "}
+            <span className="text-yellow-300">Opportunity</span>
+          </h2>
+
+          <p className="mt-6 leading-8 text-slate-600">
+            The acquisition system doesn't end when someone sees an
+            advertisement. It moves through a progression:
+          </p>
+        </motion.div>
+
+        <div className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-2">
+          {[
+            "The right audience gives us relevance.",
+            "The right offer creates interest.",
+            "Creative earns attention.",
+            "Distribution creates reach.",
+            "Content and social build familiarity.",
+            "Campaigns create demand.",
+            "Lead generation creates an opportunity to engage.",
+            "And that opportunity eventually needs somewhere to go.",
+          ].map((item, index) => (
+            <motion.div
+              key={item}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ y: -3 }}
+              className="group flex items-start gap-4 rounded-xl border border-yellow-100 bg-white p-5 shadow-[0_8px_25px_rgba(234,179,8,0.06)] transition-all hover:border-yellow-200 hover:shadow-[0_14px_35px_rgba(234,179,8,0.12)]"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-yellow-50">
+                <CheckCircle2 className="h-5 w-5 text-yellow-300" />
+              </span>
+
+              <p className="text-sm font-semibold leading-7 text-slate-700">
+                {item}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* =====================================================
+          ONE ACQUISITION SYSTEM
+      ===================================================== */}
+      <section className="relative border-y border-yellow-100 bg-yellow-50/25">
+        <div className="mx-auto max-w-[1180px] px-6 py-20 lg:py-28">
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <span className="text-xs font-black uppercase tracking-[0.18em] text-yellow-300">
+              Acquisition Strategy
+            </span>
+
+            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
+              One Acquisition System.{" "}
+              <span className="text-yellow-300">
+                Not A Collection Of Channels.
+              </span>
+            </h2>
+
+            <p className="mt-6 leading-8 text-slate-600">
+              We don't believe every business needs Meta, Google, TikTok,
+              LinkedIn, influencers, and every other channel. The right
+              combination depends on:
+            </p>
+          </motion.div>
+
+          <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              "Your market.",
+              "Your customers.",
+              "Your offer.",
+              "Your sales cycle.",
+              "Your growth objective.",
+            ].map((item, index) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                whileHover={{ y: -4 }}
+                className="rounded-xl border border-yellow-100 bg-white p-5 text-center shadow-[0_8px_25px_rgba(234,179,8,0.06)] transition-all hover:border-yellow-200 hover:shadow-[0_14px_35px_rgba(234,179,8,0.12)]"
+              >
+                <p className="text-sm font-bold text-slate-800">
+                  {item}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto mt-10 max-w-3xl text-center"
+          >
+            <p className="leading-8 text-slate-600">
+              The channels are simply the tools. The objective is acquiring
+              customers who can become valuable business opportunities.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -444,7 +658,10 @@ export default function CustomerAcquisition() {
             viewport={{ once: true }}
             className="mt-7 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl"
           >
-            Ready To Acquire  <span className="text-yellow-300"> Better Customers?</span>
+            Ready To Acquire{" "}
+            <span className="text-yellow-300">
+              Better Customers?
+            </span>
           </motion.h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-slate-600">
@@ -453,24 +670,23 @@ export default function CustomerAcquisition() {
             your business.
           </p>
 
-       <motion.a
-  initial={{ opacity: 0, y: 15 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  whileHover={{ y: -4, scale: 1.02 }}
-  whileTap={{ scale: 0.98 }}
-  href="#contact"
-  className="group relative mt-9 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-400 bg-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_14px_35px_rgba(234,179,8,0.22)] transition-all duration-300 hover:bg-yellow-300 hover:text-white hover:shadow-[0_20px_45px_rgba(234,179,8,0.32)]"
->
-  {/* Hover Shine */}
-  <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/45 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
+          <motion.a
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href="#contact"
+            className="group relative mt-9 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-yellow-400 bg-white px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_14px_35px_rgba(234,179,8,0.22)] transition-all duration-300 hover:bg-yellow-300 hover:text-white hover:shadow-[0_20px_45px_rgba(234,179,8,0.32)]"
+          >
+            <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/45 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
 
-  <span className="relative z-10">
-    Book Your Customer Acquisition Strategy Session
-  </span>
+            <span className="relative z-10">
+              Book Your Customer Acquisition Strategy Session
+            </span>
 
-  <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</motion.a>
+            <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </motion.a>
         </div>
       </section>
     </main>
