@@ -454,32 +454,33 @@ export default function Solution() {
     "
   />
 
-  <span
-    className="
-      relative
-      z-10
-      flex
-      min-h-[125px]
-      w-full
-      items-center
-      justify-center
-      px-6
-      py-8
-      text-center
-      text-xl
-      font-black
-      leading-tight
-      tracking-[-0.025em]
-      text-white
-      drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)]
-      sm:text-2xl
-      lg:min-h-[145px]
-      lg:px-10
-      lg:text-[28px]
-    "
-  >
-    Generate Qualified Leads that help your business grow
-  </span>
+<span
+  className="
+    relative
+    z-10
+    flex
+    min-h-[125px]
+    w-full
+    flex-col
+    items-center
+    justify-center
+    px-6
+    py-8
+    text-center
+    text-xl
+    font-black
+    leading-tight
+    tracking-[-0.025em]
+    drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)]
+    sm:text-2xl
+    lg:min-h-[145px]
+    lg:px-10
+    lg:text-[28px]
+  "
+>
+  <span className="text-yellow-300">Generate</span>
+  <span className="text-white">Sales Qualified Leads nechy</span>
+</span>
 
   <motion.span
     initial={{ scaleX: 0, opacity: 0 }}
@@ -561,7 +562,7 @@ export default function Solution() {
                 <div className="text-center md:text-left">
                 
 
-                  <p className="mt-4 text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
+                  <p className="mb-4  text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
                     Ready to build a marketing system focused
                   </p>
                 </div>
