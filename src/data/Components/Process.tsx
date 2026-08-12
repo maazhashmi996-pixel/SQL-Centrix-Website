@@ -268,9 +268,7 @@ export default function Process() {
                 className="mx-auto mt-12 max-w-3xl text-center"
               >
                 <div className="relative px-5">
-                  <span className="absolute -left-2 -top-8 text-7xl font-serif leading-none text-yellow-300/60">
-                    “
-                  </span>
+                  
 
                   <p className="relative text-xl font-bold leading-relaxed tracking-tight text-yellow-700 sm:text-2xl">
                     Most businesses invest in marketing activities. We invest
