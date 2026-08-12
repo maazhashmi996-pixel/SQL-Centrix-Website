@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/src/data/Components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SQL Centrix — Nothing But Sales Qualified Leads",
-  description: "At SQL Centrix, every strategy, campaign, and website has one objective: bringing your business qualified opportunities that convert into revenue.",
+  description:
+    "At SQL Centrix, every strategy, campaign, and website has one objective: bringing your business qualified opportunities that convert into revenue.",
 };
 
 export default function RootLayout({
@@ -16,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>
+      <body
+        className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}
+      >
+        <Navbar />
         {children}
       </body>
     </html>
