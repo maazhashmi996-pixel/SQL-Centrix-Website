@@ -15,7 +15,6 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
-        {/* Main Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,10 +26,8 @@ export default function ContactPage() {
             shadow-[0_25px_80px_rgba(15,23,42,0.08)]
           "
         >
-          {/* Top Accent */}
           <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300" />
 
-          {/* Header */}
           <div className="border-b border-slate-100 px-6 py-8 sm:px-9">
             <motion.div
               initial={{ opacity: 0, x: -15 }}
@@ -49,7 +46,6 @@ export default function ContactPage() {
             </motion.div>
           </div>
 
-          {/* Form */}
           <div className="px-6 py-8 sm:px-9 sm:py-10">
             {submitted ? (
               <div className="flex min-h-[300px] items-center justify-center">
@@ -59,7 +55,6 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-7">
-                {/* Business Email */}
                 <div>
                   <label className="mb-2 block text-sm font-bold text-slate-800">
                     Business Email
@@ -88,7 +83,6 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Country */}
                 <div>
                   <label className="mb-2 block text-sm font-bold text-slate-800">
                     Where is your business located?
@@ -129,7 +123,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Role */}
                 <div>
                   <label className="mb-2 block text-sm font-bold text-slate-800">
                     I am a:
@@ -176,7 +169,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Interested In */}
                 <div>
                   <label className="mb-2 block text-sm font-bold text-slate-800">
                     My business is interested in:
@@ -239,7 +231,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Consent */}
                 <div className="space-y-4 border-t border-slate-100 pt-6">
                   <label className="flex cursor-pointer items-start gap-3">
                     <input
@@ -277,7 +268,6 @@ export default function ContactPage() {
                   </label>
                 </div>
 
-                {/* Privacy Text */}
                 <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5">
                   <p className="text-xs leading-5 text-black">
                     We respect your privacy and are committed to protecting
@@ -295,7 +285,6 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                {/* Submit */}
                 <motion.button
                   type="submit"
                   whileHover={{ y: -2 }}
@@ -315,7 +304,6 @@ export default function ContactPage() {
                     hover:shadow-[0_18px_40px_rgba(234,179,8,0.28)]
                   "
                 >
-                  {/* Shine */}
                   <span
                     className="
                       absolute inset-y-0 -left-20 w-16

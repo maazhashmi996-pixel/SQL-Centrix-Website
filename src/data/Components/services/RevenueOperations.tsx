@@ -159,6 +159,31 @@ const services = [
       "Greater visibility into sales execution and the ability to correct problems before they become lost revenue.",
     iconBg: "bg-yellow-50",
   },
+  {
+    title: "Sales Reporting",
+    subtitle: "See Where Your Revenue Process Is Breaking Down",
+    icon: BarChart3,
+    intro:
+      "A useful sales system should help you understand more than lead volume. It should help answer:",
+    points: [
+      "Which opportunities are moving?",
+      "Where are deals getting stuck?",
+      "How quickly are leads being handled?",
+      "Which sources are producing valuable opportunities?",
+      "Where is the sales process losing potential revenue?",
+    ],
+    build: [
+      "Pipeline Reporting",
+      "Lead Source Tracking",
+      "Sales Performance Reports",
+      "Conversion Tracking",
+      "Activity Reporting",
+      "Revenue Visibility",
+    ],
+    result:
+      "A clearer picture of how opportunities move through your business and where improvement is needed.",
+    iconBg: "bg-yellow-50",
+  },
 ];
 
 const flowSteps = [
@@ -220,14 +245,11 @@ export default function RevenueOperations() {
             animate="visible"
             variants={fadeUp}
           >
-            {/* <span className="mb-7 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-yellow-700 shadow-sm">
-              <Sparkles className="h-3.5 w-3.5" />
-              Service Page 4: Revenue Operations
-            </span> */}
-
             <h1 className="mb-7 text-4xl font-black leading-[1.05] tracking-tight text-slate-950 md:text-6xl lg:text-7xl">
-              Turn Qualified Opportunities <span className="text-yellow-300">Into{" "}
-              Revenue</span>
+              Turn Qualified Opportunities{" "}
+              <span className="text-yellow-300">
+                Into Revenue
+              </span>
             </h1>
 
             <p className="mx-auto max-w-4xl text-lg leading-relaxed text-slate-600 md:text-xl">
@@ -242,8 +264,11 @@ export default function RevenueOperations() {
               Revenue Operations is where we connect the systems behind your
               sales process. SQL Centrix brings together CRM, lead management,
               sales pipelines, WhatsApp, automation, sales processes, and
-              quality assurance to <span className="text-yellow-400"> create a structured path from incoming
-              opportunity to closed business.</span>
+              quality assurance to{" "}
+              <span className="text-yellow-400">
+                create a structured path from incoming opportunity to closed
+                business.
+              </span>
             </p>
 
             <p className="mx-auto mt-5 max-w-3xl text-lg font-medium leading-relaxed text-slate-700 md:text-xl">
@@ -252,7 +277,7 @@ export default function RevenueOperations() {
             </p>
 
             <a
-              href="#contact" 
+              href="#contact"
               className="mt-10 hover:text-white inline-flex items-center gap-3 rounded-xl bg-white border border-yellow-300 px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(234,179,8,0.25)] transition-all hover:bg-yellow-500"
             >
               <span>Build My Revenue Operations System</span>
@@ -284,7 +309,10 @@ export default function RevenueOperations() {
               </span>
 
               <h2 className="mt-4 mb-7 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-                Revenue Starts With What  <span className="text-yellow-300"> Happens After The Lead</span>
+                Revenue Starts With What{" "}
+                <span className="text-yellow-300">
+                  Happens After The Lead
+                </span>
               </h2>
 
               <p className="mb-7 leading-relaxed text-slate-600">
@@ -375,7 +403,10 @@ export default function RevenueOperations() {
 
             <p className="leading-relaxed text-slate-600">
               Revenue Operations connects your marketing activity with the
-              people and processes <span className="text-yellow-300"> responsible for generating revenue.</span>
+              people and processes{" "}
+              <span className="text-yellow-300">
+                responsible for generating revenue.
+              </span>
             </p>
           </motion.div>
 
@@ -573,7 +604,10 @@ export default function RevenueOperations() {
               </h2>
 
               <h3 className="mb-5 text-xl font-extrabold text-slate-800 md:text-2xl">
-                See Where Your Revenue <span className="text-yellow-300"> Process Is Breaking Down</span>
+                See Where Your Revenue{" "}
+                <span className="text-yellow-300">
+                  Process Is Breaking Down
+                </span>
               </h3>
 
               <p className="mb-7 leading-relaxed text-slate-600">
@@ -640,7 +674,10 @@ export default function RevenueOperations() {
 
                 <p className="mt-2 leading-relaxed text-slate-300">
                   A clearer picture of how opportunities move through your
-                  business and  <span className="text-yellow-300">where improvement is needed.</span>
+                  business and{" "}
+                  <span className="text-yellow-300">
+                    where improvement is needed.
+                  </span>
                 </p>
               </div>
             </div>
@@ -673,8 +710,10 @@ export default function RevenueOperations() {
             </h2>
 
             <p className="leading-relaxed text-slate-600">
-              Revenue Operations is the bridge between your acquisition <span className="text-yellow-400"> system
-              and your actual business results.</span>
+              Revenue Operations is the bridge between your acquisition{" "}
+              <span className="text-yellow-400">
+                system and your actual business results.
+              </span>
             </p>
           </motion.div>
 
@@ -719,7 +758,8 @@ export default function RevenueOperations() {
           </div>
 
           <p className="mt-10 text-center text-lg font-extrabold text-slate-900 md:text-xl">
-            That's when a marketing-generated <span className="text-yellow-300"> lead becomes revenue.</span>
+            That's when a marketing-generated{" "}
+            <span className="text-yellow-300">lead becomes revenue.</span>
           </p>
         </div>
       </section>
@@ -744,7 +784,10 @@ export default function RevenueOperations() {
             </span>
 
             <h2 className="mt-4 mb-8 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              One Revenue System. <span className="text-yellow-300"> Not Disconnected Tools.</span>
+              One Revenue System.{" "}
+              <span className="text-yellow-300">
+                Not Disconnected Tools.
+              </span>
             </h2>
 
             <p className="mb-4 leading-relaxed text-slate-600">
@@ -815,19 +858,18 @@ export default function RevenueOperations() {
                 opportunities may be getting lost.
               </p>
 
-             <a
-  href="#"
-  className="group relative inline-flex items-center gap-3 hover:text-white overflow-hidden rounded-xl bg-white border border-amber-300 px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(250,204,21,0.25)] transition-all duration-300 hover:bg-yellow-500 hover:shadow-[0_18px_45px_rgba(234,179,8,0.32)]"
->
-  {/* Gray Shine */}
-  <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/55 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
+              <a
+                href="#"
+                className="group relative inline-flex items-center gap-3 hover:text-white overflow-hidden rounded-xl bg-white border border-amber-300 px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-[0_10px_30px_rgba(250,204,21,0.25)] transition-all duration-300 hover:bg-yellow-500 hover:shadow-[0_18px_45px_rgba(234,179,8,0.32)]"
+              >
+                <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/55 opacity-0 blur-sm transition-all duration-[1200ms] group-hover:left-[120%] group-hover:opacity-100" />
 
-  <span className="relative z-10">
-    Book Your Revenue Operations Strategy Session
-  </span>
+                <span className="relative z-10">
+                  Book Your Revenue Operations Strategy Session
+                </span>
 
-  <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</a>
+                <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
             </div>
           </motion.div>
         </div>

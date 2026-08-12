@@ -491,15 +491,15 @@ export default function DigitalAuthority() {
       <section className="border-y border-yellow-100 bg-yellow-50/25">
         <div className="mx-auto max-w-[1180px] px-6 py-20 lg:py-28">
 
-          <div className="mx-auto max-w-3xl text-center">
+          {/* <div className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-black uppercase tracking-[0.18em] text-yellow-300">
               Authority Building Services
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-              Everything Your Digital <span className="text-yellow-300"> Authority Needs</span>
+               Digital <span className="text-yellow-300"> Authority Needs</span>
             </h2>
-          </div>
+          </div> */}
 
           <div className="mt-14 space-y-7">
             {authorityServices.map((service, index) => {
@@ -616,12 +616,9 @@ export default function DigitalAuthority() {
             <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-yellow-200/25 blur-3xl" />
 
             <div className="relative">
-              <span className="text-xs font-black uppercase tracking-[0.18em] text-yellow-300">
-                One System. One Position In The Market.
-              </span>
-
+          
               <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-                Your Digital Presence Should Work,<span className="text-yellow-300">  As One System</span>
+                 One System. One<span className="text-yellow-300"> Position In The Market.</span>
               </h2>
 
               <div className="mt-10 space-y-4">
