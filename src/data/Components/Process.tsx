@@ -110,6 +110,7 @@ export default function Process() {
 
   return (
     <section
+    id="Process"
       ref={containerRef}
       className="relative overflow-hidden bg-[#fafaf8] py-19 sm:py-30 lg:py-0"
     >
