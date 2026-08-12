@@ -479,7 +479,7 @@ export default function Solution() {
   "
 >
   <span className="text-yellow-300">Generate</span>
-  <span className="text-white">Sales Qualified Leads nechy</span>
+  <span className="text-white">Sales Qualified Leads </span>
 </span>
 
   <motion.span
