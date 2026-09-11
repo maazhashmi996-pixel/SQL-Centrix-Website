@@ -680,20 +680,7 @@ export default function Footer() {
                   "
                 />
 
-                <span
-                  className="
-                    relative
-                    flex
-                    h-6
-                    w-6
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-yellow-400/15
-                  "
-                >
-                  <HiOutlineSparkles className="h-3.5 w-3.5 text-yellow-600" />
-                </span>
+              
 
                 <span className="relative">
                   SEND US A MESSAGE

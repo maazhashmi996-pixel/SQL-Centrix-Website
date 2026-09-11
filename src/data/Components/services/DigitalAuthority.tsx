@@ -232,7 +232,7 @@ export default function DigitalAuthority() {
               whileHover={{ scale: 1.05 }}
               className="mb-7 inline-flex cursor-default items-center gap-3 rounded-full border border-yellow-300/30 bg-yellow-500/10 px-5 py-2 text-sm font-black tracking-tight text-yellow-300 shadow-[0_8px_25px_rgba(234,179,8,0.15)] backdrop-blur-md"
             >
-              <Sparkles className="h-5 w-5 text-yellow-300" />
+              {/* <Sparkles className="h-5 w-5 text-yellow-300" /> */}
               Digital Authority
             </motion.div>
 
@@ -242,9 +242,9 @@ export default function DigitalAuthority() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mx-auto max-w-5xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl"
             >
-              Become the Business Customers{" "}
+              Become the Business {" "}
               <span className="relative text-yellow-300">
-                Find, Trust & Choose
+               Customers Find, Trust & Choose
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -268,7 +268,7 @@ export default function DigitalAuthority() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="mx-auto mt-6 max-w-2xl space-y-2 text-sm font-medium text-slate-300"
+              className="mx-auto mt-6 max-w-2xl space-y-2 text-sm font-medium text-yellow-300"
             >
               {[
                 "They search for you.",
@@ -362,8 +362,8 @@ export default function DigitalAuthority() {
                 Digital Authority Starts Before The Lead
               </span>
 
-              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
-                Build The Entire Digital Environment  <span className="text-yellow-400">Surrounding Your Business</span>
+              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-3xl">
+                Build The Entire Digital   Environment  <span className="text-yellow-400">Surrounding Your Business</span>
               </h2>
 
               <p className="mt-6 leading-8 text-slate-600">
@@ -527,15 +527,7 @@ export default function DigitalAuthority() {
 
                     <div>
                       <div className="flex items-start gap-4">
-                        <motion.div
-                          whileHover={{
-                            rotate: 10,
-                            scale: 1.1,
-                          }}
-                          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-yellow-200 bg-yellow-50 text-yellow-400 shadow-[0_7px_20px_rgba(234,179,8,0.10)] transition-transform"
-                        >
-                          <Icon className="h-5 w-5" />
-                        </motion.div>
+                       
 
                         <div>
                           <span className="text-xs font-black uppercase tracking-wider text-yellow-300">
@@ -618,7 +610,7 @@ export default function DigitalAuthority() {
             <div className="relative">
           
               <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-                 One System. One<span className="text-yellow-300"> Position In The Market.</span>
+                 One System. One <br /> <span className="text-yellow-300"> Position In The Market.</span>
               </h2>
 
               <div className="mt-10 space-y-4">
@@ -716,7 +708,7 @@ export default function DigitalAuthority() {
           </motion.div>
 
           <h2 className="mt-7 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-            Ready To Build Your <span className="text-yellow-400">Digital Authority?</span> 
+            Ready To Build Your Digital <span className="text-yellow-400"> Authority?</span> 
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-slate-600">

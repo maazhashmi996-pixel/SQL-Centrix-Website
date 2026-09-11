@@ -122,22 +122,7 @@ const services = [
       "Performance Tracking",
     ],
   },
-  {
-    icon: FileText,
-    title: "Content-Led Acquisition: Reach Customers Before They're Ready To Buy",
-    description:
-      "A customer doesn't suddenly become interested at the moment they see your sales offer. Strategic content allows your business to enter that journey earlier by answering questions, educating prospects, demonstrating expertise, and creating familiarity before the buying decision.",
-    items: [
-      "Educational Content",
-      "Thought Leadership",
-      "Social Content",
-      "Video Content",
-      "Lead Magnets",
-      "Industry Resources",
-      "Comparison Content",
-      "Campaign Content",
-    ],
-  },
+
 ];
 
 export default function CustomerAcquisition() {
@@ -254,9 +239,9 @@ export default function CustomerAcquisition() {
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
-              Acquisition Starts
+              Acquisition Starts With  <br />
               <span className="text-yellow-300">
-                {" "}With The Right Customer
+                {" "}The Right Customer
               </span>
             </h2>
 
@@ -391,7 +376,7 @@ export default function CustomerAcquisition() {
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-              Find Your Highest-Value Acquisition Opportunities
+              Find Your Highest-Value <span className="text-yellow-300"> Acquisition Opportunities</span>
             </h2>
 
             <p className="mt-5 text-slate-600">
@@ -569,9 +554,9 @@ export default function CustomerAcquisition() {
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-              One Acquisition System.{" "}
+              One Acquisition System. Not A {" "}
               <span className="text-yellow-300">
-                Not A Collection Of Channels.
+                Collection Of Channels.
               </span>
             </h2>
 
@@ -658,9 +643,9 @@ export default function CustomerAcquisition() {
             viewport={{ once: true }}
             className="mt-7 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl"
           >
-            Ready To Acquire{" "}
+            Ready To Acquire Better{" "}
             <span className="text-yellow-300">
-              Better Customers?
+               Customers?
             </span>
           </motion.h2>
 
