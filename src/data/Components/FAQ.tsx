@@ -25,7 +25,6 @@ const processSteps = [
     ],
     services: "Performance Marketing • Creative Strategy • Bitrix24 CRM • WhatsApp Integration • Sales Pipeline Design • Lead Management • Customer Onboarding • Client Servicing",
     icon: FiCpu,
-    badge: " Case Studies",
     type: "casestudy",
   },
   {
@@ -42,7 +41,6 @@ const processSteps = [
     ],
     services: "TikTok Advertising • Creative Strategy • Performance Marketing • Conversion Tracking • Campaign Optimization • Analytics",
     icon: FiShoppingBag,
-    badge: "Case Study",
     type: "casestudy",
   },
   {
@@ -59,7 +57,6 @@ const processSteps = [
     ],
     services: "TikTok Performance Marketing • Creative Strategy • Audience Research • Campaign Architecture • Conversion Tracking • TikTok Pixel Integration • Creative Testing • Campaign Optimization • Performance Analytics",
     icon: FiTrendingUp,
-    badge: "Case Study",
     type: "casestudy",
   },
   {
@@ -76,7 +73,6 @@ const processSteps = [
     ],
     services: "Google Ads Strategy • Search Campaign Management • Keyword Research • Ad Copywriting • Bid Optimization • Performance Monitoring • Search Intent Targeting • Campaign Reporting",
     icon: FiBarChart2,
-    badge: "11. Conclusion",
     type: "casestudy",
   },
 ];
@@ -268,8 +264,7 @@ function ProcessCard({
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full shadow-xs">
-          {step.badge}
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900  px-3 py-1 rounded-full ">
         </span>
         <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-yellow-500 group-hover:text-slate-950 transition-all duration-300 shadow-xs">
           <IconComponent className="w-5 h-5" />
@@ -277,7 +272,7 @@ function ProcessCard({
       </div>
 
       <div className="space-y-2.5">
-        <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight flex items-center justify-between">
+        <h3 className="text-4xl font-bold  pb-6 text-slate-900 group-hover:text-amber-600 transition-colors tracking-tight flex items-center justify-between">
           <span>{step.title}</span>
           <FiArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-600 -translate-x-2 group-hover:translate-x-0 duration-300" />
         </h3>

@@ -44,11 +44,8 @@ const services = [
     title: "Social Media & Community Growth",
     desc: "We create social media experiences that strengthen your reputation and keep your business visible where your audience spends their time.",
     icon: HiOutlineShare,
-  }, {
-    title: " Authority Building ",
-    desc: "Strengthening your digital authority through strategic content, digital PR, guest posting, and Wikipedia consulting will help your business become a trusted name online.",
-    icon: HiOutlineShare,
   },
+  
 ];
 
 const brands = [

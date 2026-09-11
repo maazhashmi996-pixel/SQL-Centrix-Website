@@ -88,83 +88,97 @@ export default function Conclusion() {
       <div className="relative z-10 mx-auto max-w-6xl">
 
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="mb-16"
-        >
-
-          <div className="mb-6 flex items-center gap-3">
-            <motion.span
-              initial={{ width: 0 }}
-              whileInView={{ width: 45 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-                delay: 0.2,
-              }}
-              className="h-[2px] rounded-full bg-yellow-400"
-            />
-
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-600 sm:text-xs">
-              Conclusion
-            </span>
-          </div>
 
 
-          <h2
-            className="
-              max-w-5xl
-              text-5xl
-              font-black
-              leading-[0.94]
-              tracking-[-0.065em]
-              text-slate-950
-              sm:text-6xl
-              lg:text-8xl
-            "
-          >
-            Stop Chasing{" "}
-            <span className="relative inline-block text-yellow-500">
-              Marketing
-              
-              <motion.span
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 1,
-                  delay: 0.5,
-                  ease: "easeOut",
-                }}
-                className="
-                  absolute
-                  -bottom-2
-                  left-0
-                  h-[5px]
-                  rounded-full
-                  bg-yellow-300/70
-                  sm:-bottom-3
-                "
-              />
-            </span>{" "}
-            Strategies
-          </h2>
-        </motion.div>
+
+
+
+<motion.div
+  initial={{
+    opacity: 0,
+    y: 30,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: true,
+    amount: 0.3,
+  }}
+  transition={{
+    duration: 0.8,
+    ease: [0.16, 1, 0.3, 1],
+  }}
+  className="mb-16"
+>
+  {/* Label */}
+  <div className="mb-7 flex items-center gap-3">
+    <motion.span
+      initial={{ width: 0 }}
+      whileInView={{ width: 45 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.7,
+        delay: 0.2,
+      }}
+      className="h-[2px] rounded-full bg-yellow-500"
+    />
+
+    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-950 sm:text-xs">
+      Conclusion
+    </span>
+  </div>
+
+  {/* Heading */}
+  <h2
+    className="
+      max-w-5xl
+      text-5xl
+      font-black
+      leading-[0.92]
+      tracking-[-0.065em]
+      text-slate-950
+      sm:text-6xl
+      lg:text-8xl
+    "
+  >
+    <span className="block text-slate-950">
+      Stop Chasing
+    </span>
+
+    <span className="relative mt-2 pb-3 inline-block text-yellow-400 sm:mt-3">
+      Marketing
+      <motion.span
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1,
+          delay: 0.5,
+          ease: "easeOut",
+        }}
+        className="
+          absolute
+          -bottom-2
+          left-0
+          h-[5px]
+          rounded-full
+          bg-yellow-300
+          sm:-bottom-3
+        "
+      />
+    </span>
+
+    <span className="ml-3 text-yellow-400 sm:ml-4">
+      Strategies
+    </span>
+  </h2>
+</motion.div>
+
+
+
+
 
 
         <motion.div
@@ -272,23 +286,7 @@ export default function Conclusion() {
               }}
               className="mb-6 flex items-start gap-4"
             >
-              <div
-                className="
-                  mt-1
-                  flex
-                  h-11
-                  w-11
-                  flex-shrink-0
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  bg-yellow-100
-                  text-yellow-600
-                  shadow-[0_8px_25px_rgba(234,179,8,0.12)]
-                "
-              >
-                <Sparkles className="h-5 w-5" />
-              </div>
+              
 
               <h3
                 className="
