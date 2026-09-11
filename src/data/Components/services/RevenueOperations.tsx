@@ -246,7 +246,8 @@ export default function RevenueOperations() {
             variants={fadeUp}
           >
             <h1 className="mb-7 text-4xl font-black leading-[1.05] tracking-tight text-slate-950 md:text-6xl lg:text-7xl">
-              Turn Qualified Opportunities{" "}
+              Turn Qualified Opportunities
+              <br />
               <span className="text-yellow-300">
                 Into Revenue
               </span>
@@ -308,10 +309,13 @@ export default function RevenueOperations() {
                 Revenue Operations
               </span>
 
-              <h2 className="mt-4 mb-7 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-                Revenue Starts With What{" "}
+              <h2 className="mt-4 mb-7  text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+                Revenue Starts With
+                <br />
                 <span className="text-yellow-300">
-                  Happens After The Lead
+                  What Happens After
+                  <br />
+                  The Lead
                 </span>
               </h2>
 
@@ -784,9 +788,9 @@ export default function RevenueOperations() {
             </span>
 
             <h2 className="mt-4 mb-8 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              One Revenue System.{" "}
+              One Revenue System.  Not{" "} <br />
               <span className="text-yellow-300">
-                Not Disconnected Tools.
+                 Disconnected Tools.
               </span>
             </h2>
 
@@ -807,7 +811,7 @@ export default function RevenueOperations() {
 
               <p className="text-xl font-black leading-tight text-white md:text-3xl">
                 Give your business a structured, measurable path from
-                qualified opportunity to closed revenue.
+              <span className="text-yellow-300">  qualified opportunity to closed revenue.</span>
               </p>
             </div>
 
@@ -846,10 +850,9 @@ export default function RevenueOperations() {
             <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-96 -translate-x-1/2 rounded-full bg-yellow-400/20 blur-3xl" />
 
             <div className="relative">
-              <Sparkles className="mx-auto mb-6 h-7 w-7 text-yellow-400" />
 
               <h2 className="mb-6 text-3xl font-black tracking-tight text-white md:text-5xl">
-                Ready To Build A Sales System That Can Scale?
+                Ready To Build A Sales System <br /> <span className="text-yellow-400"> That Can Scale?</span>
               </h2>
 
               <p className="mx-auto mb-9 max-w-2xl leading-relaxed text-slate-300">
