@@ -52,7 +52,7 @@ export default function Hero() {
           >
             Nothing But{" "}
             <span className="relative inline-block text-yellow-300">
-              Sales Qualified Leads.
+              Sales Qualified Leads
 
               <motion.span
                 initial={{ width: 0 }}

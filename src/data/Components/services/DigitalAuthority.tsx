@@ -110,7 +110,7 @@ const authorityServices = [
   {
     icon: FileText,
     title: "Content Strategy",
-    heading: "Don't Just Publish. Build Expertise.",
+    heading: "Don't Just Publish. Build Expertise",
     description:
       "Content should do more than keep your website active. It should answer customer questions, demonstrate expertise, support search visibility, and move prospects closer to trusting your business. We build content around what your market wants to know and what your business needs to be known for.",
     builds: [
@@ -440,7 +440,7 @@ export default function DigitalAuthority() {
                 </span>
 
                 <h3 className="mt-3 text-2xl font-black text-slate-950">
-                  Connected Signals. One Authority System.
+                  Connected Signals. One Authority System
                 </h3>
 
                 <p className="mt-4 text-sm leading-7 text-slate-600">
@@ -610,7 +610,7 @@ export default function DigitalAuthority() {
             <div className="relative">
           
               <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-                 One System. One <br /> <span className="text-yellow-300"> Position In The Market.</span>
+                 One System. One <br /> <span className="text-yellow-300"> Position In The Market</span>
               </h2>
 
               <div className="mt-10 space-y-4">

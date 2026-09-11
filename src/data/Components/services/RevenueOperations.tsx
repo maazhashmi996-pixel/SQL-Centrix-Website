@@ -784,13 +784,13 @@ export default function RevenueOperations() {
             variants={fadeUp}
           >
             <span className="text-xs font-black uppercase tracking-[0.2em] text-yellow-400">
-              One Revenue System. Not Disconnected Tools.
+              One Revenue System. Not Disconnected Tools
             </span>
 
             <h2 className="mt-4 mb-8 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
               One Revenue System.  Not{" "} <br />
               <span className="text-yellow-300">
-                 Disconnected Tools.
+                 Disconnected Tools
               </span>
             </h2>
 
@@ -811,7 +811,7 @@ export default function RevenueOperations() {
 
               <p className="text-xl font-black leading-tight text-white md:text-3xl">
                 Give your business a structured, measurable path from
-              <span className="text-yellow-300">  qualified opportunity to closed revenue.</span>
+              <span className="text-yellow-300">  qualified opportunity to closed revenue</span>
               </p>
             </div>
 

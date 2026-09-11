@@ -764,7 +764,7 @@ export default function CustomerSuccess() {
             variants={fadeUp}
           >
             <span className="text-xs font-black uppercase tracking-[0.2em] text-yellow-400">
-              One Customer System. One Long-Term Objective.
+              One Customer System. One Long-Term Objective
             </span>
 
        
@@ -772,7 +772,7 @@ export default function CustomerSuccess() {
 
             <h2 className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
   <span className="block text-slate-950">One Customer System.One</span>
-  <span className="block text-yellow-300"> Long-Term Objective.</span>
+  <span className="block text-yellow-300"> Long-Term Objective</span>
 </h2>
 
             <p className="mb-4 mt-8  leading-relaxed text-slate-600">
