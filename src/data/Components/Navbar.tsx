@@ -1,3 +1,6 @@
+
+
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -32,12 +35,10 @@ export default function Navbar() {
     };
   }, []);
 
-
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Blogs", href: "#Process" },
   ];
-
 
   const serviceCategories = [
     {
@@ -100,7 +101,6 @@ export default function Navbar() {
           scrolled ? "h-[72px]" : "h-[88px]"
         }`}
       >
-
         <motion.a
           href="/"
           whileHover={{ y: -1 }}
@@ -115,10 +115,7 @@ export default function Navbar() {
           </div>
         </motion.a>
 
-
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
-
-
           {navLinks.map((item) => (
             <motion.a
               key={item.name}
@@ -127,11 +124,9 @@ export default function Navbar() {
               className="group relative rounded-xl px-4 py-2.5 text-[13px] font-semibold text-slate-600 transition-all duration-300 hover:bg-yellow-50 hover:text-slate-950"
             >
               <span>{item.name}</span>
-
               <span className="absolute bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-yellow-400 transition-all duration-300 group-hover:w-5" />
             </motion.a>
           ))}
-
 
           <div
             className="relative"
@@ -177,26 +172,26 @@ export default function Navbar() {
                     scale: 0.98,
                   }}
                   transition={{ duration: 0.2 }}
-                  className="absolute left-1/2 top-full mt-2 w-[1000px] -translate-x-1/2 rounded-2xl border border-yellow-200 bg-white p-6 shadow-[0_20px_40px_rgba(15,23,42,0.1)]"
+                  /* Yahan width kam kar ke aik proper single column dropdown bana diya hai */
+                  className="absolute left-1/2 top-full mt-2 w-[340px] -translate-x-1/2 rounded-2xl border border-yellow-200 bg-white p-4 shadow-[0_20px_40px_rgba(15,23,42,0.1)]"
                 >
-                  <div className="grid grid-cols-4 gap-6">
+                  <div className="flex flex-col gap-4">
                     {serviceCategories.map((category) => {
                       const IconComponent = category.icon;
 
                       return (
                         <div
                           key={category.title}
-                          className="flex flex-col gap-3"
+                          className="flex flex-col gap-1.5"
                         >
-                          <div className="flex items-center gap-2 text-yellow-600">
+                          <div className="flex items-center gap-2 text-yellow-600 px-2 pt-1">
                             <IconComponent className="h-4 w-4" />
-
-                            <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900">
+                            <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-slate-900">
                               {category.title}
                             </h4>
                           </div>
 
-                          <div className="flex flex-col gap-2">
+                          <div className="flex flex-col gap-1">
                             {category.links.map((service) => (
                               <a
                                 key={service.name}
@@ -208,7 +203,6 @@ export default function Navbar() {
                               >
                                 <span className="flex items-center gap-1 text-xs font-bold text-slate-800 transition-colors group-hover:text-slate-950">
                                   <ChevronRight className="h-3 w-3 text-yellow-500 transition-transform group-hover:translate-x-0.5" />
-
                                   {service.name}
                                 </span>
 
@@ -227,18 +221,15 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-
           <motion.a
             href="/contact"
             whileHover={{ y: -1 }}
             className="group relative rounded-xl px-4 py-2.5 text-[13px] font-semibold text-slate-600 transition-all duration-300 hover:bg-yellow-50 hover:text-slate-950"
           >
             <span>Contact</span>
-
             <span className="absolute bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-yellow-400 transition-all duration-300 group-hover:w-5" />
           </motion.a>
         </nav>
-
 
         <div className="hidden md:block">
           <motion.a
@@ -278,7 +269,6 @@ export default function Navbar() {
           </motion.a>
         </div>
 
-
         <div className="flex items-center md:hidden">
           <motion.button
             whileTap={{ scale: 0.92 }}
@@ -312,7 +302,6 @@ export default function Navbar() {
         </div>
       </div>
 
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -335,8 +324,6 @@ export default function Navbar() {
             className="overflow-hidden border-t border-yellow-100 bg-white md:hidden"
           >
             <div className="mx-auto w-full max-w-[1180px] px-5 py-5">
-
-
               <div className="mb-4 flex items-center justify-between rounded-2xl border border-yellow-100 bg-yellow-50/70 px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-400 text-slate-950">
@@ -360,8 +347,6 @@ export default function Navbar() {
               </div>
 
               <nav className="flex flex-col gap-1">
-
-
                 {navLinks.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -388,7 +373,6 @@ export default function Navbar() {
                   </motion.a>
                 ))}
 
-
                 <div className="py-2">
                   <p className="mb-1 px-4 text-[10px] font-black uppercase tracking-wider text-slate-400">
                     Services
@@ -410,7 +394,6 @@ export default function Navbar() {
                     ))}
                 </div>
 
-
                 <motion.a
                   href="/contact"
                   onClick={() => setIsOpen(false)}
@@ -423,7 +406,6 @@ export default function Navbar() {
                   </span>
                 </motion.a>
               </nav>
-
 
               <motion.a
                 href="/contact"
