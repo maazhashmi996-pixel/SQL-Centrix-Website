@@ -275,9 +275,9 @@ export default function ConversionSystems() {
               </span>
 
               <h2 className="text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
-                Conversion Starts With{" "}
+                Conversion Starts With  The{" "}
                 <span className="text-yellow-400">
-                  The Customer Journey
+                  Customer Journey
                 </span>
               </h2>
 
@@ -606,7 +606,7 @@ export default function ConversionSystems() {
               whileHover={{ scale: 1.05 }}
               className="inline-flex cursor-default items-center gap-2 rounded-full bg-yellow-50 px-4 py-2 text-xs font-black uppercase tracking-[0.15em] text-yellow-400"
             >
-              <Sparkles className="h-3.5 w-3.5" />
+              {/* <Sparkles className="h-3.5 w-3.5" /> */}
               One Conversion System. One Objective.
             </motion.span>
 
@@ -618,9 +618,9 @@ export default function ConversionSystems() {
             </p>
 
             <h3 className="mx-auto mt-7 max-w-3xl text-2xl font-black leading-tight text-slate-950 md:text-4xl">
-              How do we turn more of the right{" "}
+              How do we turn more of the right attention{" "}
               <span className="text-yellow-300">
-                attention into genuine sales opportunities?
+                 into genuine sales opportunities?
               </span>
             </h3>
 
@@ -662,9 +662,9 @@ export default function ConversionSystems() {
           className="relative mx-auto max-w-4xl text-center"
         >
           <h2 className="text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-            Ready To Turn More Interest{" "}
+            Ready To Turn More Interest  Into{" "}
             <span className="text-yellow-300">
-              Into Opportunities?
+               Opportunities?
             </span>
           </h2>
 
