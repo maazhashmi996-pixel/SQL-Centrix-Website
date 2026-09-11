@@ -369,7 +369,7 @@ export default function Problem() {
                 md:text-xl
               "
             >
-              But none of them matter if they don't generate business.
+              But none of them matter if they don't generate business
             </span>
           </div>
 

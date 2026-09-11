@@ -556,7 +556,7 @@ export default function CustomerAcquisition() {
             <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
               One Acquisition System. Not A {" "}
               <span className="text-yellow-300">
-                Collection Of Channels.
+                Collection Of Channels
               </span>
             </h2>
 
