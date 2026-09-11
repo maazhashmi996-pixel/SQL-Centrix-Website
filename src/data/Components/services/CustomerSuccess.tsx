@@ -260,14 +260,14 @@ export default function CustomerSuccess() {
               whileHover={{ y: -2, scale: 1.02 }}
               className="mb-7 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-yellow-400 shadow-sm"
             >
-              <Sparkles className="h-3.5 w-3.5" />
+              {/* <Sparkles className="h-3.5 w-3.5" /> */}
               Customer Success & Retention
             </motion.span>
 
             <h1 className="text-4xl font-black leading-[1.05] tracking-tight text-slate-950 md:text-6xl lg:text-7xl">
-              Turn Customers Into{" "}
+              Turn Customers Into Long-Term {" "}
               <span className="relative text-yellow-400">
-                Long-Term Revenue
+                Revenue
 
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -348,8 +348,8 @@ export default function CustomerSuccess() {
               </span>
 
               <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-                Customer Success Starts{" "}
-                <span className="text-yellow-400">After The Sale</span>
+                Customer Success {" "}
+                <span className="text-yellow-400"> Starts After The Sale</span>
               </h2>
 
               <p className="mb-7 mt-6 leading-relaxed text-slate-600">
@@ -696,8 +696,8 @@ export default function CustomerSuccess() {
             </motion.div>
 
             <h2 className="mb-6 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              From Customer To{" "}
-              <span className="text-yellow-300">Long-Term Revenue</span>
+              From Customer To Long-Term{" "}
+              <span className="text-yellow-300"> Revenue</span>
             </h2>
 
             <p className="leading-relaxed text-slate-600">
@@ -767,14 +767,15 @@ export default function CustomerSuccess() {
               One Customer System. One Long-Term Objective.
             </span>
 
-            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              One Customer System.{" "}
-              <span className="text-yellow-300">
-                One Long-Term Objective.
-              </span>
-            </h2>
+       
 
-            <p className="mb-4 mt-8 leading-relaxed text-slate-600">
+
+            <h2 className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
+  <span className="block text-slate-950">One Customer System.One</span>
+  <span className="block text-yellow-300"> Long-Term Objective.</span>
+</h2>
+
+            <p className="mb-4 mt-8  leading-relaxed text-slate-600">
               Customer onboarding is not separate from servicing. Servicing is
               not separate from retention.{" "}
               <span className="text-yellow-300">
@@ -888,7 +889,7 @@ export default function CustomerSuccess() {
                   ease: "easeInOut",
                 }}
               >
-                <Sparkles className="mx-auto mb-6 h-7 w-7 text-yellow-400" />
+                {/* <Sparkles className="mx-auto mb-6 h-7 w-7 text-yellow-400" /> */}
               </motion.div>
 
               <h2 className="mb-6 text-3xl font-black tracking-tight text-white md:text-5xl">
