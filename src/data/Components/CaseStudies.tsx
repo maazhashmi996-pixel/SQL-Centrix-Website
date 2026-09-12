@@ -31,7 +31,8 @@ const businessServicesList = [
   "Branding",
   "Creative Design",
   "Video Production",
-  "Content Writing"
+  "Content Writing",
+  "Marketing Automation"
 ];
 
 const faqData = [
