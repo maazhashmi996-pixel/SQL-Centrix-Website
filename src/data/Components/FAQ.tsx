@@ -153,7 +153,7 @@ export default function ProcessSection() {
         <div className="relative max-w-6xl mx-auto py-8">
           
           <svg
-            className="absolute top-11 left-0 w-full h-[4099px] pointer-events-none hidden md:block"
+            className="absolute top-25 left-0 w-full h-[4099px] pointer-events-none hidden md:block"
             viewBox="0 0 1000 1400"
             fill="none"
             preserveAspectRatio="none"
