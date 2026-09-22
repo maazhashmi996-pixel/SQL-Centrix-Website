@@ -49,7 +49,7 @@ export default function BlogCards({ blogs }: { blogs: PublicBlogCard[] }) {
 
           <div className="flex flex-1 flex-col p-5">
             <p className="text-[11px] font-bold uppercase tracking-wider text-yellow-600">
-              {new Date(blog.createdAt).toLocaleDateString(undefined, {
+              {new Date(blog.createdAt).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
                 day: "numeric",
