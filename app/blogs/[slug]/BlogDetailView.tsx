@@ -49,7 +49,7 @@ export default function BlogDetailView({ blog }: { blog: BlogDoc }) {
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar className="h-3.5 w-3.5 text-yellow-500" />
-              {new Date(blog.createdAt).toLocaleDateString(undefined, {
+              {new Date(blog.createdAt).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
