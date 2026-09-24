@@ -44,7 +44,7 @@ const services = [
     icon: Layout,
     subheading: "Build The Experience Around The Buying Decision",
     description:
-      "Your website is often where customers decide whether to continue with your business. We build websites around your customer's questions, buying journey, business objectives, and conversion points—not simply around pages and design elements.",
+      "Your website is often where customers decide whether to continue with your business. We build websites around your customer's questions, buying journey, business objectives, and conversion points not simply around pages and design elements.",
     intro:
       "Every important page has a job: Inform. Build trust. Remove uncertainty. Drive action.",
     label: "We Build",
@@ -53,7 +53,7 @@ const services = [
       "Website Development",
       "Information Architecture",
       "Service Pages",
-      "Conversion-Focused Pages",
+      "Conversion Focused Pages",
       "Mobile Experiences",
       "CMS Implementation",
     ],
@@ -144,7 +144,7 @@ const services = [
     icon: Users,
     subheading: "Make The Next Step Obvious",
     description:
-      "Once a prospect is ready, don't make them work to contact you. We build conversion points around the way your customers prefer to engage—whether that's a form, WhatsApp conversation, consultation, booking, or another relevant action.",
+      "Once a prospect is ready, don't make them work to contact you. We build conversion points around the way your customers prefer to engage whether that's a form, WhatsApp conversation, consultation, booking, or another relevant action.",
     intro: "",
     label: "We Build",
     items: [
@@ -226,7 +226,7 @@ export default function ConversionSystems() {
               will contact you. A prospect can click your advertisement, find
               your website, read your content, and still leave without taking
               action. That's where conversion begins. SQL Centrix builds the
-              systems that turn attention into action—combining website
+              systems that turn attention into action combining website
               strategy, landing pages, conversion copy, UX, lead capture, and
               conversion optimization around one objective: Make it easier for
               the right customer to say yes.

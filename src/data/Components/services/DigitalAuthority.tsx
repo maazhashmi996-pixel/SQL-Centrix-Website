@@ -45,7 +45,7 @@ const authorityServices = [
     title: "Brand Strategy",
     heading: "Decide What Your Business Should Be Known For",
     description:
-      "A business becomes difficult to trust when its positioning is difficult to understand. We establish the strategic foundation behind your brand—what you stand for, who you serve, what makes you different, and why your market should care.",
+      "A business becomes difficult to trust when its positioning is difficult to understand. We establish the strategic foundation behind your brand what you stand for, who you serve, what makes you different, and why your market should care.",
     builds: [
       "Brand Positioning",
       "Value Propositions",
@@ -61,11 +61,11 @@ const authorityServices = [
     title: "Search Engine Optimization",
     heading: "Be Found When Demand Already Exists",
     description:
-      "Your customers are searching for solutions. The question is whether they find you or someone else. We build SEO around commercial search intent—not traffic for traffic's sake. Technical foundations, content, structured data, and search strategy work together to increase visibility for searches that matter to your business.",
+      "Your customers are searching for solutions. The question is whether they find you or someone else. We build SEO around commercial search intent not traffic for traffic's sake. Technical foundations, content, structured data, and search strategy work together to increase visibility for searches that matter to your business.",
     builds: [
       "Technical SEO",
       "Search Intent Strategy",
-      "On-Page SEO",
+      "On Page SEO",
       "Content SEO",
       "Structured Data",
       "Search Visibility",
@@ -78,17 +78,17 @@ const authorityServices = [
     title: "AI Search Optimization",
     heading: "Become Part Of The Answer",
     description:
-      "Search is no longer limited to ten blue links. Customers increasingly use AI platforms to research companies, compare solutions, and ask for recommendations. We structure your digital presence so AI systems can better understand your business, expertise, services, and relevance—helping your brand compete in this new layer of discovery.",
+      "Search is no longer limited to ten blue links. Customers increasingly use AI platforms to research companies, compare solutions, and ask for recommendations. We structure your digital presence so AI systems can better understand your business, expertise, services, and relevance helping your brand compete in this new layer of discovery.",
     builds: [
       "AI Search Optimization",
       "GEO",
       "LLMO",
-      "Answer-Focused Content",
+      "Answer Focused Content",
       "Semantic Optimization",
-      "AI-Focused Entity Signals",
+      "AI Focused Entity Signals",
     ],
     result:
-      "A stronger presence wherever customers go to find answers—not just where they search traditionally.",
+      "A stronger presence wherever customers go to find answers not just where they search traditionally.",
   },
   {
     icon: Network,
@@ -129,7 +129,7 @@ const authorityServices = [
     title: "Digital PR",
     heading: "Let Other People Validate Your Authority",
     description:
-      "Your business saying it's credible is one thing. Other credible sources recognizing it is another. We use Digital PR to build meaningful third-party recognition through relevant publications, industry platforms, media opportunities, and authoritative mentions.",
+      "Your business saying it's credible is one thing. Other credible sources recognizing it is another. We use Digital PR to build meaningful third party recognition through relevant publications, industry platforms, media opportunities, and authoritative mentions.",
     builds: [
       "Digital PR Campaigns",
       "Media Outreach",
@@ -162,7 +162,7 @@ const authorityServices = [
     title: "Reputation Management",
     heading: "Control The Impression Customers Get Before They Contact You",
     description:
-      "Your sales team isn't the first person a prospect encounters. Your search results, reviews, business profiles, media mentions, and public information often are. We help businesses monitor and strengthen those touchpoints so the digital impression surrounding your company supports—not undermines—the buying decision.",
+      "Your sales team isn't the first person a prospect encounters. Your search results, reviews, business profiles, media mentions, and public information often are. We help businesses monitor and strengthen those touchpoints so the digital impression surrounding your company supports not undermines the buying decision.",
     builds: [
       "Reputation Monitoring",
       "Review Strategy",
@@ -235,7 +235,7 @@ export default function DigitalAuthority() {
               {/* <Sparkles className="h-5 w-5 text-yellow-300" /> */}
               Digital Authority
             </motion.div>
-
+{/* 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -252,7 +252,39 @@ export default function DigitalAuthority() {
                   className="absolute -bottom-2 left-0 h-1 w-full origin-left rounded-full bg-yellow-400"
                 />
               </span>
-            </motion.h1>
+            </motion.h1> */}
+
+
+
+
+
+<motion.h1
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.2 }}
+  className="mx-auto max-w-5xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl"
+>
+  <span className="block whitespace-nowrap tracking-wide">
+  Become the Business
+</span>
+
+  <span className="relative block whitespace-nowrap text-5xl text-yellow-300">
+    Customers Find, Trust & Choose
+
+    <motion.span
+      initial={{ scaleX: 0 }}
+      animate={{ scaleX: 1 }}
+      transition={{ delay: 0.8, duration: 0.7 }}
+      className="absolute -bottom-2 left-0 h-1 w-full origin-left rounded-full bg-yellow-400"
+    />
+  </span>
+</motion.h1>
+
+
+
+
+
+
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -314,7 +346,7 @@ export default function DigitalAuthority() {
             >
               SQL Centrix connects brand positioning, search visibility, AI
               search, content, entities, PR, and reputation into one
-              authority-building system designed to make your business more
+              authority building system designed to make your business more
               visible,{" "}
               <span className="font-bold text-yellow-300">
                 credible, and commercially relevant.
@@ -444,7 +476,7 @@ export default function DigitalAuthority() {
                 </h3>
 
                 <p className="mt-4 text-sm leading-7 text-slate-600">
-                  Digital authority is created through connected signals—not
+                  Digital authority is created through connected signals not
                   one isolated service.
                 </p>
 
@@ -620,7 +652,7 @@ export default function DigitalAuthority() {
                   "Content proves what you know.",
                   "Entity strategy establishes who you are.",
                   "AI optimization makes that knowledge accessible across new search environments.",
-                  "Digital PR creates third-party validation.",
+                  "Digital PR creates third party validation.",
                   "Reputation reinforces the customer's final judgement.",
                 ].map((text, i) => (
                   <motion.p
@@ -662,7 +694,7 @@ export default function DigitalAuthority() {
 
                 <p className="text-base md:text-lg leading-8 text-slate-600">
                   And once customers can find you, understand you, and trust
-                  you—the next question is
+                  you the next question is
                   <span className="font-bold text-slate-900">
                     {" "}getting the right ones through the door.
                   </span>
@@ -697,15 +729,7 @@ export default function DigitalAuthority() {
 
         <div className="relative mx-auto max-w-[900px] px-6 py-24 text-center lg:py-28">
 
-          <motion.div
-            whileHover={{
-              rotate: 10,
-              scale: 1.1,
-            }}
-            className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-400 text-slate-950 shadow-[0_12px_30px_rgba(234,179,8,0.28)]"
-          >
-            <Star className="h-6 w-6" />
-          </motion.div>
+         
 
           <h2 className="mt-7 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
             Ready To Build Your Digital <span className="text-yellow-400"> Authority?</span> 
@@ -713,11 +737,11 @@ export default function DigitalAuthority() {
 
           <p className="mx-auto mt-6 max-w-2xl leading-8 text-slate-600">
             We'll identify where your business is currently losing visibility,
-            credibility, and authority—and what needs to change to turn your
+            credibility, and authority and what needs to change to turn your
             digital presence into a stronger foundation for customer
             acquisition.
           </p>
-
+          
           <motion.div
             whileHover={{
               scale: 1.03,
