@@ -121,7 +121,7 @@ export default function Hero() {
           >
 
             <motion.a
-              href="#contact"
+              href="#Process"
               whileHover={{
                 scale: 1.04,
                 y: -4,
