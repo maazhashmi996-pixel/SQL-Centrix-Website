@@ -103,7 +103,7 @@ export default function Details() {
       label: "Campaigns Launched",
       value: "500",
       description:
-        "Performance-driven campaigns delivered",
+        "Performance driven campaigns delivered",
     },
   ];
 

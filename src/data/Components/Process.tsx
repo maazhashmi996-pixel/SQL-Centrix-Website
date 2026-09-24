@@ -21,13 +21,13 @@ const services = [
     icon: HiOutlineBadgeCheck,
   },
   {
-    title: "High-Converting Websites",
+    title: "High Converting Websites",
     desc: "Your website shouldn't just look good. It should educate visitors and build trust by answering the questions they are looking for and convert visitors into qualified enquiries.",
     icon: HiOutlineTemplate,
   },
   {
     title: "Search Visibility",
-    desc: "Customers can't buy from businesses they can't find. We improve your visibility across search engines and AI-powered search through structured content and technical excellence.",
+    desc: "Customers can't buy from businesses they can't find. We improve your visibility across search engines and AI powered search through structured content and technical excellence.",
     icon: HiOutlineSearch,
   },
   {
