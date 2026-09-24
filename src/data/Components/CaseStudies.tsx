@@ -57,7 +57,7 @@ const faqData = [
     answer: "AI Search Optimization (LLMO/GEO) ensures your brand is indexed, cited, and recommended by AI engines (like ChatGPT, Gemini, and Perplexity) as well as traditional search engines like Google. As buyers increasingly rely on AI tools to research solutions, structured and authoritative content positions your business as the primary recommended answer."
   },
   {
-    question: "Can SQL Centrix collaborate with our in-house marketing team?",
+    question: "Can SQL Centrix collaborate with our in house marketing team?",
     answer: "Yes. We regularly operate alongside internal marketing teams. Whether acting as an extended performance arm, providing high-level strategy, or handling specific execution channels like search visibility, digital PR, or advertising, we align all efforts toward a single goal: increasing your SQL volume."
   },
   {

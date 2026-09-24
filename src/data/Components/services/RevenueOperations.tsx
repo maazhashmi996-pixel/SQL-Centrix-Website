@@ -67,13 +67,13 @@ const services = [
     subtitle: "Turn Your Sales Process Into A Manageable Journey",
     icon: GitBranch,
     intro:
-      "A pipeline should reflect your actual sales process. We map the stages an opportunity moves through—from initial enquiry and qualification to proposal, negotiation, and closing—so your team knows exactly where every opportunity stands.",
+      "A pipeline should reflect your actual sales process. We map the stages an opportunity moves through from initial enquiry and qualification to proposal, negotiation, and closing so your team knows exactly where every opportunity stands.",
     build: [
       "Sales Pipeline Architecture",
       "Pipeline Stages",
       "Qualification Stages",
       "Deal Movement",
-      "Follow-Up Processes",
+      "Follow Up Processes",
       "Sales Workflows",
       "Process Mapping",
     ],
@@ -91,12 +91,12 @@ const services = [
       "Lead Assignment",
       "Lead Qualification",
       "Lead Prioritization",
-      "Follow-Up Processes",
+      "Follow Up Processes",
       "Lead Status Management",
       "Sales Activity Tracking",
     ],
     result:
-      "Greater control over your leads and fewer opportunities lost through poor follow-up or unclear ownership.",
+      "Greater control over your leads and fewer opportunities lost through poor follow up or unclear ownership.",
     iconBg: "bg-yellow-50",
   },
   {
@@ -104,33 +104,33 @@ const services = [
     subtitle: "Turn Conversations Into Part Of Your Sales System",
     icon: MessageCircle,
     intro:
-      "For many businesses, WhatsApp is where the actual sales conversation happens. But when different sales agents manage conversations independently, management can lose visibility over leads, follow-ups, and sales activity.",
+      "For many businesses, WhatsApp is where the actual sales conversation happens. But when different sales agents manage conversations independently, management can lose visibility over leads, follow ups, and sales activity.",
     extra:
       "We integrate WhatsApp into your wider sales operation, allowing multiple agents to work within a structured environment while conversations remain connected to the sales process.",
     build: [
       "WhatsApp CRM Integration",
-      "Multi-Agent Workflows",
+      "Multi Agent Workflows",
       "Conversation Management",
       "Lead Assignment",
       "Conversation Monitoring",
       "Sales Communication Processes",
     ],
     result:
-      "A WhatsApp sales channel that can be managed as part of your business—not as a collection of individual chats.",
+      "A WhatsApp sales channel that can be managed as part of your business not as a collection of individual chats.",
     iconBg: "bg-yellow-50",
   },
   {
     title: "Sales Automation",
-    subtitle: "Keep The Process Moving Without Relying On Manual Follow-Up",
+    subtitle: "Keep The Process Moving Without Relying On Manual Follow Up",
     icon: Zap,
     intro:
-      "Sales teams should spend their time having valuable conversations—not repeatedly performing administrative tasks.",
+      "Sales teams should spend their time having valuable conversations not repeatedly performing administrative tasks.",
     extra:
-      "We automate appropriate parts of the sales workflow, helping your team manage notifications, assignments, follow-ups, tasks, and pipeline movement more consistently.",
+      "We automate appropriate parts of the sales workflow, helping your team manage notifications, assignments, follow ups, tasks, and pipeline movement more consistently.",
     build: [
       "Lead Routing",
       "Automated Notifications",
-      "Follow-Up Workflows",
+      "Follow Up Workflows",
       "Task Automation",
       "Pipeline Automation",
       "Internal Process Flows",
@@ -146,11 +146,11 @@ const services = [
     intro:
       "Lead volume doesn't tell you whether your sales operation is working. You also need to understand what happens after the lead arrives.",
     extra:
-      "We establish processes for monitoring conversations, follow-ups, pipeline movement, and sales execution so management can identify where opportunities are being mishandled or lost.",
+      "We establish processes for monitoring conversations, follow ups, pipeline movement, and sales execution so management can identify where opportunities are being mishandled or lost.",
     build: [
       "Sales QA Processes",
       "Conversation Monitoring",
-      "Follow-Up Monitoring",
+      "Follow Up Monitoring",
       "Pipeline Audits",
       "Sales Process Reviews",
       "Performance Tracking",
@@ -208,7 +208,7 @@ const flowSteps = [
     icon: GitBranch,
   },
   {
-    label: "Follow-Up",
+    label: "Follow Up",
     icon: MessageCircle,
   },
   {
@@ -309,13 +309,11 @@ export default function RevenueOperations() {
                 Revenue Operations
               </span>
 
-              <h2 className="mt-4 mb-7  text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+              <h2 className="mt-4 mb-7  text-5xl font-black tracking-tight text-slate-950 ">
                 Revenue Starts With
                 <br />
-                <span className="text-yellow-300">
-                  What Happens After
-                  <br />
-                  The Lead
+                <span className="text-yellow-300 text-4xl">
+                  What Happens After The Lead
                 </span>
               </h2>
 
@@ -705,9 +703,7 @@ export default function RevenueOperations() {
             variants={fadeUp}
             className="mx-auto mb-14 max-w-3xl text-center"
           >
-            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-100">
-              <TrendingUp className="h-7 w-7 text-yellow-400" />
-            </div>
+           
 
             <h2 className="mb-6 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
               From Lead To Revenue
@@ -762,7 +758,7 @@ export default function RevenueOperations() {
           </div>
 
           <p className="mt-10 text-center text-lg font-extrabold text-slate-900 md:text-xl">
-            That's when a marketing-generated{" "}
+            That's when a marketing generated{" "}
             <span className="text-yellow-300">lead becomes revenue.</span>
           </p>
         </div>
@@ -787,10 +783,10 @@ export default function RevenueOperations() {
               One Revenue System. Not Disconnected Tools
             </span>
 
-            <h2 className="mt-4 mb-8 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              One Revenue System.  Not{" "} <br />
-              <span className="text-yellow-300">
-                 Disconnected Tools
+            <h2 className="mt-4 mb-8 text-6xl font-black tracking-tight text-slate-950 ">
+              One Revenue System{" "} <br />
+              <span className="text-yellow-300 text-5xl">
+                  Not Disconnected Tools
               </span>
             </h2>
 

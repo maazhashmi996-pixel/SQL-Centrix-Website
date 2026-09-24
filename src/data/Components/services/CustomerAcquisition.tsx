@@ -52,7 +52,7 @@ const services = [
       "Offer Strategy",
       "Value Propositions",
       "Campaign Messaging",
-      "Audience-Specific Messaging",
+      "Audience Specific Messaging",
       "Ad Copy",
       "Hooks & Angles",
       "Calls To Action",
@@ -67,8 +67,8 @@ const services = [
       "Creative Concepts",
       "Static Ads",
       "Video Ads",
-      "Short-Form Creative",
-      "UGC-Style Creative",
+      "Short Form Creative",
+      "UGC Style Creative",
       "Hooks & Angles",
       "Ad Copy",
       "Creative Testing",
@@ -100,7 +100,7 @@ const services = [
       "Social Media Strategy",
       "Content Planning",
       "Platform Management",
-      "Short-Form Content",
+      "Short Form Content",
       "Community Growth",
       "Organic Campaigns",
       "Paid & Organic Integration",
@@ -129,9 +129,6 @@ export default function CustomerAcquisition() {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-slate-900 selection:bg-yellow-400 selection:text-slate-950">
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
       <section className="relative overflow-hidden border-b border-yellow-100 bg-gradient-to-b from-yellow-50/80 via-white to-white">
 
         <motion.div
@@ -174,7 +171,7 @@ export default function CustomerAcquisition() {
             >
               Being visible is only the beginning. Your business can have
               strong authority, great content, and an impressive digital
-              presence—but if the right people aren't discovering you, none
+              presence but if the right people aren't discovering you, none
               of it creates enough opportunity.
             </motion.p>
 
@@ -222,12 +219,9 @@ export default function CustomerAcquisition() {
         </div>
       </section>
 
-      {/* =====================================================
-          ACQUISITION STARTS
-      ===================================================== */}
       <section className="relative mx-auto max-w-[1180px] px-6 py-20 lg:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-[1fr_0.85fr]">
-
+{/* new_update-error */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -313,7 +307,6 @@ export default function CustomerAcquisition() {
             </div>
           </motion.div>
 
-          {/* SYSTEM CARD */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -376,7 +369,7 @@ export default function CustomerAcquisition() {
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-              Find Your Highest-Value <span className="text-yellow-300"> Acquisition Opportunities</span>
+              Find Your Highest Value <span className="text-yellow-300"> Acquisition Opportunities</span>
             </h2>
 
             <p className="mt-5 text-slate-600">
@@ -553,12 +546,13 @@ export default function CustomerAcquisition() {
               Acquisition Strategy
             </span>
 
-            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-              One Acquisition System. Not A {" "}
-              <span className="text-yellow-300">
-                Collection Of Channels
-              </span>
-            </h2>
+          <h2 className="mt-4 text-5xl font-black tracking-tight text-slate-950 ">
+  One Acquisition System 
+  <br />
+  <span className="text-yellow-300 text-4xl">
+    Not A Collection Of Channels
+  </span>
+</h2>
 
             <p className="mt-6 leading-8 text-slate-600">
               We don't believe every business needs Meta, Google, TikTok,
@@ -627,16 +621,7 @@ export default function CustomerAcquisition() {
 
         <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:py-32">
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            whileHover={{ rotate: 8, scale: 1.08 }}
-            className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-400 text-slate-950 shadow-[0_15px_35px_rgba(234,179,8,0.25)]"
-          >
-            <Sparkles className="h-7 w-7" />
-          </motion.div>
-
+       
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

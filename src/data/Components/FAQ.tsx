@@ -14,9 +14,9 @@ const processSteps = [
   {
     step: "01",
     title: "Desiro LLC",
-    subtitle: "Building an End-to-End Customer Acquisition & Sales System",
+    subtitle: "Building an End to End Customer Acquisition & Sales System",
     industry: "Digital Marketing & Advertising",
-    description: "Desiro partnered with SQL Centrix to build more than a lead generation campaign. We designed a complete customer acquisition system that connected performance marketing with sales operations and customer success. From Meta advertising and WhatsApp lead generation to Bitrix24 CRM implementation, sales pipeline automation, and onboarding workflows, every stage was built to help the business convert more enquiries into long-term clients.",
+    description: "Desiro partnered with SQL Centrix to build more than a lead generation campaign. We designed a complete customer acquisition system that connected performance marketing with sales operations and customer success. From Meta advertising and WhatsApp lead generation to Bitrix24 CRM implementation, sales pipeline automation, and onboarding workflows, every stage was built to help the business convert more enquiries into long term clients.",
     metrics: [
       { value: "7,914+", label: "WhatsApp Conversations" },
       { value: "435K+", label: "People Reached" },
@@ -32,7 +32,7 @@ const processSteps = [
     title: "Kryalon Store",
     subtitle: "Scaling an E-Commerce Brand Through Performance Marketing",
     industry: "E-Commerce & Beauty",
-    description: "Kryalon Store partnered with SQL Centrix to build a scalable performance marketing system focused on profitable customer acquisition. Rather than simply launching advertisements, we developed a structured framework for creative testing, audience targeting, campaign optimization, and conversion tracking. By continuously analyzing performance data and refining campaigns, we helped the brand scale online sales while maintaining efficient advertising costs through a data-driven optimization process.",
+    description: "Kryalon Store partnered with SQL Centrix to build a scalable performance marketing system focused on profitable customer acquisition. Rather than simply launching advertisements, we developed a structured framework for creative testing, audience targeting, campaign optimization, and conversion tracking. By continuously analyzing performance data and refining campaigns, we helped the brand scale online sales while maintaining efficient advertising costs through a data driven optimization process.",
     metrics: [
       { value: "856+", label: "Purchases" },
       { value: "5.8M+", label: "Impressions Delivered" },
@@ -48,12 +48,12 @@ const processSteps = [
     title: "EVE Beauty",
     subtitle: "Building a Scalable Performance Marketing System",
     industry: "Beauty & Cosmetics",
-    description: "EVE Beauty partnered with SQL Centrix to build a scalable customer acquisition system across multiple beauty brands. Rather than simply managing paid advertisements, we developed a structured performance marketing framework that combined creative strategy, audience research, campaign architecture, and continuous optimization. Through ongoing creative testing, media buying, and data-driven decision making, every campaign was designed to improve customer acquisition efficiency while supporting long-term e-commerce growth.",
+    description: "EVE Beauty partnered with SQL Centrix to build a scalable customer acquisition system across multiple beauty brands. Rather than simply managing paid advertisements, we developed a structured performance marketing framework that combined creative strategy, audience research, campaign architecture, and continuous optimization. Through ongoing creative testing, media buying, and data driven decision making, every campaign was designed to improve customer acquisition efficiency while supporting long term e commerce growth.",
     metrics: [
       { value: "$3,000", label: "Advertising Spend" },
       { value: "19.5M+", label: "Paid Impressions" },
       { value: "364,999", label: "Website Clicks" },
-      { value: "+7M", label: "2-Second Video Views" },
+      { value: "+7M", label: "2 : Second Video Views" },
     ],
     services: "TikTok Performance Marketing • Creative Strategy • Audience Research • Campaign Architecture • Conversion Tracking • TikTok Pixel Integration • Creative Testing • Campaign Optimization • Performance Analytics",
     icon: FiTrendingUp,
@@ -62,9 +62,9 @@ const processSteps = [
   {
     step: "04",
     title: "ZAM UK VODA",
-    subtitle: "Driving High-Intent B2B Search Demand Through Google Ads",
+    subtitle: "Driving High Intent B2B Search Demand Through Google Ads",
     industry: "Telecommunications & Enterprise Connectivity",
-    description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high-intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision-makers actively searching for connectivity and communication solutions, ensuring advertising spend generated qualified opportunities instead of low-quality traffic.\n\nSQL Centrix developed and managed a structured Google Ads strategy built around intent-based keyword targeting, compelling search ad copy, continuous bid optimization, and ongoing performance analysis. Campaigns were refined over time to maximize visibility for relevant searches while maintaining cost efficiency and improving overall campaign performance.",
+    description: "ZAM UK VODA partnered with SQL Centrix to strengthen its Google Search presence and capture high intent business enquiries within the telecommunications sector. Rather than focusing on broad awareness, the objective was to place the brand in front of decision makers actively searching for connectivity and communication solutions, ensuring advertising spend generated qualified opportunities instead of low quality traffic.\n\nSQL Centrix developed and managed a structured Google Ads strategy built around intent based keyword targeting, compelling search ad copy, continuous bid optimization, and ongoing performance analysis. Campaigns were refined over time to maximize visibility for relevant searches while maintaining cost efficiency and improving overall campaign performance.",
     metrics: [
       { value: "3.48K+", label: "Clicks" },
       { value: "125K+", label: "Impressions" },

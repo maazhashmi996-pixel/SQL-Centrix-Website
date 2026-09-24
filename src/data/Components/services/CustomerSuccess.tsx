@@ -44,7 +44,7 @@ const services = [
       "We create structured onboarding workflows that connect the sale to service delivery.",
     build: [
       "Customer Onboarding Workflows",
-      "Sales-to-Service Handoffs",
+      "Sales to Service Handoffs",
       "Customer Information Collection",
       "Internal Task Flows",
       "Welcome Processes",
@@ -78,17 +78,17 @@ const services = [
     icon: MessageCircle,
     intro: "Silence creates uncertainty.",
     extra:
-      "A customer shouldn't have to repeatedly contact your team just to find out what's happening. We build communication processes around the important moments in the customer journey, helping teams provide relevant updates, follow-ups, notifications, and information at the right time.",
+      "A customer shouldn't have to repeatedly contact your team just to find out what's happening. We build communication processes around the important moments in the customer journey, helping teams provide relevant updates, follow ups, notifications, and information at the right time.",
     build: [
       "Customer Communication Workflows",
       "Status Updates",
-      "Follow-Up Processes",
+      "Follow Up Processes",
       "Notifications",
       "Communication Standards",
       "Customer Touchpoints",
     ],
     result:
-      "Better communication, fewer unnecessary follow-ups, and greater customer confidence.",
+      "Better communication, fewer unnecessary follow ups, and greater customer confidence.",
   },
   {
     title: "Quality Assurance",
@@ -135,11 +135,11 @@ const services = [
     intro:
       "Your existing customers already know your business. They've experienced your service. They understand your value. And if the relationship is strong, they may have a reason to buy again.",
     extra:
-      "We identify opportunities around renewals, additional services, upgrades, cross-selling, repeat purchases, and referrals.",
+      "We identify opportunities around renewals, additional services, upgrades, cross selling, repeat purchases, and referrals.",
     build: [
       "Renewal Processes",
       "Upsell Opportunities",
-      "Cross-Sell Strategies",
+      "Cross Sell Strategies",
       "Repeat Purchase Journeys",
       "Referral Systems",
       "Customer Growth Opportunities",
@@ -153,11 +153,11 @@ const services = [
     icon: Users,
     intro: "Growth doesn't always require finding someone new.",
     extra:
-      "A satisfied customer can become: A repeat customer. A larger account. A referral source. A long-term partner. We build customer growth opportunities around the relationship you've already established, helping your business increase value without treating every interaction as a sales pitch.",
+      "A satisfied customer can become: A repeat customer. A larger account. A referral source. A long term partner. We build customer growth opportunities around the relationship you've already established, helping your business increase value without treating every interaction as a sales pitch.",
     build: [
       "Account Growth Strategies",
       "Expansion Opportunities",
-      "Cross-Sell & Upsell Journeys",
+      "Cross Sell & Upsell Journeys",
       "Referral Opportunities",
       "Customer Engagement Strategies",
       "Lifetime Value Growth",
@@ -264,10 +264,10 @@ export default function CustomerSuccess() {
               Customer Success & Retention
             </motion.span>
 
-            <h1 className="text-4xl font-black leading-[1.05] tracking-tight text-slate-950 md:text-6xl lg:text-7xl">
-              Turn Customers Into Long-Term {" "}
-              <span className="relative text-yellow-400">
-                Revenue
+            <h1 className="text-7xl font-black leading-[1.05] tracking-tight text-slate-950 ">
+              Turn Customers Into  {" "} <br />
+              <span className="relative text-6xl text-yellow-400">
+                 Long Term Revenue
 
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -296,9 +296,9 @@ export default function CustomerSuccess() {
             </p>
 
             <p className="mx-auto mt-5 max-w-4xl text-lg leading-relaxed text-slate-600 md:text-xl">
-              SQL Centrix builds the systems behind that relationship—connecting
+              SQL Centrix builds the systems behind that relationship connecting
               customer onboarding, client servicing, communication, quality
-              assurance, retention, and repeat-business opportunities into one
+              assurance, retention, and repeat business opportunities into one
               customer success process.
             </p>
 
@@ -433,7 +433,7 @@ export default function CustomerSuccess() {
                 <p className="mt-5 leading-relaxed text-slate-600">
                   We turn what happens after the sale into a structured process
                   rather than leaving it dependent on individual employees,
-                  scattered conversations, or informal follow-ups.
+                  scattered conversations, or informal follow ups.
                 </p>
               </div>
             </motion.div>
@@ -453,9 +453,9 @@ export default function CustomerSuccess() {
             variants={fadeUp}
             className="mx-auto mb-14 max-w-3xl text-center"
           >
-            <h2 className="text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              The Customer{" "}
-              <span className="text-yellow-400">Success System</span>
+            <h2 className="text-6xl font-black tracking-tight text-slate-950 ">
+              The Customer{" "} <br />
+              <span className="text-yellow-400 text-5xl">Success System</span>
             </h2>
 
             <p className="mt-6 leading-relaxed text-slate-600">
@@ -681,23 +681,11 @@ export default function CustomerSuccess() {
             variants={fadeUp}
             className="mx-auto mb-14 max-w-3xl text-center"
           >
-            <motion.div
-              animate={{
-                y: [0, -5, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-100"
-            >
-              <TrendingUp className="h-7 w-7 text-yellow-600" />
-            </motion.div>
+         
 
-            <h2 className="mb-6 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
-              From Customer To Long-Term{" "}
-              <span className="text-yellow-300"> Revenue</span>
+            <h2 className="mb-6 text-6xl font-black tracking-tight text-slate-950 ">
+              From Customer To {" "} <br />
+              <span className="text-yellow-300 text-5xl">Long Term Revenue</span>
             </h2>
 
             <p className="leading-relaxed text-slate-600">
@@ -764,15 +752,15 @@ export default function CustomerSuccess() {
             variants={fadeUp}
           >
             <span className="text-xs font-black uppercase tracking-[0.2em] text-yellow-400">
-              One Customer System. One Long-Term Objective
+              One Customer System One Long Term Objective
             </span>
 
        
 
 
             <h2 className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
-  <span className="block text-slate-950">One Customer System.One</span>
-  <span className="block text-yellow-300"> Long-Term Objective</span>
+  <span className="block text-slate-950">One Customer System</span>
+  <span className="block text-yellow-300 text-4xl">One Long Term Objective</span>
 </h2>
 
             <p className="mb-4 mt-8  leading-relaxed text-slate-600">
@@ -820,7 +808,7 @@ export default function CustomerSuccess() {
                   and start asking:
                 </p>
 
-                <p className="text-xl font-black leading-tight text-yellow-400 md:text-3xl">
+                <p className="text-xl font-black leading-tight text-yellow-400 md:text-2xl">
                   "How do we create more value from every customer we win?"
                 </p>
               </div>
@@ -900,7 +888,7 @@ export default function CustomerSuccess() {
                 We'll identify the gaps in your onboarding, servicing,
                 retention, and customer growth processes and show you where
                 your existing customer relationships can create greater
-                long-term value.
+                long term value.
               </p>
 
               <motion.a
