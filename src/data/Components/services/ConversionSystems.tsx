@@ -185,9 +185,6 @@ export default function ConversionSystems() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#fffdf7] text-slate-900 selection:bg-yellow-300 selection:text-slate-950">
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
       <section className="relative px-6 py-20 lg:py-32">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
