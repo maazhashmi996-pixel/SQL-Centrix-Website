@@ -8,7 +8,7 @@ import Footer from "@/src/data/Components/Footer";
 import Details from "@/src/data/Components/Details";
 import Marketing from "@/src/data/Components/Marketing";
 
-export default function Home() {
+// export default function Home() {
   return (
     <main>
       <Hero />

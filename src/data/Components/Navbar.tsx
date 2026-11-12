@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -288,7 +280,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
