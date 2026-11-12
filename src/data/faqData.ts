@@ -3,7 +3,7 @@ export interface FAQItem {
   answer: string;
 }
 
-export const faqList: FAQItem[] = [
+// export const faqList: FAQItem[] = [
   {
     question: "Why is SQL Centrix different from other marketing agencies?",
     answer: "Because our success isn't measured by impressions, followers, or traffic alone. Every strategy we build is designed to generate Sales Qualified Leads—qualified prospects who are genuinely ready to engage with your business.",
